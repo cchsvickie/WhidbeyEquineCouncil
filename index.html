@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Whidbey Island Horse Council - Promoting responsible horse ownership, trail access, and equestrian community on Whidbey Island, Washington.">
     <title>Whidbey Island Horse Council | Home</title>
-    
-    <!-- Raleway Font -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Your Custom CSS File -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -17,17 +13,12 @@
     <!-- HEADER -->
     <header class="header-bg">
         <div class="nav-container">
-            <!-- Logo -->
             <div class="logo-container">
                 <img src="images/logo.png" alt="Whidbey Island Horse Council Logo">
-                <div>
-                    <div class="logo-text">Whidbey Island <small>Horse Council</small></div>
-                </div>
+                <div><div class="logo-text">Whidbey Island <small>Horse Council</small></div></div>
             </div>
-
-            <!-- Desktop Menu -->
             <nav class="desktop-nav">
-                <a href="index.html">Home</a>
+                <a href="index.html" class="active">Home</a>
                 <a href="about.html">About Us / Mission</a>
                 <a href="news.html">News &amp; Updates</a>
                 <a href="events.html">Events / Calendar</a>
@@ -35,16 +26,12 @@
                 <a href="contact.html">Contact</a>
                 <a href="laws.html">Island County / WA Laws</a>
             </nav>
-
-            <!-- Hamburger -->
             <div class="hamburger" onclick="toggleMobileMenu()">
                 <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </div>
         </div>
-
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu">
             <nav>
                 <a href="index.html" onclick="toggleMobileMenu()">Home</a>
@@ -54,7 +41,6 @@
                 <a href="resources.html" onclick="toggleMobileMenu()">Resources</a>
                 <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
                 <a href="laws.html" onclick="toggleMobileMenu()">Island County / WA Laws</a>
-                
                 <div class="social-mobile">
                     <a href="https://facebook.com/YOURPAGE" target="_blank">📘 Facebook</a>
                     <a href="https://instagram.com/YOURPAGE" target="_blank">📸 Instagram</a>
@@ -63,10 +49,11 @@
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <div></div> <!-- empty left side on large screens -->
+            <!-- Left side intentionally empty on large screens (mirrors the screenshot layout) -->
+            <div></div>
             <div class="hero-text-panel">
                 <h1>Whidbey Trails</h1>
                 <p>Discover, protect, and enjoy the trails of Whidbey Island together.</p>
@@ -75,7 +62,7 @@
         </div>
     </section>
 
-    <!-- QUICK LINKS -->
+    <!-- QUICK LINK CARDS -->
     <section class="quick-section">
         <div class="quick-grid">
             <a href="resources.html" class="card">
@@ -117,7 +104,6 @@
                 </div>
                 <p>Dedicated to preserving trails, promoting safety, and building community for horse enthusiasts on Whidbey Island, WA.</p>
             </div>
-            
             <div class="footer-column">
                 <h4>Quick Links</h4>
                 <ul>
@@ -127,7 +113,6 @@
                     <li><a href="laws.html">Local Laws</a></li>
                 </ul>
             </div>
-            
             <div class="footer-column">
                 <h4>Connect With Us</h4>
                 <div class="footer-social">
@@ -136,7 +121,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="footer-bottom">
             &copy; 2026 Whidbey Island Horse Council • All rights reserved
         </div>
@@ -146,7 +130,6 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('hamburger-icon');
-            
             if (menu.classList.contains('active')) {
                 menu.classList.remove('active');
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
