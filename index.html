@@ -3,52 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iron Mills Ranch – Horse Boarding in Coupeville WA.</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Whidbey Island Horse Council - Promoting responsible horse ownership, trail access, and equestrian community on Whidbey Island, Washington.">
+    <title>Whidbey Island Horse Council | Home</title>
+    
+    <!-- Raleway Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Your Custom CSS File -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo-text">Iron Mills Ranch</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About IMR</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="staying.html">Staying at IMR</a></li>
-                <li><a href="gallery.html">Photo Gallery</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <p class="header-subtitle">Horse Boarding in Coupeville WA.</p>  
+
+    <!-- HEADER -->
+    <header class="header-bg">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Whidbey Island Horse Council Logo">
+                <div>
+                    <div class="logo-text">Whidbey Island <small>Horse Council</small></div>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us / Mission</a>
+                <a href="news.html">News &amp; Updates</a>
+                <a href="events.html">Events / Calendar</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+                <a href="laws.html">Island County / WA Laws</a>
+            </nav>
+
+            <!-- Hamburger -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <nav>
+                <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+                <a href="about.html" onclick="toggleMobileMenu()">About Us / Mission</a>
+                <a href="news.html" onclick="toggleMobileMenu()">News &amp; Updates</a>
+                <a href="events.html" onclick="toggleMobileMenu()">Events / Calendar</a>
+                <a href="resources.html" onclick="toggleMobileMenu()">Resources</a>
+                <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+                <a href="laws.html" onclick="toggleMobileMenu()">Island County / WA Laws</a>
+                
+                <div class="social-mobile">
+                    <a href="https://facebook.com/YOURPAGE" target="_blank">📘 Facebook</a>
+                    <a href="https://instagram.com/YOURPAGE" target="_blank">📸 Instagram</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <section class="welcome-section">
-        <div class="welcome-grid">
-            
-            <!-- Left column – exact text from your screenshot -->
-            <div class="welcome-left">
-                <p>Welcome to Iron Mills Ranch where we provide exceptional, compassionate horse boarding and daily care in a safe, well-maintained facility that prioritizes equine health, happiness, and welfare through reliable service and suppotrtive partnerships with horse owners.</p>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div></div> <!-- empty left side on large screens -->
+            <div class="hero-text-panel">
+                <h1>Whidbey Trails</h1>
+                <p>Discover, protect, and enjoy the trails of Whidbey Island together.</p>
+                <a href="resources.html" class="cta-button">Explore Trails</a>
             </div>
-
-            <!-- Center monogram – exactly where it appears in the picture -->
-            <div class="welcome-monogram">
-                <img src="imr-logo.png" alt="Iron Mills Ranch Monogram" class="tall-monogram">
-            </div>
-
-            <!-- Right column – exact vision text from your screenshot -->
-            <div class="welcome-right">
-                <p>Our vision is to be the most trusted horse boarding facility on Whidbey Island, recognized for unmatched equine welfare standards, a thriving equestrian community, and creating a true ‘home away from home’ for horses and their owners.</p>
-            </div>
-
         </div>
-        <img src="ranch-gate.jpeg" alt="Iron Mills Ranch welcome view" class="welcome-below-image">
     </section>
 
+    <!-- QUICK LINKS -->
+    <section class="quick-section">
+        <div class="quick-grid">
+            <a href="resources.html" class="card">
+                <div class="card-icon" style="background:#dbeafe; color:#1e40af;">🛡️</div>
+                <div class="card-content">
+                    <h3>Trail Safety</h3>
+                    <p>Rules, etiquette, and best practices for safe riding.</p>
+                </div>
+                <span class="card-arrow">›</span>
+            </a>
+            
+            <a href="events.html" class="card">
+                <div class="card-icon" style="background:#fef3c7; color:#b45309;">📅</div>
+                <div class="card-content">
+                    <h3>Events &amp; Rides</h3>
+                    <p>Monthly meetings, group trail rides, and community events.</p>
+                </div>
+                <span class="card-arrow">›</span>
+            </a>
+            
+            <a href="resources.html" class="card">
+                <div class="card-icon" style="background:#d1fae5; color:#0f766e;">📍</div>
+                <div class="card-content">
+                    <h3>Whidbey Equine Directory</h3>
+                    <p>Vets, farriers, boarding, and local services.</p>
+                </div>
+                <span class="card-arrow">›</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
-        <img src="footer-logo.png" alt="Iron Mills Ranch Logo">
-        <p><strong>Tel: 714-488-8550</strong> For Boarding.</p>
-        <p>We are a 20 acre family run boarding facility located in Coupeville WA.</p>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Whidbey Island Horse Council">
+                    <div class="logo-text" style="color:white; font-size:1.4rem;">Whidbey Island <small style="color:#f8d48c;">Horse Council</small></div>
+                </div>
+                <p>Dedicated to preserving trails, promoting safety, and building community for horse enthusiasts on Whidbey Island, WA.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Calendar</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="laws.html">Local Laws</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Connect With Us</h4>
+                <div class="footer-social">
+                    <a href="https://facebook.com/YOURPAGE" target="_blank">📘 Facebook</a>
+                    <a href="https://instagram.com/YOURPAGE" target="_blank">📸 Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2026 Whidbey Island Horse Council • All rights reserved
+        </div>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+            } else {
+                menu.classList.add('active');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+            }
+        }
+    </script>
 </body>
 </html>
