@@ -287,7 +287,16 @@ body {
     margin-bottom: 32px;
     color: #1e3a5f;
 }
+/* HERO - Force left/right layout on tablet & laptop */
+.hero-grid {
+    grid-template-columns: 1fr;
+}
 
+@media (min-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 .cta-button {
     display: inline-block;
     background-color: #0a2540;
