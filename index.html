@@ -87,26 +87,44 @@
         </div>
     </header>
 
-    <!-- HERO SECTION – updated to match your new screenshot -->
-<section class="hero">
-    <div class="hero-content">
-        <div></div>
-        <div class="hero-text-panel">
+    <!-- HERO SECTION – Text left, image right (matches latest screenshot) -->
+<section class="hero" style="background-color: #0a2540; padding: 120px 24px 80px;">
+    <div class="hero-content" style="display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; max-width: 1280px; margin: 0 auto;">
+        
+        <!-- LEFT: Text -->
+        <div>
+            <div style="margin-bottom: 16px; font-size: 1.35rem; font-weight: 500; letter-spacing: 2px; color: #f8d48c;">
+                — WELCOME TO WHIDBEY ISLAND HORSE COUNCIL
+            </div>
             
-            <h1 style="font-size: 3.4rem; line-height: 1.05; font-weight: 700; letter-spacing: -2px; margin-bottom: 12px; color: #0a2540;">
-                Advocating for the<br>equestrian community
+            <h1 style="font-size: 3.4rem; line-height: 1.05; font-weight: 700; letter-spacing: -2px; color: white; margin-bottom: 20px;">
+                Advocating for the<br>equestrian community<br>across Whidbey Island
             </h1>
             
-            <p style="font-size: 1.55rem; font-weight: 400; line-height: 1.2; color: #1e3a5f; margin-bottom: 32px;">
-                across Whidbey Island
+            <p style="font-size: 1.25rem; line-height: 1.5; color: #ddd; max-width: 520px; margin-bottom: 40px;">
+                We are a membership-driven not-for-profit association representing the interests of the equine community on Whidbey Island.
             </p>
             
-            <!-- Updated button -->
-            <a href="about.html" 
-               class="cta-button" 
-               style="background-color: #0a2540; color: white; font-size: 1.25rem; padding: 18px 40px; border-radius: 16px; text-decoration: none;">
-                Find Out More
-            </a>
+            <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+                <a href="about.html" 
+                   class="cta-button" 
+                   style="background-color: #0a2540; color: white; font-size: 1.25rem; padding: 18px 40px; border-radius: 16px; text-decoration: none;">
+                    Find Out More
+                </a>
+                
+                <!-- Optional second button (you can remove or customize) -->
+                <a href="about.html" 
+                   style="color: white; font-size: 1.25rem; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                    Who We Are →
+                </a>
+            </div>
+        </div>
+        
+        <!-- RIGHT: Large photo -->
+        <div>
+            <img src="images/hero-rider.jpeg" 
+                 alt="Rider on trail at sunset" 
+                 style="width: 100%; max-height: 520px; object-fit: cover; border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);">
         </div>
     </div>
 </section>
