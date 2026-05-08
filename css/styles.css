@@ -498,5 +498,12 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+.content-wrapper p {
+    margin-bottom: 1.8rem;     /* increases space between paragraphs */
+}
+
+.content-wrapper p:last-child {
+    margin-bottom: 0;
+}
 /* Small utility */
 .text-amber { color: #f8d48c; }
