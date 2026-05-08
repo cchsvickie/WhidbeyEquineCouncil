@@ -9,87 +9,68 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-<header class="header-bg">
-    <div class="nav-container">
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Whidbey Island Horse Council Logo">
-            <div><div class="logo-text">Whidbey Island <small>Horse Council</small></div></div>
+    <!-- FULL HEADER with accordion -->
+    <header class="header-bg">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Whidbey Island Horse Council Logo">
+                <div><div class="logo-text">Whidbey Island <small>Horse Council</small></div></div>
+            </div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us / Mission</a>
+                <a href="news.html" class="active">News &amp; Updates</a>
+                <a href="events.html">Events / Calendar</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+                <a href="laws.html">Island County / WA Laws</a>
+            </nav>
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </div>
         </div>
-        <nav class="desktop-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us / Mission</a>
-            <a href="news.html" class="active">News &amp; Updates</a>
-            <a href="events.html">Events / Calendar</a>
-            <a href="resources.html">Resources</a>
-            <a href="contact.html">Contact</a>
-            <a href="laws.html">Island County / WA Laws</a>
-        </nav>
-        <div class="hamburger" onclick="toggleMobileMenu()">
-            <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </div>
-    </div>
 
-    <!-- RIGHT-SIDE MOBILE DRAWER WITH ACCORDION -->
-    <div id="mobile-menu" class="mobile-menu">
-        <button class="close-btn" onclick="toggleMobileMenu()">×</button>
-        <nav>
-            <a href="index.html" onclick="toggleMobileMenu()">Home</a>
-            
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
-                    About Us / Mission
-                    <span class="chevron">›</span>
-                </button>
-                <div class="accordion-content">
-                    <a href="about.html" onclick="toggleMobileMenu()">Our Mission</a>
-                    <a href="#" onclick="toggleMobileMenu()">Board Members</a>
-                    <a href="#" onclick="toggleMobileMenu()">History</a>
+        <div id="mobile-menu" class="mobile-menu">
+            <button class="close-btn" onclick="toggleMobileMenu()">×</button>
+            <nav>
+                <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">About Us / Mission <span class="chevron">›</span></button>
+                    <div class="accordion-content">
+                        <a href="about.html" onclick="toggleMobileMenu()">Our Mission</a>
+                        <a href="our-team.html" onclick="toggleMobileMenu()">Our Team</a>
+                        <a href="#" onclick="toggleMobileMenu()">History</a>
+                    </div>
                 </div>
-            </div>
-            
-            <a href="news.html" onclick="toggleMobileMenu()">News &amp; Updates</a>
-            
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
-                    Events / Calendar
-                    <span class="chevron">›</span>
-                </button>
-                <div class="accordion-content">
-                    <a href="events.html" onclick="toggleMobileMenu()">Upcoming Events</a>
-                    <a href="#" onclick="toggleMobileMenu()">Trail Rides</a>
-                    <a href="#" onclick="toggleMobileMenu()">Monthly Meetings</a>
+                <a href="news.html" onclick="toggleMobileMenu()">News &amp; Updates</a>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Events / Calendar <span class="chevron">›</span></button>
+                    <div class="accordion-content">
+                        <a href="events.html" onclick="toggleMobileMenu()">Upcoming Events</a>
+                        <a href="trail-rides.html" onclick="toggleMobileMenu()">Trail Rides</a>
+                        <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Monthly Meetings</a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
-                    Resources
-                    <span class="chevron">›</span>
-                </button>
-                <div class="accordion-content">
-                    <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
-                    <a href="#" onclick="toggleMobileMenu()">Disaster Preparedness</a>
-                    <a href="#" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Resources <span class="chevron">›</span></button>
+                    <div class="accordion-content">
+                        <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
+                        <a href="disaster-preparedness.html" onclick="toggleMobileMenu()">Disaster Preparedness</a>
+                        <a href="whidbey-equine-directory.html" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
+                    </div>
                 </div>
-            </div>
-            
-            <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
-            <a href="laws.html" onclick="toggleMobileMenu()">Island County / WA Laws</a>
-        </nav>
-    </div>
-</header>
-    <!-- MAIN CONTENT -->
+                <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+                <a href="laws.html" onclick="toggleMobileMenu()">Island County / WA Laws</a>
+            </nav>
+        </div>
+    </header>
+
     <section class="main-content">
-        <h1 class="page-title">News &amp; Updates</h1>
+        <h1 class="page-title">News & Updates</h1>
         <div class="content-grid">
-            <!-- Add as many cards as you want -->
-            <div class="content-card">
-                <h3>New Trail Opening – April 2026</h3>
-                <p>We’re excited to announce the opening of the new South Whidbey Connector Trail…</p>
-            </div>
+            <!-- Add your news cards here -->
         </div>
     </section>
 
@@ -126,24 +107,23 @@
     </footer>
 
     <script>
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobile-menu');
-        const icon = document.getElementById('hamburger-icon');
-        if (menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
-        } else {
-            menu.classList.add('active');
-            icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+            } else {
+                menu.classList.add('active');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+            }
         }
-    }
-
-    function toggleAccordion(button) {
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', !isExpanded);
-        const content = button.nextElementSibling;
-        content.classList.toggle('open');
-    }
-</script>
+        function toggleAccordion(button) {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', !isExpanded);
+            const content = button.nextElementSibling;
+            content.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
