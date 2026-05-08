@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Preparedness | Whidbey Island Horse Council</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- FULL HEADER -->
+    <header class="header-bg">
+        <!-- Copy the full header from previous pages -->
+    </header>
+
+    <section class="main-content">
+        <h1 class="page-title">Disaster Preparedness</h1>
+        <div class="content-wrapper">
+            <p>Emergency planning and evacuation resources for horse owners on Whidbey Island.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER + SCRIPT -->
+</body>
+</html>
