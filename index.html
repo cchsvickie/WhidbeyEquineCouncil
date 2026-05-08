@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <!-- HEADER with right-side sliding drawer + accordion -->
+    <!-- HEADER with full accordion mobile menu -->
     <header class="header-bg">
         <div class="nav-container">
             <div class="logo-container">
@@ -33,14 +33,13 @@
             </div>
         </div>
 
-        <!-- RIGHT-SIDE MOBILE DRAWER -->
+        <!-- RIGHT-SIDE MOBILE DRAWER WITH ACCORDION -->
         <div id="mobile-menu" class="mobile-menu">
             <button class="close-btn" onclick="toggleMobileMenu()">×</button>
-            
             <nav>
                 <a href="index.html" onclick="toggleMobileMenu()">Home</a>
                 
-                <!-- Accordion: About -->
+                <!-- About accordion -->
                 <div class="accordion-item">
                     <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
                         About Us / Mission
@@ -48,14 +47,14 @@
                     </button>
                     <div class="accordion-content">
                         <a href="about.html" onclick="toggleMobileMenu()">Our Mission</a>
-                        <a href="#" onclick="toggleMobileMenu()">Board Members</a>
+                        <a href="our-team.html" onclick="toggleMobileMenu()">Our Team</a>
                         <a href="#" onclick="toggleMobileMenu()">History</a>
                     </div>
                 </div>
                 
                 <a href="news.html" onclick="toggleMobileMenu()">News &amp; Updates</a>
                 
-                <!-- Accordion: Events -->
+                <!-- Events accordion -->
                 <div class="accordion-item">
                     <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
                         Events / Calendar
@@ -63,12 +62,12 @@
                     </button>
                     <div class="accordion-content">
                         <a href="events.html" onclick="toggleMobileMenu()">Upcoming Events</a>
-                        <a href="#" onclick="toggleMobileMenu()">Trail Rides</a>
-                        <a href="#" onclick="toggleMobileMenu()">Monthly Meetings</a>
+                        <a href="trail-rides.html" onclick="toggleMobileMenu()">Trail Rides</a>
+                        <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Monthly Meetings</a>
                     </div>
                 </div>
                 
-                <!-- Accordion: Resources -->
+                <!-- Resources accordion -->
                 <div class="accordion-item">
                     <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
                         Resources
@@ -76,8 +75,8 @@
                     </button>
                     <div class="accordion-content">
                         <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
-                        <a href="#" onclick="toggleMobileMenu()">Disaster Preparedness</a>
-                        <a href="#" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
+                        <a href="disaster-preparedness.html" onclick="toggleMobileMenu()">Disaster Preparedness</a>
+                        <a href="whidbey-equine-directory.html" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
                     </div>
                 </div>
                 
@@ -87,46 +86,70 @@
         </div>
     </header>
 
-    
-    <!-- HERO SECTION – Smaller top space, text left + photo right -->
-<section style="background-color: #0a2540; padding: 60px 24px 80px; color: white;">
-    <div class="hero-grid" style="max-width: 1280px; margin: 0 auto; display: grid; gap: 60px; align-items: center;">
-        
-        <!-- LEFT: Text -->
-        <div>
-            <p style="margin-bottom: 16px; font-size: 1.35rem; font-weight: 500; letter-spacing: 2px; color: #c8d4e6;">
-                — WELCOME TO WHIDBEY ISLAND HORSE COUNCIL
-            </p>
+    <!-- HERO SECTION – Text left, photo right (as requested) -->
+    <section style="background-color: #0a2540; padding: 60px 24px 80px; color: white;">
+        <div class="hero-grid" style="max-width: 1280px; margin: 0 auto; display: grid; gap: 60px; align-items: center;">
+            <!-- LEFT: Text -->
+            <div>
+                <p style="margin-bottom: 16px; font-size: 1.35rem; font-weight: 500; letter-spacing: 2px; color: #c8d4e6;">
+                    — WELCOME TO WHIDBEY ISLAND HORSE COUNCIL
+                </p>
+                <h1 style="font-size: 3.6rem; line-height: 1.05; font-weight: 700; letter-spacing: -2px; margin-bottom: 24px;">
+                    Advocating for the equestrian community<br>across Whidbey Island
+                </h1>
+                <p style="font-size: 1.25rem; line-height: 1.6; color: #ddd; max-width: 520px; margin-bottom: 40px;">
+                    We represent the entire equine community on the island, including horse owners, boarding facilities, trainers, lesson participants and horse lessees, veterinarians, farriers, feed stores, hay suppliers, farm sitters, 4-H, Pony Club, WWGA, and Backcountry Horsemen.”
+                </p>
+                <div style="display: flex; gap: 28px; flex-wrap: wrap; align-items: center;">
+                    <a href="about.html" 
+                       style="background-color: #e2e8f0; color: #0a2540; padding: 16px 36px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.15rem;">
+                        Find Out More
+                    </a>
+                    <a href="about.html" 
+                       style="color: white; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                        Who We Are →
+                    </a>
+                </div>
+            </div>
             
-            <h1 style="font-size: 3.6rem; line-height: 1.05; font-weight: 700; letter-spacing: -2px; margin-bottom: 24px;">
-                Advocating for the equestrian community<br>across Whidbey Island
-            </h1>
-            
-            <p style="font-size: 1.25rem; line-height: 1.6; color: #ddd; max-width: 520px; margin-bottom: 40px;">
-                We represent the entire equine community on the island, including horse owners, boarding facilities, trainers, lesson participants and horse lessees, veterinarians, farriers, feed stores, hay suppliers, farm sitters, 4-H, Pony Club, WWGA, and Backcountry Horsemen.
-            </p>
-            
-            <div style="display: flex; gap: 28px; flex-wrap: wrap; align-items: center;">
-                <a href="about.html" 
-                   style="background-color: #e2e8f0; color: #0a2540; padding: 16px 36px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.15rem;">
-                    Find Out More
-                </a>
-                
-                <a href="about.html" 
-                   style="color: white; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; text-decoration: none;">
-                    Who We Are →
-                </a>
+            <!-- RIGHT: Rider photo -->
+            <div>
+                <img src="images/hero-rider.jpg" 
+                     alt="Horse rider on trail at sunset" 
+                     style="width: 100%; max-height: 520px; object-fit: cover; border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);">
             </div>
         </div>
-        
-        <!-- RIGHT: Rider photo -->
-        <div>
-            <img src="images/hero-rider.jpg" 
-                 alt="Horse rider on trail at sunset" 
-                 style="width: 100%; max-height: 520px; object-fit: cover; border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);">
+    </section>
+
+    <!-- QUICK LINK CARDS -->
+    <section class="quick-section">
+        <div class="quick-grid">
+            <a href="resources.html" class="card">
+                <div class="card-icon" style="background:#dbeafe; color:#1e40af;">🛡️</div>
+                <div class="card-content">
+                    <h3>Trail Safety</h3>
+                    <p>Rules, etiquette, and best practices for safe riding.</p>
+                </div>
+                <span class="card-arrow">›</span>
+            </a>
+            <a href="events.html" class="card">
+                <div class="card-icon" style="background:#fef3c7; color:#b45309;">📅</div>
+                <div class="card-content">
+                    <h3>Events &amp; Rides</h3>
+                    <p>Monthly meetings, group trail rides, and community events.</p>
+                </div>
+                <span class="card-arrow">›</span>
+            </a>
+            <a href="resources.html" class="card">
+                <div class="card-icon" style="background:#d1fae5; color:#0f766e;">📍</div>
+                <div class="card-content">
+                    <h3>Whidbey Equine Directory</h3>
+                    <p>Vets, farriers, boarding, and local services.</p>
+                </div>
+                <span class="card-arrow">›</span>
+            </a>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -164,7 +187,6 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('hamburger-icon');
-            
             if (menu.classList.contains('active')) {
                 menu.classList.remove('active');
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
@@ -173,11 +195,9 @@
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
             }
         }
-
         function toggleAccordion(button) {
             const isExpanded = button.getAttribute('aria-expanded') === 'true';
             button.setAttribute('aria-expanded', !isExpanded);
-            
             const content = button.nextElementSibling;
             content.classList.toggle('open');
         }
