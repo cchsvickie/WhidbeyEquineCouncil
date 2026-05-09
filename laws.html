@@ -33,10 +33,35 @@
         </div>
 
         <div id="mobile-menu" class="mobile-menu">
-            <button class="close-btn" onclick="toggleMobileMenu()">×</button>
-            <nav>
-                <!-- Full accordion -->
-                <!-- Copy the <nav> block from previous pages -->
+            <button class="close-btn" onclick="toggleMobileMenu()">×</            <nav>
+                <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">About Us / Mission <span class="chevron">›</span></button>
+                    <div class="accordion-content">
+                        <a href="about.html" onclick="toggleMobileMenu()">Our Mission</a>
+                        <a href="our-team.html" onclick="toggleMobileMenu()">Our Team</a>
+                        <a href="#" onclick="toggleMobileMenu()">History</a>
+                    </div>
+                </div>
+                <a href="news.html" onclick="toggleMobileMenu()">News &amp; Updates</a>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Events / Calendar <span class="chevron">›</span></button>
+                    <div class="accordion-content">
+                        <a href="events.html" onclick="toggleMobileMenu()">Upcoming Events</a>
+                        <a href="trail-rides.html" onclick="toggleMobileMenu()">Trail Rides</a>
+                        <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Monthly Meetings</a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Resources <span class="chevron">›</span></button>
+                    <div class="accordion-content">
+                        <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
+                        <a href="disaster-preparedness.html" onclick="toggleMobileMenu()">Disaster Preparedness</a>
+                        <a href="whidbey-equine-directory.html" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
+                    </div>
+                </div>
+                <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+                <a href="laws.html" onclick="toggleMobileMenu()">Island County / WA Laws</a>
             </nav>
         </div>
     </header>
