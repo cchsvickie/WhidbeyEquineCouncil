@@ -68,15 +68,20 @@
 
     <!-- MAIN CONTENT -->
     <section class="main-content">
-        <h1 class="page-title">Events &amp; Calendar</h1>
-        <div class="content-grid">
-            <div class="content-card">
-                <strong>May 15, 2026 • 6:30 PM</strong>
-                <h3>Monthly Meeting</h3>
-                <p>At the Coupeville Library – All are welcome!</p>
-            </div>
-            <!-- Add more event cards here -->
-        </div>
+        <h1 class="page-title">Events</h1>
+        <!-- Category Row -->
+<div id="category-row" class="category-row"></div>
+
+<!-- Events Grid -->
+<div id="events-container" class="events-grid"></div>
+
+<!-- No events message -->
+<div id="no-events" class="hidden text-center py-12">
+  <p class="text-xl">No upcoming events in this category yet.</p>
+  <p class="text-sm mt-2">Check back soon or try another category!</p>
+</div>
+
+<script src="js/events.js"></script>
     </section>
 
     <!-- FOOTER (identical) -->
