@@ -687,5 +687,9 @@ body {
         font-size: 1rem;
     }
 }
+/* ====================== HIDDEN UTILITY ====================== */
+.hidden {
+    display: none !important;
+}
 /* Small utility */
 .text-amber { color: #f8d48c; }
