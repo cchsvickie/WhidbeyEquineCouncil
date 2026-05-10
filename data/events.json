@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "category": "Trail Rides",
+    "title": "Sunset Trail Ride",
+    "date": "2026-05-22",
+    "time": "6:00 PM",
+    "desc": "2-hour guided ride through the foothills with breathtaking sunset views.",
+    "location": "Main Barn Trailhead",
+    "price": "$85",
+    "registerUrl": "#"
+  },
+  {
+    "id": 2,
+    "category": "Trail Rides",
+    "title": "Beginner Moonlight Ride",
+    "date": "2026-06-05",
+    "time": "8:30 PM",
+    "desc": "Perfect for new riders. Lanterns and gentle trails.",
+    "location": "North Pasture",
+    "price": "$95",
+    "registerUrl": "#"
+  },
+  {
+    "id": 3,
+    "category": "Horse Shows",
+    "title": "Spring Classic Horse Show",
+    "date": "2026-06-12",
+    "time": "8:00 AM",
+    "desc": "Open to all levels. Halter, Western Pleasure, and Trail classes.",
+    "location": "Main Arena",
+    "price": "$45",
+    "registerUrl": "#"
+  },
+  {
+    "id": 4,
+    "category": "Clinics",
+    "title": "Natural Horsemanship Clinic",
+    "date": "2026-05-15",
+    "time": "9:00 AM",
+    "desc": "One-day intensive ground work and riding clinic.",
+    "location": "Covered Arena",
+    "price": "$175",
+    "registerUrl": "#"
+  }
+]
