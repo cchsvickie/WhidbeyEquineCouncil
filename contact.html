@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Whidbey Island Horse Council</title>
+    
+    <!-- Existing fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- New fonts for this page -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- FULL HEADER -->
+    <!-- FULL HEADER (exactly as you had it) -->
     <header class="header-bg">
         <div class="nav-container">
             <div class="logo-container">
@@ -32,6 +39,7 @@
             </div>
         </div>
 
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu">
             <button class="close-btn" onclick="toggleMobileMenu()">×</button>
             <nav>
@@ -66,18 +74,32 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN CONTENT - Matches your screenshot + success message -->
     <section class="main-content">
-        <h1 class="page-title">Contact Us</h1>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <textarea placeholder="Your Message" rows="6" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+        <div class="contact-container">
+            <h1 class="contact-title">Contact Us</h1>
+            
+            <form class="contact-form" id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea placeholder="Your Message" rows="6" required></textarea>
+                
+                <button type="submit" class="send-button">Send Message</button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="success-message" class="success-container">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2>Message Sent!</h2>
+                <p>Thank you for reaching out to the Whidbey Island Horse Council.</p>
+                <p>We'll get back to you as soon as possible.</p>
+                <button onclick="resetContactForm()">Send Another Message</button>
+            </div>
+        </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (exactly as you had it) -->
     <footer class="footer">
         <div class="footer-content">
             <div>
@@ -110,24 +132,49 @@
     </footer>
 
     <script>
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobile-menu');
-        const icon = document.getElementById('hamburger-icon');
-        if (menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
-        } else {
-            menu.classList.add('active');
-            icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+            } else {
+                menu.classList.add('active');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+            }
         }
-    }
 
-    function toggleAccordion(button) {
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', !isExpanded);
-        const content = button.nextElementSibling;
-        content.classList.toggle('open');
-    }
-</script>
+        function toggleAccordion(button) {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', !isExpanded);
+            const content = button.nextElementSibling;
+            content.classList.toggle('open');
+        }
+
+        // ====================== CONTACT FORM + SUCCESS MESSAGE ======================
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();   // prevents actual form submission (static site)
+                
+                // Hide form, show success
+                contactForm.style.display = 'none';
+                successMessage.style.display = 'flex';
+                
+                // Reset form fields
+                contactForm.reset();
+            });
+        }
+
+        function resetContactForm() {
+            // Hide success
+            successMessage.style.display = 'none';
+            
+            // Show form again
+            contactForm.style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
