@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- FULL HEADER with accordion -->
+    <!-- FULL HEADER -->
     <header class="header-bg">
         <div class="nav-container">
             <div class="logo-container">
@@ -18,7 +18,7 @@
             </div>
             <nav class="desktop-nav">
                 <a href="index.html">Home</a>
-                <a href="about.html" class="active">About Us / Mission</a>
+                <a href="about.html">About Us / Mission</a>
                 <a href="news.html">News &amp; Updates</a>
                 <a href="events.html">Calendar</a>
                 <a href="resources.html">Resources</a>
@@ -65,15 +65,26 @@
         </div>
     </header>
 
-
     <section class="main-content">
         <h1 class="page-title">Monthly Meetings</h1>
         <div class="content-wrapper">
-            <p>Our monthly meetings are held on the third Thursday of every month at 6:30 PM.</p>
+
+            <!-- Next Meeting Box -->
+            <div id="next-meeting" class="next-meeting-box">
+                <h2>Next Monthly Meeting</h2>
+                <div id="next-date" class="date"></div>
+                <div id="next-time-location" class="time-location"></div>
+                <a href="#" class="minutes-link" style="background:#0a2540; color:white;">Add to Calendar</a>
+            </div>
+
+            <!-- Past Meetings -->
+            <h2 style="text-align:center; margin-bottom:30px; color:#0a2540;">Past Meetings &amp; Minutes</h2>
+            <div id="past-meetings" class="meetings-list"></div>
+
         </div>
     </section>
 
-        <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
             <div>
@@ -123,6 +134,40 @@
             const content = button.nextElementSibling;
             content.classList.toggle('open');
         }
+
+        // ====================== MEETINGS DATA ======================
+        async function loadMeetings() {
+            try {
+                const response = await fetch('data/meetings.json');
+                const data = await response.json();
+
+                // Next Meeting
+                const next = data.nextMeeting;
+                document.getElementById('next-date').textContent = next.date;
+                document.getElementById('next-time-location').innerHTML = `
+                    ${next.time}<br>
+                    <strong>${next.location}</strong>
+                `;
+
+                // Past Meetings
+                const container = document.getElementById('past-meetings');
+                container.innerHTML = data.pastMeetings.map(meeting => `
+                    <div class="meeting-card">
+                        <div class="meeting-info">
+                            <h3>${meeting.date}</h3>
+                            <p>${meeting.time} • ${meeting.location}</p>
+                        </div>
+                        <a href="${meeting.minutesUrl}" class="minutes-link" target="_blank">
+                            View Minutes →
+                        </a>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.error("Could not load meetings.json", e);
+            }
+        }
+
+        window.addEventListener('load', loadMeetings);
     </script>
 </body>
 </html>
