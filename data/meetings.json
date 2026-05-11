@@ -1,17 +1,71 @@
 {
   "nextMeeting": {
-    "date": "Thursday, June 19, 2025",
+    "date": "Wednesday, May 6, 2026",
     "time": "6:30 PM",
-    "location": "Whidbey Island Grange Hall, 12 NE 4th Ave, Coupeville",
-    "agendaUrl": "minutes/agenda-2025-06-19.pdf",
-    "zoomUrl": "https://us06web.zoom.us/j/YOUR_MEETING_ID?pwd=YOUR_PASSWORD"
+    "location": "Race Road Firestation (1164 Race Road)",
+    "agendaUrl": "minutes/agenda-2025-05-06.pdf",
+    "zoomUrl": "https://calendar.app.google/1dZCdtvkdXhVQi86A"
   },
   "pastMeetings": [
     {
-      "date": "May 15, 2025",
+      "date": "April 1, 2026",
       "time": "6:30 PM",
-      "location": "Whidbey Island Grange Hall",
-      "minutesUrl": "minutes/2025-05-15.pdf"
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2026-04-01.pdf"
+    }
+    {
+      "date": "March 4, 2026",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2026-03-04.pdf"
+    }
+    {
+      "date": "February 4, 2026",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2026-02-04.pdf"
+    }
+    {
+      "date": "January 1, 2026",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2026-01-07.pdf"
+    }
+    {
+      "date": "December 3, 2025",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2025-12-03.pdf"
+    }
+    {
+      "date": "November 5, 2025",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2025-11-05.pdf"
+    }
+    {
+      "date": "October 8, 2025",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2025-10-08.pdf"
+    }
+    {
+      "date": "September 10, 2025",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2025-09-10.pdf"
+    }
+    {
+      "date": "August 13, 2025",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2025-08-13.pdf"
+    }
+    {
+      "date": "July 9, 2025",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2025-07-09.pdf"
     }
   ]
 }
