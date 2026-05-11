@@ -1006,5 +1006,86 @@ body {
     .carousel-slide img { height: 380px; }
     .carousel-container { padding: 0 40px; }
 }
+/* ====================== MONTHLY MEETINGS PAGE ====================== */
+
+.next-meeting-box {
+    background: white;
+    border: 3px solid #f8d48c;
+    border-radius: 24px;
+    padding: 40px 32px;
+    text-align: center;
+    margin-bottom: 60px;
+    box-shadow: 0 10px 25px rgba(10, 37, 64, 0.1);
+}
+
+.next-meeting-box h2 {
+    color: #0a2540;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.next-meeting-box .date {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 8px;
+}
+
+.next-meeting-box .time-location {
+    font-size: 1.3rem;
+    color: #444;
+    margin-bottom: 24px;
+}
+
+.meetings-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.meeting-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.meeting-card:hover {
+    border-color: #f8d48c;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 25px rgba(10, 37, 64, 0.08);
+}
+
+.meeting-info h3 {
+    font-size: 1.35rem;
+    color: #0a2540;
+    margin-bottom: 6px;
+}
+
+.meeting-info p {
+    color: #555;
+    margin: 0;
+}
+
+.minutes-link {
+    background: #0a2540;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.minutes-link:hover {
+    background: #1a3a5e;
+}
 /* Small utility */
 .text-amber { color: #f8d48c; }
