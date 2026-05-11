@@ -84,16 +84,16 @@
                     
                     <div class="carousel-track" id="carousel-track">
                         <div class="carousel-slide">
-                            <img src="images/council-horse-beach.jpeg" alt="Trail ride on Whidbey Island">
+                            <img src="images/council-horse-beach.jpeg" alt="Beach ride">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/council-horse-head.jpeg" alt="Horse show">
+                            <img src="images/council-horse-head.jpeg" alt="Horse head">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/council-horse-diane.jpeg" alt="Group ride">
+                            <img src="images/council-horse-diane.jpeg" alt="Diane with horse">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/council-horse-drive.jpeg" alt="Sunset trail">
+                            <img src="images/council-horse-drive.jpeg" alt="Horse drive">
                         </div>
                     </div>
                     
@@ -105,9 +105,8 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (unchanged) -->
     <footer class="footer">
-        <!-- your existing footer code -->
         <div class="footer-content">
             <div>
                 <div class="footer-logo">
@@ -139,6 +138,7 @@
     </footer>
 
     <script>
+        // Mobile menu functions (unchanged)
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('hamburger-icon');
@@ -150,7 +150,6 @@
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
             }
         }
-
         function toggleAccordion(button) {
             const isExpanded = button.getAttribute('aria-expanded') === 'true';
             button.setAttribute('aria-expanded', !isExpanded);
@@ -158,7 +157,7 @@
             content.classList.toggle('open');
         }
 
-        // ====================== CAROUSEL (fixed) ======================
+        // ====================== FIXED CAROUSEL ======================
         function initCarousel() {
             const track = document.getElementById('carousel-track');
             const slides = document.querySelectorAll('.carousel-slide');
@@ -167,40 +166,29 @@
 
             function createDots() {
                 dotsContainer.innerHTML = '';
-                slides.forEach((_, index) => {
+                slides.forEach((_, i) => {
                     const dot = document.createElement('div');
                     dot.classList.add('carousel-dot');
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goToSlide(index));
+                    if (i === 0) dot.classList.add('active');
+                    dot.onclick = () => goToSlide(i);
                     dotsContainer.appendChild(dot);
                 });
             }
 
-            function updateDots() {
-                const dots = document.querySelectorAll('.carousel-dot');
-                dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
-            }
-
-            function goToSlide(index) {
-                currentSlide = index;
+            function goToSlide(n) {
+                currentSlide = n;
                 track.style.transform = `translateX(-${currentSlide * 100}%)`;
-                updateDots();
+                document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === currentSlide);
+                });
             }
 
-            window.nextSlide = () => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                goToSlide(currentSlide);
-            };
-
-            window.prevSlide = () => {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                goToSlide(currentSlide);
-            };
+            window.nextSlide = () => { currentSlide = (currentSlide + 1) % slides.length; goToSlide(currentSlide); };
+            window.prevSlide = () => { currentSlide = (currentSlide - 1 + slides.length) % slides.length; goToSlide(currentSlide); };
 
             createDots();
         }
 
-        // Run carousel after everything loads
         window.addEventListener('load', initCarousel);
     </script>
 </body>
