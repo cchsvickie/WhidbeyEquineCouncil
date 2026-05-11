@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- FULL HEADER with accordion -->
+    <!-- FULL HEADER -->
     <header class="header-bg">
         <div class="nav-container">
             <div class="logo-container">
@@ -66,12 +66,44 @@
     </header>
 
     <section class="main-content">
-    <h1 class="page-title">About Us / Mission</h1>
-    <div class="content-wrapper">
-        <p>The Whidbey Island Horse Council is an organization dedicated to preserving equestrian trails, promoting responsible horse ownership, and building a vibrant riding community on Whidbey Island, Washington.</p>
-        
-        <p style="margin-top: 2rem;">Our mission is to advocate for the social, recreational, economic and legislative interests of the Whidbey Island horse community. Keeping horse ownership and enjoyment viable on Whidbey Island is our main goal. The horse community has a positive impact on the island’s economy and environment and we intend to advocate for its continued growth.</p>
-    </div>
+        <h1 class="page-title">About Us / Mission</h1>
+        <div class="content-wrapper">
+            <p>The Whidbey Island Horse Council is an organization dedicated to preserving equestrian trails, promoting responsible horse ownership, and building a vibrant riding community on Whidbey Island, Washington.</p>
+            
+            <p style="margin-top: 2rem;">Our mission is to advocate for the social, recreational, economic and legislative interests of the Whidbey Island horse community. Keeping horse ownership and enjoyment viable on Whidbey Island is our main goal. The horse community has a positive impact on the island’s economy and environment and we intend to advocate for its continued growth.</p>
+
+            <!-- NEW CAROUSEL - added below mission statement -->
+            <div class="carousel-section">
+                <div class="carousel-header">
+                    <span>OUR COMMUNITY</span>
+                    <h2 class="carousel-title">See Us in Action</h2>
+                </div>
+                
+                <div class="carousel-container">
+                    <button class="carousel-arrow prev" onclick="prevSlide()">←</button>
+                    
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Replace these image URLs with your own photos -->
+                        <div class="carousel-slide">
+                            <img src="https://picsum.photos/id/1015/1200/600" alt="Trail ride on Whidbey Island">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://picsum.photos/id/133/1200/600" alt="Horse show">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://picsum.photos/id/201/1200/600" alt="Group ride">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://picsum.photos/id/251/1200/600" alt="Sunset trail">
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-arrow next" onclick="nextSlide()">→</button>
+                </div>
+                
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER -->
@@ -118,12 +150,59 @@
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
             }
         }
+
         function toggleAccordion(button) {
             const isExpanded = button.getAttribute('aria-expanded') === 'true';
             button.setAttribute('aria-expanded', !isExpanded);
             const content = button.nextElementSibling;
             content.classList.toggle('open');
         }
+
+        // ====================== CAROUSEL JS ======================
+        let currentSlide = 0;
+        const track = document.getElementById('carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dotsContainer = document.getElementById('carousel-dots');
+
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('carousel-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        // Initialize carousel
+        createDots();
+
+        // Optional: Auto-play every 5 seconds (remove if you don't want it)
+        // setInterval(nextSlide, 5000);
     </script>
 </body>
 </html>
