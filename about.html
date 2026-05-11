@@ -72,7 +72,7 @@
             
             <p style="margin-top: 2rem;">Our mission is to advocate for the social, recreational, economic and legislative interests of the Whidbey Island horse community. Keeping horse ownership and enjoyment viable on Whidbey Island is our main goal. The horse community has a positive impact on the island’s economy and environment and we intend to advocate for its continued growth.</p>
 
-            <!-- CAROUSEL -->
+            <!-- CAROUSEL with public test images -->
             <div class="carousel-section">
                 <div class="carousel-header">
                     <span>OUR COMMUNITY</span>
@@ -84,16 +84,16 @@
                     
                     <div class="carousel-track" id="carousel-track">
                         <div class="carousel-slide">
-                            <img src="images/council-horse-beach.jpeg" alt="Beach ride">
+                            <img src="https://picsum.photos/id/1015/1200/600" alt="Test image 1">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/council-horse-head.jpeg" alt="Horse head">
+                            <img src="https://picsum.photos/id/133/1200/600" alt="Test image 2">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/council-horse-diane.jpeg" alt="Diane with horse">
+                            <img src="https://picsum.photos/id/201/1200/600" alt="Test image 3">
                         </div>
                         <div class="carousel-slide">
-                            <img src="images/council-horse-drive.jpeg" alt="Horse drive">
+                            <img src="https://picsum.photos/id/251/1200/600" alt="Test image 4">
                         </div>
                     </div>
                     
@@ -105,7 +105,7 @@
         </div>
     </section>
 
-    <!-- FOOTER (unchanged) -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
             <div>
@@ -138,7 +138,6 @@
     </footer>
 
     <script>
-        // Mobile menu functions (unchanged)
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('hamburger-icon');
@@ -150,6 +149,7 @@
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
             }
         }
+
         function toggleAccordion(button) {
             const isExpanded = button.getAttribute('aria-expanded') === 'true';
             button.setAttribute('aria-expanded', !isExpanded);
@@ -157,7 +157,7 @@
             content.classList.toggle('open');
         }
 
-        // ====================== FIXED CAROUSEL ======================
+        // CAROUSEL (already fixed)
         function initCarousel() {
             const track = document.getElementById('carousel-track');
             const slides = document.querySelectorAll('.carousel-slide');
@@ -178,9 +178,7 @@
             function goToSlide(n) {
                 currentSlide = n;
                 track.style.transform = `translateX(-${currentSlide * 100}%)`;
-                document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-                    d.classList.toggle('active', i === currentSlide);
-                });
+                document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
             }
 
             window.nextSlide = () => { currentSlide = (currentSlide + 1) % slides.length; goToSlide(currentSlide); };
