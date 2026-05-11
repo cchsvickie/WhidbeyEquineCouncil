@@ -72,7 +72,7 @@
             
             <p style="margin-top: 2rem;">Our mission is to advocate for the social, recreational, economic and legislative interests of the Whidbey Island horse community. Keeping horse ownership and enjoyment viable on Whidbey Island is our main goal. The horse community has a positive impact on the island’s economy and environment and we intend to advocate for its continued growth.</p>
 
-            <!-- NEW CAROUSEL - added below mission statement -->
+            <!-- CAROUSEL -->
             <div class="carousel-section">
                 <div class="carousel-header">
                     <span>OUR COMMUNITY</span>
@@ -83,7 +83,6 @@
                     <button class="carousel-arrow prev" onclick="prevSlide()">←</button>
                     
                     <div class="carousel-track" id="carousel-track">
-                        <!-- Replace these image URLs with your own photos -->
                         <div class="carousel-slide">
                             <img src="images/council-horse-beach.jpeg" alt="Trail ride on Whidbey Island">
                         </div>
@@ -108,6 +107,7 @@
 
     <!-- FOOTER -->
     <footer class="footer">
+        <!-- your existing footer code -->
         <div class="footer-content">
             <div>
                 <div class="footer-logo">
@@ -158,51 +158,50 @@
             content.classList.toggle('open');
         }
 
-        // ====================== CAROUSEL JS ======================
-        let currentSlide = 0;
-        const track = document.getElementById('carousel-track');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dotsContainer = document.getElementById('carousel-dots');
+        // ====================== CAROUSEL (fixed) ======================
+        function initCarousel() {
+            const track = document.getElementById('carousel-track');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.getElementById('carousel-dots');
+            let currentSlide = 0;
 
-        function createDots() {
-            dotsContainer.innerHTML = '';
-            slides.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('carousel-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(index));
-                dotsContainer.appendChild(dot);
-            });
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('carousel-dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            function updateDots() {
+                const dots = document.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                updateDots();
+            }
+
+            window.nextSlide = () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                goToSlide(currentSlide);
+            };
+
+            window.prevSlide = () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                goToSlide(currentSlide);
+            };
+
+            createDots();
         }
 
-        function updateDots() {
-            const dots = document.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            updateDots();
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            goToSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            goToSlide(currentSlide);
-        }
-
-        // Initialize carousel
-        createDots();
-
-        // Optional: Auto-play every 5 seconds (remove if you don't want it)
-        // setInterval(nextSlide, 5000);
+        // Run carousel after everything loads
+        window.addEventListener('load', initCarousel);
     </script>
 </body>
 </html>
