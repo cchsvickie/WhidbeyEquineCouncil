@@ -1,0 +1,17 @@
+{
+  "nextMeeting": {
+    "date": "Thursday, June 19, 2025",
+    "time": "6:30 PM",
+    "location": "Whidbey Island Grange Hall, 12 NE 4th Ave, Coupeville",
+    "agendaUrl": "minutes/agenda-2025-06-19.pdf",
+    "zoomUrl": "https://us06web.zoom.us/j/YOUR_MEETING_ID?pwd=YOUR_PASSWORD"
+  },
+  "pastMeetings": [
+    {
+      "date": "May 15, 2025",
+      "time": "6:30 PM",
+      "location": "Whidbey Island Grange Hall",
+      "minutesUrl": "minutes/2025-05-15.pdf"
+    }
+  ]
+}
