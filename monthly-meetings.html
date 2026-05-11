@@ -74,7 +74,16 @@
                 <h2>Next Monthly Meeting</h2>
                 <div id="next-date" class="date"></div>
                 <div id="next-time-location" class="time-location"></div>
-                <a href="#" class="minutes-link" style="background:#0a2540; color:white;">Add to Calendar</a>
+                
+                <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+                    <a id="agenda-link" href="#" class="minutes-link" style="background:#f8d48c; color:#0a2540;" target="_blank">
+                        View Agenda →
+                    </a>
+                    <a id="zoom-link" href="#" class="minutes-link" style="background:#0a2540; color:white;" target="_blank">
+                        Join Zoom Meeting
+                    </a>
+                    <a href="#" class="minutes-link">Add to Calendar</a>
+                </div>
             </div>
 
             <!-- Past Meetings -->
@@ -135,19 +144,38 @@
             content.classList.toggle('open');
         }
 
-        // ====================== MEETINGS DATA ======================
+        // ====================== LOAD MEETINGS ======================
         async function loadMeetings() {
             try {
                 const response = await fetch('data/meetings.json');
                 const data = await response.json();
 
-                // Next Meeting
                 const next = data.nextMeeting;
+
+                // Next Meeting Info
                 document.getElementById('next-date').textContent = next.date;
                 document.getElementById('next-time-location').innerHTML = `
                     ${next.time}<br>
                     <strong>${next.location}</strong>
                 `;
+
+                // Agenda button
+                const agendaLink = document.getElementById('agenda-link');
+                if (next.agendaUrl && next.agendaUrl.trim() !== "") {
+                    agendaLink.href = next.agendaUrl;
+                    agendaLink.style.display = 'inline-flex';
+                } else {
+                    agendaLink.style.display = 'none';
+                }
+
+                // Zoom button
+                const zoomLink = document.getElementById('zoom-link');
+                if (next.zoomUrl && next.zoomUrl.trim() !== "") {
+                    zoomLink.href = next.zoomUrl;
+                    zoomLink.style.display = 'inline-flex';
+                } else {
+                    zoomLink.style.display = 'none';
+                }
 
                 // Past Meetings
                 const container = document.getElementById('past-meetings');
