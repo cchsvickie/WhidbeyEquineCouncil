@@ -99,7 +99,24 @@
             <!-- Safety Content -->
             <div id="safety-content-1" class="safety-content active">
                 <h3>Trail Etiquette &amp; Right of Way</h3>
-                <p>Yield to hikers and bikers. Announce your presence when approaching from behind. Ride on the right side of the trail when possible. Pass only when safe and with clear communication.</p>
+                <p>Washington’s trails are often shared with hikers, runners, bicyclists, and motorized users. BCHW’s “3S” rule (Stop – Stand – Speak) helps prevent spooking horses (prey animals whose instinct is flight):</p>
+                <p><strong>For non-riders encountering horses:</strong></p>
+                <ul>
+                    <li>STOP well in advance.</li>
+                    <li>STAND downhill (anything above a horse’s head can look like a predator).</li>
+                    <li>SPEAK calmly (“Hello”) and ask the rider what to do. Yield to the rider’s instructions.</li>
+                </ul>
+                <p><strong>For riders:</strong></p>
+                <ul>
+                    <li>Ensure your horse is trained and seasoned for trails, obstacles, other users, dogs, packs, etc.</li>
+                    <li>Safety first – dismount if needed.</li>
+                    <li>Pull aside (preferably downhill) for others; communicate clearly.</li>
+                    <li>Keep dogs under control and follow leash rules.</li>
+                    <li>Scoop poop at staging areas/trailheads and kick it off the trail.</li>
+                    <li>Ride single-file where appropriate; go slow in poor visibility.</li>
+                </ul>
+                <p>Horses have the right-of-way on most shared trails in WA public lands.</p>
+                <p><em>Sources: pbchw.org • dnr.wa.gov</em></p>
             </div>
 
             <div id="safety-content-2" class="safety-content">
@@ -176,7 +193,7 @@
             content.classList.toggle('open');
         }
 
-        // === TRAIL SAFETY BUTTONS - FIXED ===
+        // Trail Safety Tab Functionality
         document.addEventListener('DOMContentLoaded', () => {
             const buttons = document.querySelectorAll('.safety-btn');
             const contents = document.querySelectorAll('.safety-content');
@@ -184,13 +201,9 @@
             buttons.forEach(btn => {
                 btn.addEventListener('click', () => {
                     const tab = btn.getAttribute('data-tab');
-
-                    // Hide all content
                     contents.forEach(content => content.classList.remove('active'));
-                    // Show selected content
                     document.getElementById('safety-content-' + tab).classList.add('active');
 
-                    // Update active button
                     buttons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                 });
