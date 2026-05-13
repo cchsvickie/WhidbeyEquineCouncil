@@ -89,14 +89,14 @@
 
             <!-- 5 Clickable Buttons -->
             <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px;">
-                <button onclick="showSafety(1)" class="safety-btn active" id="btn-1">Trail Etiquette</button>
-                <button onclick="showSafety(2)" class="safety-btn" id="btn-2">Emergency Procedures</button>
-                <button onclick="showSafety(3)" class="safety-btn" id="btn-3">Wildlife Encounters</button>
-                <button onclick="showSafety(4)" class="safety-btn" id="btn-4">Weather &amp; Trail Conditions</button>
-                <button onclick="showSafety(5)" class="safety-btn" id="btn-5">Gear Checklist</button>
+                <button class="safety-btn active" data-tab="1">Trail Etiquette</button>
+                <button class="safety-btn" data-tab="2">Emergency Procedures</button>
+                <button class="safety-btn" data-tab="3">Wildlife Encounters</button>
+                <button class="safety-btn" data-tab="4">Weather &amp; Trail Conditions</button>
+                <button class="safety-btn" data-tab="5">Gear Checklist</button>
             </div>
 
-            <!-- Safety Content Areas -->
+            <!-- Safety Content -->
             <div id="safety-content-1" class="safety-content active">
                 <h3>Trail Etiquette &amp; Right of Way</h3>
                 <p>Yield to hikers and bikers. Announce your presence when approaching from behind. Ride on the right side of the trail when possible. Pass only when safe and with clear communication.</p>
@@ -176,14 +176,26 @@
             content.classList.toggle('open');
         }
 
-        // Trail Safety Tab Functionality
-        function showSafety(n) {
-            document.querySelectorAll('.safety-content').forEach(el => el.classList.remove('active'));
-            document.getElementById('safety-content-' + n).classList.add('active');
+        // === TRAIL SAFETY BUTTONS - FIXED ===
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.safety-btn');
+            const contents = document.querySelectorAll('.safety-content');
 
-            document.querySelectorAll('.safety-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + n).classList.add('active');
-        }
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tab = btn.getAttribute('data-tab');
+
+                    // Hide all content
+                    contents.forEach(content => content.classList.remove('active'));
+                    // Show selected content
+                    document.getElementById('safety-content-' + tab).classList.add('active');
+
+                    // Update active button
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        });
     </script>
 </body>
 </html>
