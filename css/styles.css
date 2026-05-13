@@ -1130,5 +1130,51 @@ body {
     color: #0a2540;
     margin-bottom: 16px;
 }
+/* ====================== TRAIL SAFETY - KEY RESOURCES ====================== */
+
+.key-resources {
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.key-resources h3 {
+    color: #0a2540;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.key-resources ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.9;
+    font-size: 1.1rem;
+}
+
+.key-resources li {
+    margin-bottom: 14px;
+    padding-left: 28px;
+    position: relative;
+}
+
+.key-resources li::before {
+    content: "•";
+    color: #f8d48c;
+    font-size: 1.6rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.key-resources a {
+    color: #0a2540;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.key-resources a:hover {
+    color: #f8d48c;
+    text-decoration: underline;
+}
 /* Small utility */
 .text-amber { color: #f8d48c; }
