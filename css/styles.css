@@ -1087,5 +1087,48 @@ body {
 .minutes-link:hover {
     background: #1a3a5e;
 }
+/* ====================== TRAIL SAFETY PAGE ====================== */
+
+.safety-btn {
+    padding: 14px 28px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    background: white;
+    color: #0a2540;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.safety-btn:hover {
+    background: #f8d48c;
+    border-color: #f8d48c;
+}
+
+.safety-btn.active {
+    background: #0a2540;
+    color: white;
+    border-color: #0a2540;
+}
+
+.safety-content {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.safety-content.active {
+    display: block;
+}
+
+.safety-content h3 {
+    color: #0a2540;
+    margin-bottom: 16px;
+}
 /* Small utility */
 .text-amber { color: #f8d48c; }
