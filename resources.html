@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources | Whidbey Island Horse Council</title>
+    <title>Trail Safety | Whidbey Island Horse Council</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -21,7 +21,7 @@
                 <a href="about.html">About Us / Mission</a>
                 <a href="news.html">News &amp; Updates</a>
                 <a href="events.html">Calendar</a>
-                <a href="resources.html" class="active">Resources</a>
+                <a href="resources.html">Resources</a>
                 <a href="contact.html">Contact</a>
                 <a href="laws.html">Island County / WA Laws</a>
             </nav>
@@ -65,13 +65,61 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <section class="main-content">
         <h1 class="page-title">Trail Safety</h1>
-        <div class="content-grid">
-            <div class="content-card">
-                <p>Rules, etiquette, and best practices for safe riding on Whidbey trails.</p>
+        <div class="content-wrapper">
+
+            <!-- Your Lead-in Paragraph -->
+            <p style="font-size: 1.15rem; line-height: 1.7; max-width: 900px; margin-bottom: 50px;">
+                Trail safety for horseback riding on Washington state’s public parks and lands focuses on agency-specific rules (primarily Washington State Parks and DNR-managed state trust lands), multi-use trail etiquette, personal/horse preparation, and Leave No Trace principles. Always verify current conditions, closures, and designated equestrian trails directly with the managing agency before your ride, as rules can change due to weather, resource protection, or safety issues. 
+                <strong>parks.wa.gov</strong> &nbsp;&nbsp; <strong>dnr.wa.gov</strong>
+            </p>
+
+            <!-- Key Resources - Bulleted List -->
+            <h3 style="margin-bottom: 20px; color:#0a2540;">Key Resources</h3>
+            <ul style="line-height: 1.8; font-size: 1.1rem; max-width: 900px; margin-bottom: 50px;">
+                <li><strong>Washington State Parks:</strong> <a href="https://parks.wa.gov" target="_blank">parks.wa.gov</a> (rules, trail finder, horseback riding page)</li>
+                <li><strong>DNR Recreation:</strong> <a href="https://dnr.wa.gov/recreation" target="_blank">dnr.wa.gov/recreation</a> (recreation guide PDF, horse camps, maps)</li>
+                <li><strong>Back Country Horsemen of Washington (BCHW):</strong> <a href="https://bchw.org" target="_blank">bchw.org</a> (trail safety, 3S, backcountry ethics booklet)</li>
+                <li><strong>U.S. Forest Service (WA forests):</strong> <a href="https://fs.usda.gov" target="_blank">fs.usda.gov</a> (search by forest for equestrian info)</li>
+                <li><strong>Local chapters of BCHW or trail groups</strong> for area-specific advice.</li>
+            </ul>
+
+            <!-- 5 Clickable Buttons -->
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px;">
+                <button onclick="showSafety(1)" class="safety-btn active" id="btn-1">Trail Etiquette</button>
+                <button onclick="showSafety(2)" class="safety-btn" id="btn-2">Emergency Procedures</button>
+                <button onclick="showSafety(3)" class="safety-btn" id="btn-3">Wildlife Encounters</button>
+                <button onclick="showSafety(4)" class="safety-btn" id="btn-4">Weather &amp; Trail Conditions</button>
+                <button onclick="showSafety(5)" class="safety-btn" id="btn-5">Gear Checklist</button>
             </div>
+
+            <!-- Safety Content Areas -->
+            <div id="safety-content-1" class="safety-content active">
+                <h3>Trail Etiquette &amp; Right of Way</h3>
+                <p>Yield to hikers and bikers. Announce your presence when approaching from behind. Ride on the right side of the trail when possible. Pass only when safe and with clear communication.</p>
+            </div>
+
+            <div id="safety-content-2" class="safety-content">
+                <h3>Emergency Procedures &amp; First Aid</h3>
+                <p>Carry a charged phone, first aid kit, and hoof boot. Know the location of the nearest trailhead. Have a plan for getting help if your horse is injured or you are hurt.</p>
+            </div>
+
+            <div id="safety-content-3" class="safety-content">
+                <h3>Wildlife Encounters</h3>
+                <p>Stay alert for deer, coyotes, and occasional black bears. Keep your horse calm and give wildlife plenty of space. Never approach or feed wild animals.</p>
+            </div>
+
+            <div id="safety-content-4" class="safety-content">
+                <h3>Weather &amp; Trail Conditions</h3>
+                <p>Check the forecast before riding. Avoid muddy or flooded trails after heavy rain. Be prepared for sudden wind or fog common on Whidbey Island.</p>
+            </div>
+
+            <div id="safety-content-5" class="safety-content">
+                <h3>Gear Checklist</h3>
+                <p>Helmet, sturdy boots, long pants, water, phone, map, hoof pick, lead rope, and a basic first aid kit for both you and your horse.</p>
+            </div>
+
         </div>
     </section>
 
@@ -108,24 +156,32 @@
     </footer>
 
     <script>
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobile-menu');
-        const icon = document.getElementById('hamburger-icon');
-        if (menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
-        } else {
-            menu.classList.add('active');
-            icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+            } else {
+                menu.classList.add('active');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+            }
         }
-    }
+        function toggleAccordion(button) {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', !isExpanded);
+            const content = button.nextElementSibling;
+            content.classList.toggle('open');
+        }
 
-    function toggleAccordion(button) {
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', !isExpanded);
-        const content = button.nextElementSibling;
-        content.classList.toggle('open');
-    }
-</script>
+        // Trail Safety Tab Functionality
+        function showSafety(n) {
+            document.querySelectorAll('.safety-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('safety-content-' + n).classList.add('active');
+
+            document.querySelectorAll('.safety-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + n).classList.add('active');
+        }
+    </script>
 </body>
 </html>
