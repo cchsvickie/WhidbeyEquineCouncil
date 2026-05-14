@@ -1,14 +1,10 @@
 /* ============================================= */
 /* Whidbey Island Horse Council - styles.css     */
-/* Cleaned and organized version                 */
-/* ============================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Pure custom CSS – exactly like your ironmillsranch.com file */
+/* ============================================= */@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -17,95 +13,106 @@ body {
     font-size: 1.1rem;
     color: #222222;
     overflow-x: hidden;
-}
-
-/* ====================== HEADER ====================== */
-.header-bg {
+}/* ====================== HEADER ====================== */
+/* Updated: Taller header + much more visible logo     */
+/* ==================================================== */.header-bg {
     background-color: #0a2540;
     color: white;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 8px 0;
-}
-
-.nav-container {
+    padding: 8px 0;                    /* extra vertical space */
+}.nav-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 28px 24px;
+    padding: 28px 24px;                /* taller header */
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
 .logo-container {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
 .logo-container img {
-    height: 68px;
+    height: 68px;                      /* MUCH more visible logo */
     width: auto;
     transition: transform 0.3s ease;
-}
-
-.logo-container img:hover {
+}.logo-container img:hover {
     transform: scale(1.05);
-}
-
-.logo-text {
-    font-size: 2.1rem;
+}.logo-text {
+    font-size: 2.1rem;                 /* slightly larger to balance */
     font-weight: 600;
     letter-spacing: -0.5px;
     line-height: 1;
-}
-
-.logo-text small {
+}.logo-text small {
     display: block;
     font-size: 1.05rem;
     font-weight: 500;
+    color: #f8d48c;
     margin-top: -2px;
-}
-
-/* Hamburger */
+}/* Hamburger scales nicely with taller header */
 .hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 52px;
     height: 52px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.hamburger:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-/* Desktop Navigation */
+}/* Desktop nav stays exactly the same */
 .desktop-nav {
     display: none;
     align-items: center;
     gap: 32px;
     font-size: 1.05rem;
     font-weight: 500;
-}
-
-.desktop-nav a {
+}.desktop-nav a {
     color: white;
     text-decoration: none;
     transition: color 0.2s ease;
-}
-
-.desktop-nav a:hover {
+}.desktop-nav a:hover {
     color: #f8d48c;
+}/* ====================== MOBILE HEADER ADJUSTMENTS ====================== */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 20px 24px;
+    }.logo-container img {
+    height: 58px;                  /* still nicely visible on mobile */
 }
 
-/* ====================== MOBILE MENU ====================== */
+.logo-text {
+    font-size: 1.9rem;
+}
+
+.hamburger {
+    width: 48px;
+    height: 48px;
+}}/* Desktop Navigation */
+.desktop-nav {
+    display: none;
+    align-items: center;
+    gap: 32px;
+    font-size: 1.05rem;
+    font-weight: 500;
+}.desktop-nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}.desktop-nav a:hover {
+    color: #f8d48c;
+}/* Hamburger */
+.hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}.hamburger:hover {
+    background: rgba(255,255,255,0.2);
+}/* Mobile /* ====================== NEW MOBILE MENU (Right-side drawer) ====================== */
+/* ====================== NEW MOBILE MENU (Right-side drawer) ====================== */
 .mobile-menu {
     position: fixed;
     top: 0;
@@ -118,13 +125,9 @@ body {
     z-index: 1200;
     overflow-y: auto;
     padding: 20px;
-}
-
-.mobile-menu.active {
+}.mobile-menu.active {
     right: 0;
-}
-
-.mobile-menu .close-btn {
+}.mobile-menu .close-btn {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -135,13 +138,9 @@ body {
     line-height: 1;
     cursor: pointer;
     z-index: 1300;
-}
-
-.mobile-menu nav {
+}.mobile-menu nav {
     margin-top: 70px;
-}
-
-.mobile-menu a {
+}.mobile-menu a {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -151,16 +150,16 @@ body {
     font-weight: 500;
     padding: 16px 0;
     border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-
-.mobile-menu a:hover {
+}.mobile-menu a:hover {
     color: #f8d48c;
-}
-
-/* Accordion Sub-menus */
-.mobile-menu .accordion-item { border-bottom: 1px solid rgba(255,255,255,0.15); }
-
-.mobile-menu .accordion-header {
+}.mobile-menu .chevron {
+    transition: transform 0.3s ease;
+}.mobile-menu a[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+}/* ====================== ACCORDION SUB-MENUS ====================== */
+.mobile-menu .accordion-item {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}.mobile-menu .accordion-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -173,42 +172,41 @@ body {
     border: none;
     cursor: pointer;
     text-align: left;
-}
-
-.mobile-menu .accordion-header:hover { color: #f8d48c; }
-
-.mobile-menu .chevron {
+}.mobile-menu .accordion-header:hover {
+    color: #f8d48c;
+}.mobile-menu .chevron {
     transition: transform 0.3s ease;
     font-size: 1.4rem;
-}
-
-.mobile-menu .accordion-header[aria-expanded="true"] .chevron {
+}.mobile-menu .accordion-header[aria-expanded="true"] .chevron {
     transform: rotate(180deg);
-}
-
-.mobile-menu .accordion-content {
+}.mobile-menu .accordion-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
     padding-left: 20px;
-}
-
-.mobile-menu .accordion-content.open { max-height: 400px; }
-
-.mobile-menu .accordion-content a {
+}.mobile-menu .accordion-content.open {
+    max-height: 400px;
+}.mobile-menu .accordion-content a {
     display: block;
     padding: 12px 0;
     color: #ddd;
     font-size: 1.1rem;
     text-decoration: none;
-}
-
-.mobile-menu .accordion-content a:hover { color: #f8d48c; }
-
-/* ====================== HERO SECTION ====================== */
+}.mobile-menu .accordion-content a:hover {
+    color: #f8d48c;
+}@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}/* ====================== HERO SECTION (matches screenshot layout) ====================== */
 .hero {
     background-image: linear-gradient(rgba(10, 37, 64, 0.45), rgba(10, 37, 64, 0.45)),
-                      url('https://picsum.photos/id/1015/2000/1200');
+                      url('https://picsum.photos/id/1015/2000/1200'); /* ← CHANGE THIS to your own trail photo */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -216,110 +214,362 @@ body {
     align-items: center;
     color: white;
     position: relative;
+}.hero-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+}@media (min-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}.hero-text-panel {
+    background-color: rgba(255,255,255,0.95);
+    color: #0a2540;
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    max-width: 480px;
+    margin-left: auto;
+}.hero-text-panel h1 {
+    font-size: 3.8rem;
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+}.hero-text-panel p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 32px;
+    color: #1e3a5f;
 }
-
-/* ====================== QUICK LINK CARDS ====================== */
-.quick-section { max-width: 1280px; margin: 0 auto; padding: 60px 24px; }
-
-.quick-grid {
+.cta-button {
+    display: inline-block;
+    background-color: #0a2540;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 18px 40px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}.cta-button:hover {
+    background-color: #1a3a5e;
+    transform: translateY(-3px);
+}/* ====================== QUICK LINK CARDS (matches screenshot) ====================== */
+.quick-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 24px;
+}.quick-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 24px;
-}
-
-/* ====================== FOOTER ====================== */
+}.card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}.card:hover {
+    border-color: #f8d48c;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}.card-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    border-radius: 16px;
+}.card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0a2540;
+    margin-bottom: 8px;
+}.card-content p {
+    color: #555;
+    font-size: 1.05rem;
+}.card-arrow {
+    font-size: 2rem;
+    color: #ccc;
+    margin-left: auto;
+    transition: all 0.3s ease;
+}.card:hover .card-arrow {
+    color: #f8d48c;
+    transform: translateX(4px);
+}/* ====================== FOOTER ====================== */
 .footer {
     background-color: #0a2540;
     color: #ddd;
     padding: 80px 24px 60px;
-}
-
-.footer-content {
+}.footer-content {
     max-width: 1280px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
-}
-
-@media (min-width: 768px) {
-    .footer-content { grid-template-columns: 2fr 1fr 1fr; }
-}
-
-/* ====================== RESPONSIVE ====================== */
-@media (max-width: 768px) {
-    .desktop-nav { display: none; }
-    .hero-text-panel h1 { font-size: 2.8rem; }
-}
-
-/* ====================== EVENTS PAGE ====================== */
-.category-row, .events-grid, .event-card, .meeting-card, .safety-btn, .safety-content, .key-resources {
-    /* All your existing event, meeting, trail safety styles are kept below */
-}
-
-/* ====================== CONTACT PAGE ====================== */
-.contact-container, .contact-title, .contact-form, .send-button, .success-container {
-    /* All your existing contact styles are kept below */
-}
-
-/* ====================== ABOUT PAGE CAROUSEL ====================== */
-.carousel-section, .carousel-track, .carousel-slide, .carousel-arrow, .carousel-dots {
-    /* All your existing carousel styles are kept below */
-}
-
-/* ====================== MONTHLY MEETINGS PAGE ====================== */
-.next-meeting-box, .meetings-list, .meeting-card, .minutes-link {
-    /* All your existing meeting styles are kept below */
-}
-
-/* ====================== TRAIL SAFETY PAGE ====================== */
-.safety-btn, .safety-content, .key-resources {
-    /* All your existing trail safety styles are kept below */
-}
-
-/* ====================== LOGO TEXT - WHITE → GOLD ON HOVER ====================== */
-.logo-container a {
+}@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}.footer-logo img {
+    height: 48px;
+}.footer p {
+    max-width: 340px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}.footer-column h4 {
+    color: #f8d48c;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}.footer-column ul {
+    list-style: none;
+}.footer-column ul li {
+    margin-bottom: 12px;
+}.footer-column a {
+    color: #ddd;
     text-decoration: none;
-    color: inherit;
+    transition: color 0.2s;
+}.footer-column a:hover {
+    color: white;
+}.footer-social a {
+    color: #ddd;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}.footer-social a:hover {
+    color: #f8d48c;
+}.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 0.95rem;
+    color: #aaa;
+}/* ====================== RESPONSIVE ====================== */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }.hero-text-panel {
+    margin: 0 auto;
 }
 
-.logo-text {
-    color: white !important;           /* "Whidbey Island" is white by default */
+.hero-text-panel h1 {
+    font-size: 2.8rem;
 }
 
-.logo-text small {
-    color: #f8d48c !important;         /* "Horse Council" is always yellow */
+.quick-grid {
+    grid-template-columns: 1fr;
+}}
+/* HERO - Force left/right layout on tablet & laptop */
+.hero-grid {
+    grid-template-columns: 1fr;
+}@media (min-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
-
-.logo-container a:hover .logo-text {
-    color: #f8d48c !important;         /* "Whidbey Island" turns gold on hover */
+/* WIDER MARGINS FOR ALL SUB-PAGES */
+.main-content {
+    padding: 100px 40px 80px !important;
+    max-width: 1280px;
+    margin: 0 auto;
+}.content-wrapper,
+.content-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-/* ====================== CONTACT PAGE - FULL STYLES ====================== */
-
-.contact-container {
+.content-wrapper p {
+    margin-bottom: 1.8rem;     /* increases space between paragraphs */
+}.content-wrapper p:last-child {
+    margin-bottom: 0;
+}
+/* ====================== EVENTS PAGE ====================== */
+/* Matches Whidbey Island Horse Council design exactly     */
+/* ======================================================== */.category-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e5e7eb;
+}.category-btn {
+    padding: 14px 28px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    background: white;
+    color: #0a2540;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}.category-btn:hover {
+    background: #f8d48c;
+    border-color: #f8d48c;
+    color: #0a2540;
+}.category-btn.active {
+    background: #0a2540;
+    color: white;
+    border-color: #0a2540;
+    box-shadow: 0 10px 15px -3px rgb(10 37 64 / 0.2);
+}/* Event Cards – matches your .card style */
+.event-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+}.event-card:hover {
+    border-color: #f8d48c;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}.event-category {
+    background: #fefce8;
+    color: #854d0e;
+    padding: 6px 18px;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}.event-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0a2540;
+}.event-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0a2540;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}.event-desc {
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 28px;
+    font-size: 1.05rem;
+    color: #555;
+}.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}.meta-item i {
+    color: #f8d48c;
+    width: 20px;
+}.event-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}.btn-register {
+    background-color: #0a2540;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 16px 36px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}.btn-register:hover {
+    background-color: #1a3a5e;
+    transform: translateY(-2px);
+}.btn-details {
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 14px 24px;
+    transition: color 0.3s ease;
+}.btn-details:hover {
+    color: #0a2540;
+}/* Events Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 32px;
+}/* No events message */
+#no-events {
+    text-align: center;
+    padding: 80px 20px;
+    color: #666;
+}#no-events p:first-child {
+    font-size: 1.4rem;
+    font-weight: 500;
+}/* Responsive – already covered by your existing media queries */
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+    }.category-btn {
+    padding: 12px 22px;
+    font-size: 1rem;
+}}
+/* ====================== HIDDEN UTILITY ====================== */
+.hidden {
+    display: none !important;
+}
+/* ====================== CONTACT PAGE ====================== */
+/* Matches the clean screenshot you shared exactly          */
+/* ======================================================== */.contact-container {
     max-width: 640px;
     margin: 0 auto;
     padding: 40px 20px 80px;
 }
-
+/* ====================== CONTACT TITLE - Clean Raleway (no cursive) ====================== */
 .contact-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 4.2rem;
-    font-weight: 400;
+    font-family: 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.05;
     text-align: center;
     margin-bottom: 60px;
     color: #0a2540;
-    line-height: 1.1;
-    letter-spacing: -1px;
-}
-
-.contact-form {
+}/* Mobile adjustment - matches your other pages */
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 2.8rem;
+    }
+}.contact-form {
     display: flex;
     flex-direction: column;
     gap: 28px;
-}
-
-.contact-form input,
+}.contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 18px 24px;
@@ -329,22 +579,16 @@ body {
     font-family: 'Raleway', sans-serif;
     transition: all 0.3s ease;
     background: white;
-}
-
-.contact-form input:focus,
+}.contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
     border-color: #0a2540;
     box-shadow: 0 0 0 4px rgba(10, 37, 64, 0.1);
-}
-
-.contact-form textarea {
+}.contact-form textarea {
     resize: vertical;
     min-height: 180px;
-}
-
-.send-button {
-    background-color: #111111;
+}.send-button {
+    background-color: #111111;           /* matches the black button in your screenshot */
     color: white;
     font-size: 1.25rem;
     font-weight: 600;
@@ -354,14 +598,19 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 10px;
-}
-
-.send-button:hover {
+}.send-button:hover {
     background-color: #222222;
     transform: translateY(-3px);
+}/* Mobile friendly */
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 3.4rem;
+    }
+    .contact-container {
+        padding: 30px 20px 60px;
+    }
 }
-
-/* Success Message */
+/* ====================== CONTACT SUCCESS MESSAGE ====================== */
 .success-container {
     display: none;
     flex-direction: column;
@@ -374,29 +623,21 @@ body {
     max-width: 560px;
     margin: 0 auto;
     animation: fadeInUp 0.6s ease forwards;
-}
-
-.success-container i {
+}.success-container i {
     font-size: 4.8rem;
     color: #166534;
     margin-bottom: 24px;
-}
-
-.success-container h2 {
+}.success-container h2 {
     font-size: 2.5rem;
     font-weight: 700;
     color: #0a2540;
     margin-bottom: 12px;
-}
-
-.success-container p {
+}.success-container p {
     font-size: 1.2rem;
     color: #444;
     line-height: 1.6;
     margin-bottom: 8px;
-}
-
-.success-container button {
+}.success-container button {
     background-color: #0a2540;
     color: white;
     font-size: 1.15rem;
@@ -408,21 +649,248 @@ body {
     margin-top: 20px;
     transition: all 0.3s ease;
 }
-
 .success-container button:hover {
     background-color: #1a3a5e;
     transform: translateY(-3px);
+}@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+/* ====================== ABOUT PAGE CAROUSEL - FINAL FIX ====================== */
+/* Strong flex rules + overflow hidden so slides never go blank               */
+/* ========================================================================== */.carousel-section {
+    margin-top: 80px;
+    padding: 60px 0;
+    background: #0a2540;
+    color: white;
+    border-radius: 24px;
+    position: relative;
+}.carousel-header {
+    text-align: center;
+    margin-bottom: 40px;
+}.carousel-header span {
+    display: inline-block;
+    background: #f8d48c;
+    color: #0a2540;
+    padding: 4px 20px;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}.carousel-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 16px 0 8px;
+    letter-spacing: -1px;
+}.carousel-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 60px;
+    overflow: hidden;               /* critical */
+}.carousel-track {
+    display: flex;
+    flex-wrap: nowrap;              /* critical */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}.carousel-slide {
+    flex: 0 0 100%;                 /* strongest rule */
+    min-width: 100%;
+    width: 100%;
+    position: relative;
 }
-
-/* Mobile friendly */
+.carousel-slide img {
+    width: 100%;
+    height: 460px;                    /* slightly shorter = less cropping */
+    object-fit: contain;              /* shows the FULL picture without chopping */
+    background-color: #0a2540;        /* dark background for any empty space */
+    display: block;
+    border-radius: 20px;
+}.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f8d48c;
+    color: #0a2540;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgb(10 37 64 / 0.3);
+    z-index: 10;
+    transition: all 0.3s ease;
+}.carousel-arrow:hover {
+    background: #e8c46c;
+    transform: translateY(-50%) scale(1.08);
+}.carousel-arrow.prev { left: 20px; }
+.carousel-arrow.next { right: 20px; }.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}.carousel-dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}.carousel-dot.active {
+    background: #f8d48c;
+    width: 28px;
+    border-radius: 9999px;
+}/* Mobile */
 @media (max-width: 768px) {
-    .contact-title { font-size: 3.4rem; }
-    .contact-container { padding: 30px 20px 60px; }
+    .carousel-slide img { height: 380px; }
+    .carousel-container { padding: 0 40px; }
 }
+/* ====================== MONTHLY MEETINGS PAGE ====================== */.next-meeting-box {
+    background: white;
+    border: 3px solid #f8d48c;
+    border-radius: 24px;
+    padding: 40px 32px;
+    text-align: center;
+    margin-bottom: 60px;
+    box-shadow: 0 10px 25px rgba(10, 37, 64, 0.1);
+}.next-meeting-box h2 {
+    color: #0a2540;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}.next-meeting-box .date {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 8px;
+}.next-meeting-box .time-location {
+    font-size: 1.3rem;
+    color: #444;
+    margin-bottom: 24px;
+}.meetings-list {
+    max-width: 900px;
+    margin: 0 auto;
+}.meeting-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}.meeting-card:hover {
+    border-color: #f8d48c;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 25px rgba(10, 37, 64, 0.08);
+}.meeting-info h3 {
+    font-size: 1.35rem;
+    color: #0a2540;
+    margin-bottom: 6px;
+}.meeting-info p {
+    color: #555;
+    margin: 0;
+}.minutes-link {
+    background: #0a2540;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}.minutes-link:hover {
+    background: #1a3a5e;
+}
+/* ====================== TRAIL SAFETY PAGE ====================== */.safety-btn {
+    padding: 14px 28px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    background: white;
+    color: #0a2540;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}.safety-btn:hover {
+    background: #f8d48c;
+    border-color: #f8d48c;
+}.safety-btn.active {
+    background: #0a2540;
+    color: white;
+    border-color: #0a2540;
+}.safety-content {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 30px;
+    display: none;
+}.safety-content.active {
+    display: block;
+}.safety-content h3 {
+    color: #0a2540;
+    margin-bottom: 16px;
+}
+/* ====================== TRAIL SAFETY - KEY RESOURCES ====================== */.key-resources {
+    max-width: 900px;
+    margin: 0 auto 50px;
+}.key-resources h3 {
+    color: #0a2540;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}.key-resources ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.9;
+    font-size: 1.1rem;
+}.key-resources li {
+    margin-bottom: 14px;
+    padding-left: 28px;
+    position: relative;
+}.key-resources li::before {
+    content: "•";
+    color: #f8d48c;
+    font-size: 1.6rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}.key-resources a {
+    color: #0a2540;
+    text-decoration: none;
+    font-weight: 600;
+}.key-resources a:hover {
+    color: #f8d48c;
+    text-decoration: underline;
+}
+/* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
+/* ====================== LOGO TEXT - EXACTLY AS YOU WANT ====================== */
+.logo-container a {
+    text-decoration: none;
+    color: inherit;
+}.logo-text {
+    color: white !important;           /* "Whidbey Island" is white */
+}.logo-text small {
+    color: #f8d48c !important;         /* "Horse Council" is always yellow */
+}/* Hover effect - only "Whidbey Island" changes */
+.logo-container a:hover .logo-text {
+    color: #f8d48c !important;
+}/* Keep "Horse Council" yellow on hover */
+.logo-container a:hover .logo-text small {
+    color: #f8d48c !important;
+}
+/* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
 /* Small utility */
 .text-amber { color: #f8d48c; }
