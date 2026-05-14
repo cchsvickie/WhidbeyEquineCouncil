@@ -42,22 +42,26 @@ body {
     justify-content: space-between;
 }
 /* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
+/* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
 .logo-container a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
-    color: inherit;
+    transition: all 0.3s ease;
 }
-
-.logo-text {
-    color: #e8c46c;           /* dark gold - normal state */
+.logo-container a:hover {
+    opacity: 0.95;
 }
 
 .logo-container a:hover .logo-text {
-    color: #f8d48c;           /* bright gold on hover */
+    color: #f8d48c;           /* exact gold used elsewhere on your site */
 }
 
 .logo-container a:hover small {
     color: #f8d48c;
 }
+
 .logo-container {
     display: flex;
     align-items: center;
