@@ -41,27 +41,6 @@ body {
     align-items: center;
     justify-content: space-between;
 }
-/* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
-/* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
-.logo-container a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.logo-container a:hover {
-    opacity: 0.95;
-}
-
-.logo-container a:hover .logo-text {
-    color: #f8d48c;           /* exact gold used elsewhere on your site */
-}
-
-.logo-container a:hover small {
-    color: #f8d48c;
-}
-
 .logo-container {
     display: flex;
     align-items: center;
@@ -1195,5 +1174,30 @@ body {
     color: #f8d48c;
     text-decoration: underline;
 }
+/* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
+/* ====================== LOGO TEXT - EXACTLY AS YOU WANT ====================== */
+.logo-container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-text {
+    color: white !important;           /* "Whidbey Island" is white */
+}
+
+.logo-text small {
+    color: #f8d48c !important;         /* "Horse Council" is always yellow */
+}
+
+/* Hover effect - only "Whidbey Island" changes */
+.logo-container a:hover .logo-text {
+    color: #f8d48c !important;
+}
+
+/* Keep "Horse Council" yellow on hover */
+.logo-container a:hover .logo-text small {
+    color: #f8d48c !important;
+}
+/* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
 /* Small utility */
 .text-amber { color: #f8d48c; }
