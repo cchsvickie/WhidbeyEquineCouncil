@@ -43,19 +43,16 @@ body {
 }
 /* ====================== LOGO HOVER - GOLD/YELLOW ====================== */
 .logo-container a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    color: inherit;
 }
 
-.logo-container a:hover {
-    opacity: 0.95;
+.logo-text {
+    color: #e8c46c;           /* dark gold - normal state */
 }
 
 .logo-container a:hover .logo-text {
-    color: #f8d48c;           /* exact gold used elsewhere on your site */
+    color: #f8d48c;           /* bright gold on hover */
 }
 
 .logo-container a:hover small {
@@ -66,7 +63,6 @@ body {
     align-items: center;
     gap: 12px;
 }
-
 .logo-container img {
     height: 68px;                      /* MUCH more visible logo */
     width: auto;
