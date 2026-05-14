@@ -249,20 +249,21 @@ body {
     color: #f8d48c;
 }
 
-/* ====================== HERO SECTION (text LEFT • picture RIGHT) ====================== */
+/* ====================== HERO SECTION (Text LEFT • Picture RIGHT) ====================== */
 .hero {
-    background-image: linear-gradient(rgba(10, 37, 64, 0.45), rgba(10, 37, 64, 0.45)),
-                      url('https://picsum.photos/id/1015/2000/1200'); /* ← CHANGE THIS to your own trail photo */
+    background-image: linear-gradient(rgba(10, 37, 64, 0.55), rgba(10, 37, 64, 0.55)),
+                      url('https://picsum.photos/id/1015/2000/1200'); /* ← CHANGE THIS to your real trail photo */
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     color: white;
     position: relative;
 }
 
-.hero-content {
+.hero-content,
+.hero-grid {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 24px;
@@ -270,11 +271,14 @@ body {
     grid-template-columns: 1fr;
     gap: 40px;
     align-items: center;
+    width: 100%;
 }
 
-@media (min-width: 768px) {
-    .hero-content {
-        grid-template-columns: 1fr 1fr;   /* left = text, right = background image */
+/* Desktop: Text LEFT | Background photo RIGHT */
+@media (min-width: 992px) {
+    .hero-content,
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -285,9 +289,21 @@ body {
     padding: 48px 40px;
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     max-width: 480px;
-    margin-right: auto;           /* ← CHANGED: now sticks to the LEFT */
+    margin-right: auto;           /* sticks to LEFT side */
     margin-left: 0;
 }
+
+/* Optional: If you have a separate <img> inside the hero, hide it on desktop so the background shows cleanly */
+.hero img {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .hero img {
+        display: block;   /* only show if you want a foreground image */
+    }
+}
+
 .cta-button {
     display: inline-block;
     background-color: #0a2540;
