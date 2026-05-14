@@ -41,7 +41,14 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+/* Make logo area obviously clickable */
+.logo-container a:hover {
+    opacity: 0.9;
+}
 
+.logo-container a:hover .logo-text {
+    color: #f8d48c;
+}
 .logo-container {
     display: flex;
     align-items: center;
