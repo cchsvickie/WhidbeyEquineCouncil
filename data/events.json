@@ -7,13 +7,13 @@
     "time": "6:00 PM",
     "desc": "Survey to assess land management/conservation needs of WI horse comminity",
     "location": "On-line",
-    "price": Free",
+    "price": "Free",
     "registerUrl": "#"
   },
   {
     "id": 2,
     "category": "Meetings",
-    "title": Whidbey Island Horse Council",
+    "title": "Whidbey Island Horse Council",
     "date": "2026-06-05",
     "time": "6:30 PM",
     "desc": "Monthly meeting first Wednesday of every month.",
