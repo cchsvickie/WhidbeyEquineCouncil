@@ -1,6 +1,6 @@
 // =============================================
 // EVENTS PAGE – Whidbey Island Horse Council
-// "Coming Soon" support + no-events fix + debug logs
+// "Coming Soon" support + improved debugging
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,28 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadEvents() {
     try {
-      const response = await fetch('data/events.json');
+      const response = await fetch('data/events.json?v=' + Date.now()); // force fresh load
       if (!response.ok) throw new Error('Failed to fetch JSON');
       
       allEvents = await response.json();
       console.log('✅ Events loaded successfully:', allEvents.length, 'events');
+      console.table(allEvents); // shows full data in console
       renderCategoryButtons();
       filterAndRenderEvents();
     } catch (error) {
       console.error('❌ Failed to load events.json →', error);
-      eventsContainer.innerHTML = `
-        <div class="text-center py-12 text-red-600">
-          <p>Could not load events. Make sure data/events.json exists in your repo.</p>
-        </div>`;
+      eventsContainer.innerHTML = `<div class="text-center py-12 text-red-600"><p>Could not load events. Make sure data/events.json exists.</p></div>`;
     }
   }
 
   function renderCategoryButtons() {
     const categories = ['All', ...new Set(allEvents.map(e => e.category))];
     categoryRow.innerHTML = categories.map(cat => `
-      <button 
-        onclick="window.filterCategory('${cat}')"
-        class="category-btn ${activeCategory === cat ? 'active' : ''}">
+      <button onclick="window.filterCategory('${cat}')"
+              class="category-btn ${activeCategory === cat ? 'active' : ''}">
         ${cat}
       </button>
     `).join('');
@@ -46,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let filtered = allEvents.filter(event => {
       const eventDate = new Date(event.date);
-      return eventDate >= today;   // only future events
+      return eventDate >= today;
     });
 
     if (activeCategory !== 'All') {
@@ -67,12 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
       noEventsMsg.style.display = 'none';
 
       filtered.forEach(event => {
-        const eventDate = new Date(event.date);
+        const rawDate = event.date;                    // e.g. "2100-01-01"
+        const eventDate = new Date(rawDate);
         
-        // === COMING SOON LOGIC ===
+        console.log(`🔍 Processing event: "${event.title}" → date: ${rawDate} → year: ${eventDate.getFullYear()}`);
+
+        // === COMING SOON LOGIC (more reliable) ===
         let displayDate = '';
-        if (eventDate.getFullYear() >= 2100) {
+        if (rawDate.startsWith('2100') || eventDate.getFullYear() >= 2100) {
           displayDate = '<span style="color:#f8d48c; font-weight:700;">Coming Soon</span>';
+          console.log('   → Showing "Coming Soon"');
         } else {
           displayDate = eventDate.toLocaleDateString('en-US', {
             weekday: 'long',
