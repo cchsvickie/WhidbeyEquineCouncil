@@ -1,6 +1,6 @@
 // =============================================
 // EVENTS PAGE – Whidbey Island Horse Council
-// Robust "Coming Soon" + fixed local date parsing
+// "Coming Soon" + fixed dates + Register Now opens in new tab
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // ✅ ROBUST LOCAL DATE FORMATTER (fixes June 2 → June 3 bug)
+  // Reliable local date formatter
   function formatLocalDate(dateStr) {
     const [year, month, day] = dateStr.split('-').map(Number);
-    const date = new Date(year, month - 1, day);   // month is 0-based in JS
+    const date = new Date(year, month - 1, day);
     return date.toLocaleDateString('en-US', {
       weekday: 'long',
       month: 'long',
@@ -109,7 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="event-footer">
-              <a href="${event.registerUrl}" class="btn-register">More Details <i class="fa-solid fa-arrow-right"></i></a>
+              <!-- Register Now now opens in a new tab -->
+              <a href="${event.registerUrl}" 
+                 class="btn-register" 
+                 target="_blank" 
+                 rel="noopener noreferrer">
+                 More Details <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         `;
