@@ -1,6 +1,6 @@
 // =============================================
 // EVENTS PAGE – Whidbey Island Horse Council
-// Fixed timezone bug + "Coming Soon" support
+// Robust "Coming Soon" + fixed local date parsing
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Reliable local date formatting (fixes the June 2 → June 3 bug)
+  // ✅ ROBUST LOCAL DATE FORMATTER (fixes June 2 → June 3 bug)
   function formatLocalDate(dateStr) {
     const [year, month, day] = dateStr.split('-').map(Number);
-    const date = new Date(year, month - 1, day);   // month is 0-based
+    const date = new Date(year, month - 1, day);   // month is 0-based in JS
     return date.toLocaleDateString('en-US', {
       weekday: 'long',
       month: 'long',
@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
       filtered.forEach(event => {
         const rawDate = String(event.date || '').trim();
 
-        // === COMING SOON LOGIC ===
         let displayDate = '';
         if (rawDate.startsWith('2100')) {
           displayDate = '<span style="color:#f8d48c; font-weight:700;">Coming Soon</span>';
@@ -126,6 +125,5 @@ document.addEventListener('DOMContentLoaded', () => {
     filterAndRenderEvents();
   };
 
-  // Initial load
   loadEvents();
 });
