@@ -1,6 +1,6 @@
 // =============================================
 // EVENTS PAGE – Whidbey Island Horse Council
-// "Coming Soon" support + improved debugging
+// Robust "Coming Soon" support (fixed timezone bug)
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,12 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
       
       allEvents = await response.json();
       console.log('✅ Events loaded successfully:', allEvents.length, 'events');
-      console.table(allEvents); // shows full data in console
+      console.table(allEvents); // helpful for debugging
       renderCategoryButtons();
       filterAndRenderEvents();
     } catch (error) {
       console.error('❌ Failed to load events.json →', error);
-      eventsContainer.innerHTML = `<div class="text-center py-12 text-red-600"><p>Could not load events. Make sure data/events.json exists.</p></div>`;
+      eventsContainer.innerHTML = `
+        <div class="text-center py-12 text-red-600">
+          <p>Could not load events. Make sure data/events.json exists in your repo.</p>
+        </div>`;
     }
   }
 
@@ -54,8 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     eventsContainer.innerHTML = '';
 
-    console.log(`📊 Filtered events for "${activeCategory}":`, filtered.length);
-
     if (filtered.length === 0) {
       noEventsMsg.classList.remove('hidden');
       noEventsMsg.style.display = 'block';
@@ -64,17 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
       noEventsMsg.style.display = 'none';
 
       filtered.forEach(event => {
-        const rawDate = event.date;                    // e.g. "2100-01-01"
-        const eventDate = new Date(rawDate);
-        
-        console.log(`🔍 Processing event: "${event.title}" → date: ${rawDate} → year: ${eventDate.getFullYear()}`);
+        const rawDate = String(event.date || '').trim();
 
-        // === COMING SOON LOGIC (more reliable) ===
+        // === COMING SOON LOGIC - now purely string-based (fixes timezone issue) ===
         let displayDate = '';
-        if (rawDate.startsWith('2100') || eventDate.getFullYear() >= 2100) {
+        if (rawDate.startsWith('2100') || rawDate.includes('2100-01-01')) {
           displayDate = '<span style="color:#f8d48c; font-weight:700;">Coming Soon</span>';
-          console.log('   → Showing "Coming Soon"');
         } else {
+          const eventDate = new Date(rawDate);
           displayDate = eventDate.toLocaleDateString('en-US', {
             weekday: 'long',
             month: 'long',
