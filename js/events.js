@@ -1,6 +1,6 @@
 // =============================================
 // EVENTS PAGE – Whidbey Island Horse Council
-// Robust "Coming Soon" support (fixed timezone bug)
+// Fixed timezone bug + "Coming Soon" support
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,12 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadEvents() {
     try {
-      const response = await fetch('data/events.json?v=' + Date.now()); // force fresh load
+      const response = await fetch('data/events.json?v=' + Date.now());
       if (!response.ok) throw new Error('Failed to fetch JSON');
       
       allEvents = await response.json();
       console.log('✅ Events loaded successfully:', allEvents.length, 'events');
-      console.table(allEvents); // helpful for debugging
       renderCategoryButtons();
       filterAndRenderEvents();
     } catch (error) {
@@ -38,6 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ${cat}
       </button>
     `).join('');
+  }
+
+  // Reliable local date formatting (fixes the June 2 → June 3 bug)
+  function formatLocalDate(dateStr) {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const date = new Date(year, month - 1, day);   // month is 0-based
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric'
+    });
   }
 
   function filterAndRenderEvents() {
@@ -67,17 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
       filtered.forEach(event => {
         const rawDate = String(event.date || '').trim();
 
-        // === COMING SOON LOGIC - now purely string-based (fixes timezone issue) ===
+        // === COMING SOON LOGIC ===
         let displayDate = '';
-        if (rawDate.startsWith('2100') || rawDate.includes('2100-01-01')) {
+        if (rawDate.startsWith('2100')) {
           displayDate = '<span style="color:#f8d48c; font-weight:700;">Coming Soon</span>';
         } else {
-          const eventDate = new Date(rawDate);
-          displayDate = eventDate.toLocaleDateString('en-US', {
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric'
-          });
+          displayDate = formatLocalDate(rawDate);
         }
 
         const cardHTML = `
