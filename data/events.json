@@ -1,46 +1,35 @@
 [
   {
     "id": 1,
-    "category": "Trail Rides",
-    "title": "Sunset Trail Ride",
-    "date": "2026-05-22",
+    "category": "Community Involvement",
+    "title": "Equine Economic Survey",
+    "date": "2100-01-01",
     "time": "6:00 PM",
-    "desc": "2-hour guided ride through the foothills with breathtaking sunset views.",
-    "location": "Main Barn Trailhead",
-    "price": "$85",
+    "desc": "Survey to assess land management/conservation needs of WI horse comminity",
+    "location": "On-line",
+    "price": Free",
     "registerUrl": "#"
   },
   {
     "id": 2,
-    "category": "Trail Rides",
-    "title": "Beginner Moonlight Ride",
+    "category": "Meetings",
+    "title": Whidbey Island Horse Council",
     "date": "2026-06-05",
-    "time": "8:30 PM",
-    "desc": "Perfect for new riders. Lanterns and gentle trails.",
-    "location": "North Pasture",
-    "price": "$95",
+    "time": "6:30 PM",
+    "desc": "Monthly meeting first Wednesday of every month.",
+    "location": "Central Whidbey Fire and Rescue Station located at 1164 E Race Road, Coupeville, WA 98239",
+    "price": "Free",
     "registerUrl": "#"
   },
   {
     "id": 3,
-    "category": "Horse Shows",
+    "category": "Rides, Shows and Clinics",
     "title": "Spring Classic Horse Show",
-    "date": "2026-06-12",
+    "date": "2026-05-12",
     "time": "8:00 AM",
     "desc": "Open to all levels. Halter, Western Pleasure, and Trail classes.",
     "location": "Main Arena",
     "price": "$45",
-    "registerUrl": "#"
-  },
-  {
-    "id": 4,
-    "category": "Clinics",
-    "title": "Natural Horsemanship Clinic",
-    "date": "2026-06-15",
-    "time": "9:00 AM",
-    "desc": "One-day intensive ground work and riding clinic.",
-    "location": "Covered Arena",
-    "price": "$175",
     "registerUrl": "#"
   }
 ]
