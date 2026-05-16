@@ -109,8 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="event-footer">
-              <a href="${event.registerUrl}" class="btn-register">Register Now <i class="fa-solid fa-arrow-right"></i></a>
-              <a href="#" class="btn-details">More Details</a>
+              <a href="${event.registerUrl}" class="btn-register">More Details <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         `;
