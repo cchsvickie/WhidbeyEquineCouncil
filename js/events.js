@@ -1,6 +1,6 @@
 // =============================================
-// EVENTS PAGE – Fixed for Whidbey Island Horse Council
-// No-events message bug fixed + debug logs
+// EVENTS PAGE – Whidbey Island Horse Council
+// "Coming Soon" support + no-events fix + debug logs
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!response.ok) throw new Error('Failed to fetch JSON');
       
       allEvents = await response.json();
-      console.log('✅ Events loaded successfully:', allEvents.length, 'events'); // debug
+      console.log('✅ Events loaded successfully:', allEvents.length, 'events');
       renderCategoryButtons();
       filterAndRenderEvents();
     } catch (error) {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     eventsContainer.innerHTML = '';
 
-    console.log(`📊 Filtered events for "${activeCategory}":`, filtered.length); // debug
+    console.log(`📊 Filtered events for "${activeCategory}":`, filtered.length);
 
     if (filtered.length === 0) {
       noEventsMsg.classList.remove('hidden');
@@ -68,11 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       filtered.forEach(event => {
         const eventDate = new Date(event.date);
-        const formattedDate = eventDate.toLocaleDateString('en-US', {
-          weekday: 'long',
-          month: 'long',
-          day: 'numeric'
-        });
+        
+        // === COMING SOON LOGIC ===
+        let displayDate = '';
+        if (eventDate.getFullYear() >= 2100) {
+          displayDate = '<span style="color:#f8d48c; font-weight:700;">Coming Soon</span>';
+        } else {
+          displayDate = eventDate.toLocaleDateString('en-US', {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric'
+          });
+        }
 
         const cardHTML = `
           <div class="event-card">
@@ -86,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="event-meta">
               <div class="meta-item">
                 <i class="fa-solid fa-calendar"></i>
-                <span class="meta-date">${formattedDate}</span>
+                <span class="meta-date">${displayDate}</span>
               </div>
               <div class="meta-item">
                 <i class="fa-solid fa-clock"></i>
