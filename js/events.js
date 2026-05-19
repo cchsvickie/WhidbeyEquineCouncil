@@ -1,6 +1,6 @@
 // =============================================
 // EVENTS PAGE – Whidbey Island Horse Council
-// Coming Soon + fixed dates + Add to Calendar
+// "Coming Soon" + fixed dates + Register Now opens in new tab
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
+  // Reliable local date formatter
   function formatLocalDate(dateStr) {
     const [year, month, day] = dateStr.split('-').map(Number);
     const date = new Date(year, month - 1, day);
@@ -47,28 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
       month: 'long',
       day: 'numeric'
     });
-  }
-
-  // Helper: Create Google Calendar "Add to Calendar" link
-  function getGoogleCalendarUrl(event) {
-    const title = encodeURIComponent(event.title);
-    const details = encodeURIComponent(event.desc + '\n\n' + event.location);
-    const location = encodeURIComponent(event.location);
-    
-    // Convert date + time to Google Calendar format (YYYYMMDDTHHMMSS)
-    const dateStr = event.date.replace(/-/g, '');
-    let timeStr = event.time.replace(/[^0-9:]/g, '').replace(':', '');
-    if (timeStr.length === 4) timeStr += '00'; // e.g. 630 → 183000
-    const startTime = timeStr.padStart(6, '0');
-    
-    // Simple 2-hour duration (you can adjust if needed)
-    const endTime = (parseInt(startTime, 10) + 20000).toString().padStart(6, '0');
-    
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE` +
-           `&text=${title}` +
-           `&dates=${dateStr}T${startTime}/${dateStr}T${endTime}` +
-           `&details=${details}` +
-           `&location=${location}`;
   }
 
   function filterAndRenderEvents() {
@@ -130,13 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="event-footer">
-              <a href="${event.registerUrl}" class="btn-register" target="_blank" rel="noopener noreferrer">
-                Register Now <i class="fa-solid fa-arrow-right"></i>
+              <!-- Register Now now opens in a new tab -->
+              <a href="${event.registerUrl}" 
+                 class="btn-register" 
+                 target="_blank" 
+                 rel="noopener noreferrer">
+                 More Details <i class="fa-solid fa-arrow-right"></i>
               </a>
-              <a href="${getGoogleCalendarUrl(event)}" class="btn-calendar" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-              </a>
-              <a href="#" class="btn-details">More Details</a>
             </div>
           </div>
         `;
