@@ -1109,7 +1109,39 @@ body {
     color: #f8d48c;
     text-decoration: underline;
 }
+/* ====================== ADD TO CALENDAR BUTTON ====================== */
+.btn-calendar {
+    background-color: #f8d48c;
+    color: #0a2540;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 9999px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
 
+.btn-calendar:hover {
+    background-color: #e8c46c;
+    transform: translateY(-2px);
+    color: #0a2540;
+}
+
+.btn-calendar i {
+    font-size: 1.1rem;
+}
+
+/* Makes it look good next to the Register Now button */
+.event-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
 /* ====================== UTILITIES ====================== */
 .hidden {
     display: none !important;
