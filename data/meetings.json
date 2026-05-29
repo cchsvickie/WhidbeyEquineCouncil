@@ -3,7 +3,7 @@
     "date": "Wednesday, June 3, 2026",
     "time": "6:30 PM",
     "location": "Race Road Firestation (1164 Race Road)",
-    "agendaUrl": "#",
+    "agendaUrl": "minutes/agenda.pdf",
     "zoomUrl": "https://calendar.app.google/1dZCdtvkdXhVQi86A"
   },
   "pastMeetings": [
@@ -11,7 +11,7 @@
       "date": "May 6, 2026",
       "time": "6:30 PM",
       "location": "Race Road Firestation (1164 Race Road)",
-      "minutesUrl": "#"
+      "minutesUrl": "minutes/2026-05-06.pdf"
     },
     {
       "date": "April 1, 2026",
