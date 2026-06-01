@@ -70,18 +70,38 @@
 
             <!-- Next Meeting Box -->
             <div id="next-meeting" class="next-meeting-box">
-                <h2>Next Monthly Meeting</h2>
+                <h2>📅 Next Monthly Meeting</h2>
                 <div id="next-date" class="date"></div>
                 <div id="next-time-location" class="time-location"></div>
                 
-                <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
-                    <a id="agenda-link" href="#" class="minutes-link" style="background:#f8d48c; color:#0a2540;" target="_blank">
-                        View Agenda →
+                <!-- Enhanced Zoom Section with ID + Passcode -->
+                <div class="zoom-meeting-info" style="background:#f8f9fa; padding:15px; border-radius:8px; border:1px solid #ddd; margin:20px 0;">
+                    <a id="zoom-link" 
+                       href="#" 
+                       class="minutes-link" 
+                       style="background:#0a2540; color:white; display:block; padding:14px; text-align:center; border-radius:6px; text-decoration:none; font-weight:bold; margin-bottom:12px;"
+                       target="_blank">
+                        🚀 Join Zoom Meeting Now
                     </a>
-                    <a id="zoom-link" href="#" class="minutes-link" style="background:#0a2540; color:white;" target="_blank">
-                        Join Zoom Meeting
+
+                    <p style="margin:6px 0;"><strong>Meeting ID:</strong> 
+                        <span id="zoom-id" style="font-family:monospace; background:#e9ecef; padding:4px 8px; border-radius:4px;">85900026805</span>
+                        <button onclick="navigator.clipboard.writeText('85900026805');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)" style="font-size:0.8em;margin-left:8px;">📋 Copy</button>
+                    </p>
+                    <p style="margin:6px 0;"><strong>Passcode:</strong> 
+                        <span id="zoom-passcode" style="font-family:monospace; background:#e9ecef; padding:4px 8px; border-radius:4px;">AS9sT9NNUfgTPpbVVB5CdimZyT7HWw.1</span>
+                        <button onclick="navigator.clipboard.writeText('AS9sT9NNUfgTPpbVVB5CdimZyT7HWw.1');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)" style="font-size:0.8em;margin-left:8px;">📋 Copy</button>
+                    </p>
+
+                    <a id="agenda-link" href="#" class="minutes-link" style="background:#f8d48c; color:#0a2540; display:inline-block; padding:10px 20px; margin:10px 0; text-decoration:none;">
+                        📄 View / Download Agenda
                     </a>
-                    <a href="#" class="minutes-link">Add to Calendar</a>
+
+                    <a href="#" class="minutes-link" style="background:#0a2540; color:white; display:inline-block; padding:10px 20px; margin-left:8px;">🗓️ Add to Calendar</a>
+
+                    <small style="display:block; margin-top:10px; color:#555;">
+                        📍 Race Road Firestation (1164 Race Road)
+                    </small>
                 </div>
             </div>
 
@@ -101,7 +121,7 @@
                     <img src="images/logo.png" alt="Whidbey Island Horse Council">
                     <div class="logo-text" style="color:white; font-size:1.4rem;">Whidbey Island <small style="color:#f8d48c;">Horse Council</small></div>
                 </div>
-                <p>DDedicated to supporting the equestrian community and making horse ownership and enjoyment accessible on Whidbey Island.</p>
+                <p>Dedicated to supporting the equestrian community and making horse ownership and enjoyment accessible on Whidbey Island.</p>
             </div>
             <div class="footer-column">
                 <h4>Quick Links</h4>
@@ -150,7 +170,7 @@
 
                 const next = data.nextMeeting;
 
-                // Next Meeting Info
+                // Next Meeting Info (dynamic from JSON)
                 document.getElementById('next-date').textContent = next.date;
                 document.getElementById('next-time-location').innerHTML = `
                     ${next.time}<br>
@@ -161,21 +181,33 @@
                 const agendaLink = document.getElementById('agenda-link');
                 if (next.agendaUrl && next.agendaUrl.trim() !== "") {
                     agendaLink.href = next.agendaUrl;
-                    agendaLink.style.display = 'inline-flex';
-                } else {
-                    agendaLink.style.display = 'none';
                 }
 
-                // Zoom button
+                // Zoom button + extract ID & Passcode automatically from URL
                 const zoomLink = document.getElementById('zoom-link');
                 if (next.zoomUrl && next.zoomUrl.trim() !== "") {
                     zoomLink.href = next.zoomUrl;
-                    zoomLink.style.display = 'inline-flex';
-                } else {
-                    zoomLink.style.display = 'none';
+
+                    // Auto-extract ID and Passcode (works even if you only update the URL in JSON)
+                    try {
+                        const urlObj = new URL(next.zoomUrl);
+                        const pathParts = urlObj.pathname.split('/j/');
+                        const meetingId = pathParts[1] || '85900026805';
+                        const passcode = urlObj.searchParams.get('pwd') || 'AS9sT9NNUfgTPpbVVB5CdimZyT7HWw.1';
+
+                        document.getElementById('zoom-id').textContent = meetingId;
+                        document.getElementById('zoom-passcode').textContent = passcode;
+
+                        // Also update copy buttons to use the dynamic values
+                        const copyButtons = document.querySelectorAll('.zoom-meeting-info button');
+                        if (copyButtons[0]) copyButtons[0].setAttribute('onclick', `navigator.clipboard.writeText('${meetingId}');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)`);
+                        if (copyButtons[1]) copyButtons[1].setAttribute('onclick', `navigator.clipboard.writeText('${passcode}');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)`);
+                    } catch(e) {
+                        console.log("Using fallback ID/passcode");
+                    }
                 }
 
-                // Past Meetings
+                // Past Meetings (unchanged)
                 const container = document.getElementById('past-meetings');
                 container.innerHTML = data.pastMeetings.map(meeting => `
                     <div class="meeting-card">
