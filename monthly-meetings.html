@@ -59,7 +59,7 @@
 
     <section class="main-content">
         <h1 class="page-title">Monthly Meetings</h1>
-           <div class="content-wrapper">
+        <div class="content-wrapper">
  
             <p style="margin-top: 2.5rem; line-height: 1.7; font-size: 1.1rem;">
                 The Council currently operates informally (i.e., is not a registered corporation), 
@@ -74,7 +74,7 @@
                 <div id="next-date" class="date"></div>
                 <div id="next-time-location" class="time-location"></div>
                 
-                <!-- Enhanced Zoom Section with ID + Passcode -->
+                <!-- Enhanced Zoom Section -->
                 <div class="zoom-meeting-info" style="background:#f8f9fa; padding:15px; border-radius:8px; border:1px solid #ddd; margin:20px 0;">
                     <a id="zoom-link" 
                        href="#" 
@@ -86,20 +86,21 @@
 
                     <p style="margin:6px 0;"><strong>Meeting ID:</strong> 
                         <span id="zoom-id" style="font-family:monospace; background:#e9ecef; padding:4px 8px; border-radius:4px;">85900026805</span>
-                        <button onclick="navigator.clipboard.writeText('859 0002 6805');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)" style="font-size:0.8em;margin-left:8px;">📋 Copy</button>
+                        <button onclick="navigator.clipboard.writeText('85900026805');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)" style="font-size:0.8em;margin-left:8px;">📋 Copy</button>
                     </p>
                     <p style="margin:6px 0;"><strong>Passcode:</strong> 
                         <span id="zoom-passcode" style="font-family:monospace; background:#e9ecef; padding:4px 8px; border-radius:4px;">AS9sT9NNUfgTPpbVVB5CdimZyT7HWw.1</span>
-                        <button onclick="navigator.clipboard.writeText('678881');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)" style="font-size:0.8em;margin-left:8px;">📋 Copy</button>
+                        <button onclick="navigator.clipboard.writeText('AS9sT9NNUfgTPpbVVB5CdimZyT7HWw.1');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)" style="font-size:0.8em;margin-left:8px;">📋 Copy</button>
                     </p>
 
-                    <a id="agenda-link" href="#" class="minutes-link" style="background:#f8d48c; color:#0a2540; display:inline-block; padding:10px 20px; margin:10px 0; text-decoration:none;">
-                        📄 View / Download Agenda
-                    </a>
+                    <div style="margin:12px 0;">
+                        <a id="agenda-link" href="#" class="minutes-link" style="background:#f8d48c; color:#0a2540; display:inline-block; padding:10px 20px; text-decoration:none;">
+                            📄 View / Download Agenda
+                        </a>
+                        <a href="#" class="minutes-link" style="background:#0a2540; color:white; display:inline-block; padding:10px 20px; margin-left:8px;">🗓️ Add to Calendar</a>
+                    </div>
 
-                    <a href="#" class="minutes-link" style="background:#0a2540; color:white; display:inline-block; padding:10px 20px; margin-left:8px;">🗓️ Add to Calendar</a>
-
-                    <small style="display:block; margin-top:10px; color:#555;">
+                    <small style="display:block; margin-top:8px; color:#555;">
                         📍 Race Road Firestation (1164 Race Road)
                     </small>
                 </div>
@@ -110,7 +111,6 @@
             <div id="past-meetings" class="meetings-list"></div>
 
         </div>     
-      
     </section>
 
     <!-- FOOTER -->
@@ -170,44 +170,38 @@
 
                 const next = data.nextMeeting;
 
-                // Next Meeting Info (dynamic from JSON)
+                // Populate basic info
                 document.getElementById('next-date').textContent = next.date;
                 document.getElementById('next-time-location').innerHTML = `
                     ${next.time}<br>
                     <strong>${next.location}</strong>
                 `;
 
-                // Agenda button
+                // Agenda
                 const agendaLink = document.getElementById('agenda-link');
-                if (next.agendaUrl && next.agendaUrl.trim() !== "") {
-                    agendaLink.href = next.agendaUrl;
-                }
+                if (next.agendaUrl) agendaLink.href = next.agendaUrl;
 
-                // Zoom button + extract ID & Passcode automatically from URL
+                // Zoom section (now using your nested "zoom" object)
+                const zoom = next.zoom || {};
                 const zoomLink = document.getElementById('zoom-link');
-                if (next.zoomUrl && next.zoomUrl.trim() !== "") {
-                    zoomLink.href = next.zoomUrl;
-
-                    // Auto-extract ID and Passcode (works even if you only update the URL in JSON)
-                    try {
-                        const urlObj = new URL(next.zoomUrl);
-                        const pathParts = urlObj.pathname.split('/j/');
-                        const meetingId = pathParts[1] || '85900026805';
-                        const passcode = urlObj.searchParams.get('pwd') || 'AS9sT9NNUfgTPpbVVB5CdimZyT7HWw.1';
-
-                        document.getElementById('zoom-id').textContent = meetingId;
-                        document.getElementById('zoom-passcode').textContent = passcode;
-
-                        // Also update copy buttons to use the dynamic values
-                        const copyButtons = document.querySelectorAll('.zoom-meeting-info button');
-                        if (copyButtons[0]) copyButtons[0].setAttribute('onclick', `navigator.clipboard.writeText('${meetingId}');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)`);
-                        if (copyButtons[1]) copyButtons[1].setAttribute('onclick', `navigator.clipboard.writeText('${passcode}');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)`);
-                    } catch(e) {
-                        console.log("Using fallback ID/passcode");
-                    }
+                if (zoom.url) {
+                    zoomLink.href = zoom.url;
                 }
 
-                // Past Meetings (unchanged)
+                // Set Meeting ID & Passcode from JSON
+                document.getElementById('zoom-id').textContent = zoom.meetingId || "85900026805";
+                document.getElementById('zoom-passcode').textContent = zoom.passcode || "AS9sT9NNUfgTPpbVVB5CdimZyT7HWw.1";
+
+                // Update copy button code to use the real values
+                const buttons = document.querySelectorAll('.zoom-meeting-info button');
+                if (buttons[0]) {
+                    buttons[0].setAttribute('onclick', `navigator.clipboard.writeText('${zoom.meetingId}');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)`);
+                }
+                if (buttons[1]) {
+                    buttons[1].setAttribute('onclick', `navigator.clipboard.writeText('${zoom.passcode}');this.textContent='✅ Copied!'; setTimeout(()=>{this.textContent='📋 Copy'}, 2000)`);
+                }
+
+                // Past Meetings
                 const container = document.getElementById('past-meetings');
                 container.innerHTML = data.pastMeetings.map(meeting => `
                     <div class="meeting-card">
