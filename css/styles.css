@@ -1109,7 +1109,212 @@ body {
     color: #f8d48c;
     text-decoration: underline;
 }
+/* ============================================= */
+/* WHIDBEY EQUINE DIRECTORY STYLES               */
+/* ============================================= */
 
+.directory-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.directory-controls input {
+    flex: 1;
+    min-width: 280px;
+    padding: 14px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.directory-controls input:focus {
+    outline: none;
+    border-color: #0a2540;
+    box-shadow: 0 0 0 4px rgba(10, 37, 64, 0.1);
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.category-btn {
+    padding: 10px 22px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    background: white;
+    color: #0a2540;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.category-btn:hover {
+    background: #f8d48c;
+    border-color: #f8d48c;
+}
+
+.category-btn.active {
+    background: #0a2540;
+    color: white;
+    border-color: #0a2540;
+}
+
+.directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+.directory-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.directory-card:hover {
+    border-color: #f8d48c;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.directory-card .service-badge {
+    display: inline-block;
+    background: #fefce8;
+    color: #854d0e;
+    padding: 4px 16px;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.directory-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 8px;
+}
+
+.directory-card .contact-name {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 16px;
+}
+
+.directory-card .meta {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1.05rem;
+}
+
+.directory-card .meta a {
+    color: #0a2540;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.directory-card .meta a:hover {
+    color: #f8d48c;
+}
+
+.directory-card .remove-request {
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: #666;
+    text-align: right;
+}
+
+.directory-card .remove-request a {
+    color: #854d0e;
+    text-decoration: underline;
+}
+
+.add-section {
+    margin-top: 80px;
+    padding: 48px;
+    background: #f8f5eb;
+    border-radius: 24px;
+}
+
+.add-section h2 {
+    color: #0a2540;
+    margin-bottom: 12px;
+}
+
+.contact-form .checkbox-group,
+.contact-form .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 8px;
+}
+
+.contact-form .checkbox-group label,
+.contact-form .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #222;
+}
+
+.contact-form input[type="checkbox"],
+.contact-form input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #0a2540;
+}
+
+.contact-form select {
+    width: 100%;
+    padding: 18px 24px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1.15rem;
+    font-family: 'Raleway', sans-serif;
+    background: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230a2540' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 48px;
+}
+
+.contact-form select:focus {
+    outline: none;
+    border-color: #0a2540;
+    box-shadow: 0 0 0 4px rgba(10, 37, 64, 0.1);
+}
+
+@media (max-width: 768px) {
+    .directory-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .directory-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
 /* ====================== UTILITIES ====================== */
 .hidden {
     display: none !important;
