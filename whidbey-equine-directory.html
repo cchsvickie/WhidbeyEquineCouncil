@@ -9,21 +9,23 @@
 </head>
 <body>
 
-    <!-- FULL HEADER with accordion -->
+    <!-- ====================== HEADER ====================== -->
     <header class="header-bg">
         <div class="nav-container">
-             <div class="logo-container">
-               <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                  <img src="images/logo.png" alt="Whidbey Island Horse Council Logo">
-                  <div class="logo-text">Whidbey Island <small>Horse Council</small></div>
-               </a>
-            </div>                             
+            <div class="logo-container">
+                <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                    <img src="images/logo.png" alt="Whidbey Island Horse Council Logo">
+                    <div class="logo-text">Whidbey Island <small>Horse Council</small></div>
+                </a>
+            </div>
             <nav class="desktop-nav">
                 <a href="index.html">Home</a>
-                <a href="about.html" class="active">About Us / Mission</a>
+                <a href="about.html">About Us / Mission</a>
+                <a href="news.html">News &amp; Updates</a>
                 <a href="events.html">Calendar</a>
                 <a href="resources.html">Resources</a>
                 <a href="contact.html">Contact</a>
+                <a href="laws.html">Island County / WA Laws</a>
             </nav>
             <div class="hamburger" onclick="toggleMobileMenu()">
                 <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -37,6 +39,7 @@
             <nav>
                 <a href="index.html" onclick="toggleMobileMenu()">Home</a>
                 <a href="about.html" onclick="toggleMobileMenu()">About Us / Mission</a>
+                <a href="news.html" onclick="toggleMobileMenu()">News &amp; Updates</a>
                 <div class="accordion-item">
                     <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Calendar <span class="chevron">›</span></button>
                     <div class="accordion-content">
@@ -53,18 +56,69 @@
                     </div>
                 </div>
                 <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+                <a href="laws.html" onclick="toggleMobileMenu()">Island County / WA Laws</a>
             </nav>
         </div>
     </header>
 
+    <!-- ====================== MAIN CONTENT ====================== -->
     <section class="main-content">
         <h1 class="page-title">Whidbey Equine Directory</h1>
+        
         <div class="content-wrapper">
             <p>Local veterinarians, farriers, boarding facilities, feed stores, trainers, and other equine services on Whidbey Island.</p>
+
+            <!-- ========== LIVE DIRECTORY (Embedded Airtable View) ========== -->
+            <h2 style="margin-top: 60px; margin-bottom: 12px;">Current Listings</h2>
+            <p style="margin-bottom: 24px; color: #555;">
+                This directory shows only approved submissions and updates automatically.
+            </p>
+
+            <div class="embed-wrapper">
+                <!-- 
+                    REPLACE THE SRC URL BELOW with your Public Directory view embed URL.
+                    How to get it: Open the filtered “Public Directory” view → Share and sync → Embed this view → Copy the URL
+                -->
+                <iframe class="airtable-embed" 
+                        src="https://airtable.com/embed/YOUR_DIRECTORY_VIEW_EMBED_URL_HERE" 
+                        width="100%" 
+                        height="700" 
+                        frameborder="0"
+                        allowfullscreen></iframe>
+            </div>
+
+            <!-- ========== ADD YOUR SERVICE FORM (Embedded Airtable Form) ========== -->
+            <div class="add-section">
+                <h2>Add Your Service to the Directory</h2>
+                <p>
+                    Welcome to Whidbey Island! This directory is for the benefit of equestrians on Whidbey Island. 
+                    Businesses who service Whidbey Island may list their service(s) for free by providing their information below. 
+                    Please note we will verify the business and reserve the right to remove any fraudulent information. 
+                    If you need to update a previous submission, please email xxxxx@yourdomain.com.
+                </p>
+
+                <div class="embed-wrapper">
+                    <!-- 
+                        REPLACE THE SRC URL BELOW with your Airtable Form embed URL.
+                        How to get it: Go to Forms → Open your form → Share form → Embed this form → Copy the URL
+                    -->
+                    <iframe class="airtable-embed" 
+                            src="https://airtable.com/embed/YOUR_FORM_EMBED_URL_HERE" 
+                            width="100%" 
+                            height="1600" 
+                            frameborder="0"
+                            allowfullscreen></iframe>
+                </div>
+
+                <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.95rem;">
+                    Having trouble with the form? 
+                    <a href="YOUR_FORM_SHARE_LINK_HERE" target="_blank">Open it in a new tab</a>
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ====================== FOOTER ====================== -->
     <footer class="footer">
         <div class="footer-content">
             <div>
@@ -72,7 +126,7 @@
                     <img src="images/logo.png" alt="Whidbey Island Horse Council">
                     <div class="logo-text" style="color:white; font-size:1.4rem;">Whidbey Island <small style="color:#f8d48c;">Horse Council</small></div>
                 </div>
-                <p>DDedicated to supporting the equestrian community and making horse ownership and enjoyment accessible on Whidbey Island.</p>
+                <p>Dedicated to supporting the equestrian community and making horse ownership and enjoyment accessible on Whidbey Island.</p>
             </div>
             <div class="footer-column">
                 <h4>Quick Links</h4>
@@ -80,12 +134,14 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="events.html">Calendar</a></li>
                     <li><a href="resources.html">Trail Safety</a></li>
+                    <li><a href="laws.html">Local Laws</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Connect With Us</h4>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/groups/1446844290421112" target="_blank">📘 Facebook</a>
+                    <a href="https://facebook.com/YOURPAGE" target="_blank">📘 Facebook</a>
+                    <a href="https://instagram.com/YOURPAGE" target="_blank">📸 Instagram</a>
                 </div>
             </div>
         </div>
@@ -106,6 +162,7 @@
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
             }
         }
+
         function toggleAccordion(button) {
             const isExpanded = button.getAttribute('aria-expanded') === 'true';
             button.setAttribute('aria-expanded', !isExpanded);
