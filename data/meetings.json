@@ -5,12 +5,18 @@
   "location": "Race Road Firestation (1164 Race Road)",
   "agendaUrl": "minutes/agenda.pdf",
   "zoom": {
-    "url": "https://us06web.zoom.us/j/85900026805?pwd=AS9sT9NNUfgTPpbVVB5CdimZyT7HWw.1",
-    "meetingId": "859 0002 6805",
-    "passcode": "678881"
+    "url": "https://us06web.zoom.us/j/86903466212?pwd=ro2gdUggYQ2UdTq1lThiEpoptJGhjD.1",
+    "meetingId": "869 0346 6212",
+    "passcode": "055847"
     }
   },
   "pastMeetings": [
+    {
+      "date": "June 3, 2026",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2026-06-03.pdf"
+    },    
     {
       "date": "May 6, 2026",
       "time": "6:30 PM",
