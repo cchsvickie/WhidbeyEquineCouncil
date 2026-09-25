@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css?v=5">
+    <style>
+        #error-message i {
+            color: #c0392b;
+        }
+    </style>
 </head>
 <body>
 
@@ -83,6 +88,14 @@
                 <p>We'll get back to you as soon as possible.</p>
                 <button onclick="resetContactForm()">Send Another Message</button>
             </div>
+
+            <div id="error-message" class="success-container">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <h2>Message Not Sent</h2>
+                <p>Sorry, something went wrong while sending your message.</p>
+                <p>Please try again in a moment.</p>
+                <button onclick="resetContactForm()">Try Again</button>
+            </div>
         </div>
     </section>
 
@@ -137,6 +150,7 @@
 
         const contactForm = document.getElementById('contact-form');
         const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
 
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
@@ -153,15 +167,20 @@
                         headers: { 'Accept': 'application/json' }
                     });
 
+                    contactForm.style.display = 'none';
+
                     if (response.ok) {
-                        contactForm.style.display = 'none';
                         successMessage.style.display = 'flex';
+                        errorMessage.style.display = 'none';
                         contactForm.reset();
                     } else {
-                        alert('Sorry, the message could not be sent. Please try again.');
+                        successMessage.style.display = 'none';
+                        errorMessage.style.display = 'flex';
                     }
                 } catch (error) {
-                    alert('Sorry, the message could not be sent. Please try again.');
+                    contactForm.style.display = 'none';
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'flex';
                 } finally {
                     button.disabled = false;
                     button.textContent = 'Send Message';
@@ -171,6 +190,7 @@
 
         function resetContactForm() {
             successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
             contactForm.style.display = 'flex';
         }
     </script>
