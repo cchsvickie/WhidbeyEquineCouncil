@@ -71,12 +71,15 @@
         <div class="contact-container">
             <h1 class="contact-title">Contact Us</h1>
             
-            <form class="contact-form" id="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject" required>
-                <textarea placeholder="Your Message" rows="6" required></textarea>
-                
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xnpnbwar" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+
+                <input type="hidden" name="_subject" value="New message from Whidbey Equine Council website">
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
                 <button type="submit" class="send-button">Send Message</button>
             </form>
 
@@ -127,7 +130,44 @@
             const icon = document.getElementById('hamburger-icon');
             if (menu.classList.contains('active')) {
                 menu.classList.remove('active');
-                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+   const contactForm = document.getElementById('contact-form');
+const successMessage = document.getElementById('success-message');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const button = contactForm.querySelector('.send-button');
+        button.disabled = true;
+        button.textContent = 'Sending...';
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                contactForm.style.display = 'none';
+                successMessage.style.display = 'flex';
+                contactForm.reset();
+            } else {
+                alert('Sorry, the message could not be sent. Please try again.');
+            }
+        } catch (error) {
+            alert('Sorry, the message could not be sent. Please try again.');
+        } finally {
+            button.disabled = false;
+            button.textContent = 'Send Message';
+        }
+    });
+}
+
+function resetContactForm() {
+    successMessage.style.display = 'none';
+    contactForm.style.display = 'flex';
+}             icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
             } else {
                 menu.classList.add('active');
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
@@ -142,29 +182,7 @@
         }
 
         // ====================== CONTACT FORM + SUCCESS MESSAGE ======================
-        const contactForm = document.getElementById('contact-form');
-        const successMessage = document.getElementById('success-message');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();   // prevents actual form submission (static site)
-                
-                // Hide form, show success
-                contactForm.style.display = 'none';
-                successMessage.style.display = 'flex';
-                
-                // Reset form fields
-                contactForm.reset();
-            });
-        }
-
-        function resetContactForm() {
-            // Hide success
-            successMessage.style.display = 'none';
-            
-            // Show form again
-            contactForm.style.display = 'flex';
-        }
+        
     </script>
 </body>
 </html>
