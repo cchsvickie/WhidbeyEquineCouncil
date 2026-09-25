@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Whidbey Equine Council</title>
-    
-    <!-- Existing fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- New fonts for this page -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body>
 
-    <!-- FULL HEADER (exactly as you had it) -->
     <header class="header-bg">
         <div class="nav-container">
             <div class="logo-container">
@@ -24,7 +19,7 @@
                   <img src="images/logo.png" alt="Whidbey Equine Council Logo">
                   <div class="logo-text">Whidbey <small>Equine Council</small></div>
                </a>
-            </div>                      
+            </div>
             <nav class="desktop-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About Us / Mission</a>
@@ -39,7 +34,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu">
             <button class="close-btn" onclick="toggleMobileMenu()">×</button>
             <nav>
@@ -66,11 +60,10 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT - Matches your screenshot + success message -->
     <section class="main-content">
         <div class="contact-container">
             <h1 class="contact-title">Contact Us</h1>
-            
+
             <form class="contact-form" id="contact-form" action="https://formspree.io/f/xnpnbwar" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
@@ -83,7 +76,6 @@
                 <button type="submit" class="send-button">Send Message</button>
             </form>
 
-            <!-- Success Message -->
             <div id="success-message" class="success-container">
                 <i class="fa-solid fa-circle-check"></i>
                 <h2>Message Sent!</h2>
@@ -94,7 +86,6 @@
         </div>
     </section>
 
-    <!-- FOOTER (exactly as you had it) -->
     <footer class="footer">
         <div class="footer-content">
             <div>
@@ -130,44 +121,7 @@
             const icon = document.getElementById('hamburger-icon');
             if (menu.classList.contains('active')) {
                 menu.classList.remove('active');
-   const contactForm = document.getElementById('contact-form');
-const successMessage = document.getElementById('success-message');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const button = contactForm.querySelector('.send-button');
-        button.disabled = true;
-        button.textContent = 'Sending...';
-
-        try {
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: new FormData(contactForm),
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                contactForm.style.display = 'none';
-                successMessage.style.display = 'flex';
-                contactForm.reset();
-            } else {
-                alert('Sorry, the message could not be sent. Please try again.');
-            }
-        } catch (error) {
-            alert('Sorry, the message could not be sent. Please try again.');
-        } finally {
-            button.disabled = false;
-            button.textContent = 'Send Message';
-        }
-    });
-}
-
-function resetContactForm() {
-    successMessage.style.display = 'none';
-    contactForm.style.display = 'flex';
-}             icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
             } else {
                 menu.classList.add('active');
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
@@ -181,8 +135,44 @@ function resetContactForm() {
             content.classList.toggle('open');
         }
 
-        // ====================== CONTACT FORM + SUCCESS MESSAGE ======================
-        
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const button = contactForm.querySelector('.send-button');
+                button.disabled = true;
+                button.textContent = 'Sending...';
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        contactForm.style.display = 'none';
+                        successMessage.style.display = 'flex';
+                        contactForm.reset();
+                    } else {
+                        alert('Sorry, the message could not be sent. Please try again.');
+                    }
+                } catch (error) {
+                    alert('Sorry, the message could not be sent. Please try again.');
+                } finally {
+                    button.disabled = false;
+                    button.textContent = 'Send Message';
+                }
+            });
+        }
+
+        function resetContactForm() {
+            successMessage.style.display = 'none';
+            contactForm.style.display = 'flex';
+        }
     </script>
 </body>
 </html>
