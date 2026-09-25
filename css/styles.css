@@ -780,6 +780,10 @@ body {
     margin-bottom: 24px;
 }
 
+#error-message i {
+    color: #c0392b;
+}
+
 .success-container h2 {
     font-size: 2.5rem;
     font-weight: 700;
