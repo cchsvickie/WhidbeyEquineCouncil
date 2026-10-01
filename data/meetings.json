@@ -1,16 +1,22 @@
 {
   "nextMeeting": {
-  "date": "Wednesday, September 16, 2026",
+  "date": "Wednesday, October7, 2026",
   "time": "6:30 PM",
   "location": "Race Road Firestation (1164 Race Road)",
   "agendaUrl": "minutes/agenda.pdf",
   "zoom": {
-    "url": "https://us06web.zoom.us/j/83600255777?pwd=n4GuWaSN46saFmtdGiaZ1mVq9KY0tZ.1",
-    "meetingId": "836 0025 5777",
-    "passcode": "048810"
+    "url": "https://us06web.zoom.us/j/86468464522?pwd=efz9xhe5mkzt4FbpmxC0idwkuWijxD.1",
+    "meetingId": "864 6846 4522",
+    "passcode": "455835"
     }
   },
   "pastMeetings": [
+    {
+      "date": "September 16, 2026",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2026-09-16.pdf"
+    },    
     {
       "date": "August 5, 2026",
       "time": "6:30 PM",
