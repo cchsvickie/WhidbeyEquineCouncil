@@ -1,6 +1,6 @@
 {
   "nextMeeting": {
-  "date": "Wednesday, October7, 2026",
+  "date": "Wednesday, November 4, 2026",
   "time": "6:30 PM",
   "location": "Race Road Firestation (1164 Race Road)",
   "agendaUrl": "minutes/agenda.pdf",
@@ -11,6 +11,12 @@
     }
   },
   "pastMeetings": [
+    {
+      "date": "October 7, 2026",
+      "time": "6:30 PM",
+      "location": "Race Road Firestation (1164 Race Road)",
+      "minutesUrl": "minutes/2026-10-07.pdf"
+    },    
     {
       "date": "September 16, 2026",
       "time": "6:30 PM",
