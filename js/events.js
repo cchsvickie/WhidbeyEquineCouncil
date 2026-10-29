@@ -1,6 +1,6 @@
 // =============================================
 // EVENTS PAGE – Whidbey Island Horse Council
-// Coming Soon dates + conditional details button
+// Coming Soon dates + blank footer when no URL
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Reliable local date formatter
   function formatLocalDate(dateStr) {
     const [year, month, day] = dateStr.split('-').map(Number);
     const date = new Date(year, month - 1, day);
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
           displayDate = formatLocalDate(rawDate);
         }
 
-        // Only create a real link if a valid URL exists
+        // Only show a button if a real URL exists
         const hasUrl = event.registerUrl &&
                        event.registerUrl !== '#' &&
                        String(event.registerUrl).trim() !== '';
@@ -96,11 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                rel="noopener noreferrer">
                More Details <i class="fa-solid fa-arrow-right"></i>
              </a>`
-          : `<span class="btn-register disabled" 
-                   style="opacity:0.6; cursor:default; pointer-events:none;"
-                   aria-disabled="true">
-               Details Coming Soon
-             </span>`;
+          : '';   // ← completely blank when null / empty / missing
 
         const cardHTML = `
           <div class="event-card">
