@@ -1,6 +1,6 @@
 // =============================================
 // EVENTS PAGE – Whidbey Island Horse Council
-// "Coming Soon" + fixed dates + Register Now opens in new tab
+// Coming Soon dates + conditional details button
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -84,6 +84,24 @@ document.addEventListener('DOMContentLoaded', () => {
           displayDate = formatLocalDate(rawDate);
         }
 
+        // Only create a real link if a valid URL exists
+        const hasUrl = event.registerUrl &&
+                       event.registerUrl !== '#' &&
+                       String(event.registerUrl).trim() !== '';
+
+        const detailsButton = hasUrl
+          ? `<a href="${event.registerUrl}" 
+               class="btn-register" 
+               target="_blank" 
+               rel="noopener noreferrer">
+               More Details <i class="fa-solid fa-arrow-right"></i>
+             </a>`
+          : `<span class="btn-register disabled" 
+                   style="opacity:0.6; cursor:default; pointer-events:none;"
+                   aria-disabled="true">
+               Details Coming Soon
+             </span>`;
+
         const cardHTML = `
           <div class="event-card">
             <div class="event-header">
@@ -109,13 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="event-footer">
-              <!-- Register Now now opens in a new tab -->
-              <a href="${event.registerUrl}" 
-                 class="btn-register" 
-                 target="_blank" 
-                 rel="noopener noreferrer">
-                 More Details <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              ${detailsButton}
             </div>
           </div>
         `;
