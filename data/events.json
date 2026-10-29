@@ -24,12 +24,12 @@
   {
     "id": 3,
     "category": "Rides, Shows and Clinics",
-    "title": "Spring Classic Horse Show",
-    "date": "2026-05-12",
-    "time": "8:00 AM",
-    "desc": "Open to all levels. Halter, Western Pleasure, and Trail classes.",
-    "location": "Main Arena",
-    "price": "$45",
-    "registerUrl": "#"
+    "title": "Halloween Ride",
+    "date": "2026-10-31",
+    "time": "10:00 AM",
+    "desc": "All ages are welcome! Wear a costume and bring some snacks to share. There will be costume judging and prizes.",
+    "location": "Putney Woods County Park, 4850 Lone Lake Rd, Langley WA",
+    "price": "Free",
+    "registerUrl": "#"    
   }
 ]
