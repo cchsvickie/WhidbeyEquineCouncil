@@ -6,7 +6,7 @@
     <title>Whidbey Equine Directory | Whidbey Island Horse Council</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/logo-header.png">
-    <link rel="stylesheet" href="css/styles.css?v=20261117">
+    <link rel="stylesheet" href="css/styles.css?v=20261117b">
 </head>
 <body>
 
@@ -81,7 +81,7 @@
             <div class="directory-help">
                 <p><strong>How to use the directory</strong></p>
                 <ul>
-                    <li>Tap or click <strong>Views</strong> at the top of the directory to choose a service category. The first view, <strong>Whidbey Equine Directory (All)</strong>, shows every listing.</li>
+                    <li>Tap or click <strong>Views</strong> at the top of the directory and pick a service category, or the view that shows every listing.</li>
                     <li>The directory shows only listings the Council has reviewed and approved &ndash; that is what the green <em>&ldquo;Filtered by Approved&rdquo;</em> note means. You don&rsquo;t need to change it.</li>
                     <li>Tap or click any card to see the full listing.</li>
                 </ul>
@@ -126,9 +126,8 @@
 
             <div class="network-note">
                 <h3>More Whidbey Island horse community</h3>
-                <p>This directory is a community reference, not a marketing site. For day-to-day conversation, questions and local recommendations, visit the
-                    <!-- TODO: add the group's Facebook URL in js/site-config.js (equineNetworkFacebookUrl) -->
-                    <a id="equine-network-link" class="equine-network-name">Whidbey Island Equine Network</a> group on Facebook.</p>
+                <!-- The group name becomes a link only when equineNetworkFacebookUrl is set in js/site-config.js. -->
+                <p>This directory is a community reference, not a marketing site. Day-to-day conversation, questions and local recommendations are in the <span id="equine-network-link" class="equine-network-name">Whidbey Island Equine Network</span> group on Facebook.</p>
             </div>
         </div>
     </section>
@@ -150,6 +149,9 @@
                     <li><a href="events.html">Community Activities</a></li>
                     <li><a href="monthly-meetings.html">Meetings</a></li>
                     <li><a href="whidbey-equine-directory.html">Whidbey Equine Directory</a></li>
+                    <li><a href="horse-friendly-trails.html">Horse Friendly Trails</a></li>
+                    <li><a href="resources.html">Trail Safety</a></li>
+                    <li><a href="emergency-preparedness.html">Emergency Preparedness</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -172,9 +174,14 @@
             const url = (window.SITE_CONFIG && window.SITE_CONFIG.equineNetworkFacebookUrl) || '';
             const link = document.getElementById('equine-network-link');
             if (link && url) {
-                link.href = url;
-                link.target = '_blank';
-                link.rel = 'noopener';
+                const a = document.createElement('a');
+                a.id = 'equine-network-link';
+                a.className = 'equine-network-name';
+                a.href = url;
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.textContent = link.textContent;
+                link.replaceWith(a);
             }
         })();
 
@@ -186,7 +193,7 @@
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
             } else {
                 menu.classList.add('active');
-                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`;
             }
         }
 

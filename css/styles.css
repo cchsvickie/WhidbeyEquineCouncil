@@ -1650,4 +1650,38 @@ table { max-width: 100%; display: block; overflow-x: auto; }
     .logo-text small { font-size: 0.95rem; }
     .hamburger { width: 44px; height: 44px; flex-shrink: 0; }
     .carousel-arrow { width: 40px; height: 40px; }
+    .next-meeting-box { padding: 24px 14px; }
+}
+
+/* Passed meeting note, calendar actions, copy buttons */
+.meeting-hidden { display: none !important; }
+.meeting-passed-note {
+    background: #fff7e6;
+    border: 1px solid #f8d48c;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 0 auto 16px;
+    max-width: 640px;
+    color: #0a2540;
+    font-size: 1.05rem;
+}
+.meeting-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 12px;
+}
+.meeting-actions .minutes-link { margin-left: 0; }
+.zoom-meeting-info p { overflow-wrap: anywhere; }
+.copy-btn {
+    font: inherit;
+    font-size: 0.8em;
+    margin-left: 8px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    padding: 2px 8px;
+    vertical-align: middle;
 }

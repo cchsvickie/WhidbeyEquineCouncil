@@ -50,14 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
     return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
   }
 
+  // meetings.json dates are written for people ("Wednesday, November 4, 2026"),
+  // which iPhone Safari will not parse with new Date(). Read them directly.
+  function parseLooseDate(str) {
+    const s = String(str || '').trim();
+    const iso = parseLocalDate(s);
+    if (iso) return iso;
+    const months = {
+      january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+      july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
+      jan: 0, feb: 1, mar: 2, apr: 3, jun: 5, jul: 6, aug: 7,
+      sep: 8, sept: 8, oct: 9, nov: 10, dec: 11
+    };
+    const cleaned = s.replace(/^[A-Za-z]+,\s*/, '');
+    const m = /^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/.exec(cleaned);
+    if (!m || months[m[1].toLowerCase()] == null) return null;
+    const day = Number(m[2]);
+    const date = new Date(Number(m[3]), months[m[1].toLowerCase()], day);
+    if (date.getMonth() !== months[m[1].toLowerCase()] || date.getDate() !== day) return null;
+    return date;
+  }
+
   async function loadMeetingCard() {
     try {
       const res = await fetch('data/meetings.json?v=' + Date.now());
       if (!res.ok) return null;
       const data = await res.json();
       const next = data.nextMeeting || {};
-      const parsed = next.date ? new Date(next.date) : null;
-      const upcoming = parsed && !isNaN(parsed) && parsed >= today;
+      const parsed = parseLooseDate(next.date);
+      const upcoming = parsed && parsed >= today;
       return {
         category: 'Meetings',
         title: 'Whidbey Island Horse Council Monthly Meeting',
