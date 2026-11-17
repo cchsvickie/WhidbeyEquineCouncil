@@ -38,17 +38,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     gap: 12px;
+    min-width: 0;
 }
 
 .logo-container img {
-    height: 68px;
+    height: 120px;
     width: auto;
+    background: #ffffff;
+    border-radius: 12px;
     transition: transform 0.3s ease;
 }
 
@@ -126,8 +130,9 @@ body {
     .nav-container {
         padding: 20px 24px;
     }
-    .logo-container img {
-        height: 58px;
+    .logo-container img,
+    .logo-container img.site-logo {
+        height: 100px;
     }
     .logo-text {
         font-size: 1.9rem;
@@ -417,7 +422,10 @@ body {
 }
 
 .footer-logo img {
-    height: 48px;
+    height: 112px;
+    width: auto;
+    background: #ffffff;
+    border-radius: 12px;
 }
 
 .footer p {
@@ -1346,22 +1354,31 @@ body {
 }
 .logo-container img,
 .logo-container img.site-logo {
-    height: 96px;
+    height: 120px;
     width: auto;
-    border-radius: 10px;
+    max-width: calc(100vw - 140px);
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
 }
 .nav-container {
-    padding: 14px 24px;
+    padding: 12px 24px;
+    gap: 16px;
 }
 .footer-logo img {
-    height: 72px;
-    border-radius: 8px;
+    height: 112px;
+    width: auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
 }
 
 /* Hamburger is a real <button> now */
 button.hamburger {
     border: none;
     color: white;
+    flex-shrink: 0;
 }
 
 /* Drawer: don't let the closed drawer's shadow peek in at the right edge (iPhone + desktop) */
@@ -1602,8 +1619,8 @@ button.hamburger {
 img { max-width: 100%; height: auto; }
 .logo-container img,
 .footer-logo img { height: auto; }
-.logo-container img { height: 96px; }
-.footer-logo img { height: 72px; }
+.logo-container img { height: 120px; }
+.footer-logo img { height: 112px; }
 iframe { max-width: 100%; }
 table { max-width: 100%; display: block; overflow-x: auto; }
 .quick-grid { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
@@ -1639,15 +1656,20 @@ table { max-width: 100%; display: block; overflow-x: auto; }
     .event-title { font-size: 1.4rem; }
     .meeting-card { flex-wrap: wrap; gap: 12px; }
     .footer { padding: 50px 16px 40px; }
+    .logo-container img,
+    .logo-container img.site-logo { height: 100px; }
+    .footer-logo img { height: 100px; }
     .listing-cta-buttons, .listing-cta-buttons .cta-pill { width: 100%; text-align: center; }
 }
 
 @media (max-width: 480px) {
-    .nav-container { padding: 10px 14px; }
-    .logo-container a { gap: 10px; }
-    .logo-container img { height: 64px; }
-    .logo-text { font-size: 1.45rem; }
-    .logo-text small { font-size: 0.95rem; }
+    .nav-container { padding: 10px 14px; gap: 12px; }
+    .logo-container a { gap: 0; }
+    .logo-container img,
+    .logo-container img.site-logo {
+        height: 88px;
+        max-width: calc(100vw - 44px - 28px - 20px);
+    }
     .hamburger { width: 44px; height: 44px; flex-shrink: 0; }
     .carousel-arrow { width: 40px; height: 40px; }
     .next-meeting-box { padding: 24px 14px; }

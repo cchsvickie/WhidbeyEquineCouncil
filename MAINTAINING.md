@@ -31,7 +31,7 @@ Write `nextMeeting.date` as `2026-12-02` or `Wednesday, December 2, 2026` (examp
 - `addEventFormUrl`: the Airtable form behind the **Add an event** button on the Community Activities page.
 
 ## Logo
-The header/footer logo is `images/logo-header.png`. To switch to the Facebook-page logo, upload that image with the same file name (replace the file).
+The header, footer, favicon, and apple-touch icon use `images/logo-header.png` (the official mark: horses, eagle, sun, water, and the “Whidbey Island Horse Council” wordmark). The name is not repeated as text beside the image. The image alt text is “Whidbey Island Horse Council”. To replace the logo, upload a new file with that same name.
 
 ## Whidbey Equine Directory
 Listings, card fields, categories, sorting and the Views menu are managed in Airtable (base "Whidbey Island Equine Directory"), not in this repository. New submissions come in through the Airtable form on the Directory page and appear after they are marked Approved in Airtable.
