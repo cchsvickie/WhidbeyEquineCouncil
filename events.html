@@ -59,7 +59,13 @@
     <!-- MAIN CONTENT -->
     <section class="main-content">
         <h1 class="page-title">Community Activities</h1>
-        <p class="page-intro">Trail work parties, shows, clinics, Council meetings and other horse community happenings on Whidbey Island. Have an activity to share? <a href="contact.html?subject=Community%20Activity%20to%20post">Send us the details</a>.</p>
+        <p class="page-intro">Trail work parties, shows, clinics, Council meetings and other horse community happenings on Whidbey Island.</p>
+        <!-- "Add an event" opens the Airtable event form. The link is set in js/site-config.js (addEventFormUrl). -->
+        <p class="add-event-row">
+            <a id="add-event-btn" class="btn-register" href="https://airtable.com/appQJMuaUdqUcuPiJ/pagaoYmt6Qll1h5JM/form" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-plus"></i> Add an event
+            </a>
+        </p>
         <!-- Category Row -->
         <div id="category-row" class="category-row"></div>
         
@@ -72,6 +78,7 @@
           <p class="text-sm mt-2">Check back soon or try another category!</p>
         </div>
         
+        <script src="js/site-config.js"></script>
         <script src="js/events.js"></script>
     </section>
 

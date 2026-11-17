@@ -1685,3 +1685,12 @@ table { max-width: 100%; display: block; overflow-x: auto; }
     padding: 2px 8px;
     vertical-align: middle;
 }
+
+/* ---- Community Activities: "Add an event" button ---- */
+.add-event-row {
+    margin: -12px 0 32px;
+}
+.add-event-row .btn-register {
+    font-size: 1rem;
+    padding: 12px 28px;
+}

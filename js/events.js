@@ -1,6 +1,7 @@
 // =============================================
 // COMMUNITY ACTIVITIES PAGE – Whidbey Island Horse Council
-// Activities come from data/events.json.
+// Activities come from data/events.json, which a GitHub Action fills from the
+// APPROVED rows of the Airtable "Events" table (see MAINTAINING.md).
 // The Meetings card comes from data/meetings.json (the same file the Meetings page uses),
 // so the next meeting only has to be updated in one place.
 //
@@ -24,6 +25,31 @@ document.addEventListener('DOMContentLoaded', () => {
     'Shows and Clinics': 'Shows/Clinics',
     'Meeting': 'Meetings'
   };
+
+  // "Add an event" button -> Airtable form (set in js/site-config.js)
+  const addEventBtn = document.getElementById('add-event-btn');
+  const formUrl = (window.SITE_CONFIG || {}).addEventFormUrl;
+  if (addEventBtn && formUrl) addEventBtn.href = formUrl;
+
+  // Event text can come from the public Airtable form, so never treat it as HTML.
+  function esc(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  // Only allow web links (http/https) or files on this site; drop anything else.
+  function safeUrl(value) {
+    const u = String(value || '').trim();
+    if (!u || u === '#') return '';
+    if (/^https?:\/\//i.test(u)) return u;
+    if (/^[a-z][a-z0-9+.-]*:/i.test(u) || u.startsWith('//')) return '';
+    return u;
+  }
+
+  function encodeLink(u) {
+    try { return encodeURI(decodeURI(u)); } catch (e) { return encodeURI(u); }
+  }
 
   let allEvents = [];
   let activeCategory = 'All';
@@ -120,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
           dateLabel = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
           show = d >= today;
         }
-        const url = String(e.registerUrl || '').trim();
+        const url = safeUrl(e.registerUrl);
         return {
           category: normalizeCategory(e.category),
           title: e.title || '',
@@ -131,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
           desc: e.desc || '',
           location: String(e.location || '').trim(),
           price: e.price || '',
-          url: url && url !== '#' ? url : '',
+          url,
           sameTab: false,
           linkText: 'More Details',
           show
@@ -156,9 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const extra = [...new Set(allEvents.map(e => e.category))].filter(c => !CATEGORIES.includes(c));
     const categories = [...CATEGORIES, ...extra];
     categoryRow.innerHTML = categories.map(cat => `
-      <button type="button" data-category="${cat}"
+      <button type="button" data-category="${esc(cat)}"
               class="category-btn ${activeCategory === cat ? 'active' : ''}">
-        ${cat}
+        ${esc(cat)}
       </button>
     `).join('');
     categoryRow.querySelectorAll('button').forEach(btn => {
@@ -188,23 +214,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     eventsContainer.innerHTML = filtered.map(event => {
       const button = event.url
-        ? `<a href="${encodeURI(decodeURI(event.url))}" class="btn-register"${event.sameTab ? '' : ' target="_blank" rel="noopener noreferrer"'}>
+        ? `<a href="${esc(encodeLink(event.url))}" class="btn-register"${event.sameTab ? '' : ' target="_blank" rel="noopener noreferrer"'}>
              ${event.linkText} <i class="fa-solid fa-arrow-right"></i>
            </a>`
         : '';
       const meta = [
         event.dateLabel ? `<div class="meta-item"><i class="fa-solid fa-calendar"></i><span class="meta-date">${event.dateLabel}</span></div>` : '',
-        event.time ? `<div class="meta-item"><i class="fa-solid fa-clock"></i><span class="meta-time">${event.time}</span></div>` : '',
-        event.location ? `<div class="meta-item"><i class="fa-solid fa-location-dot"></i><span class="meta-location">${event.location}</span></div>` : ''
+        event.time ? `<div class="meta-item"><i class="fa-solid fa-clock"></i><span class="meta-time">${esc(event.time)}</span></div>` : '',
+        event.location ? `<div class="meta-item"><i class="fa-solid fa-location-dot"></i><span class="meta-location">${esc(event.location)}</span></div>` : ''
       ].join('');
       return `
         <div class="event-card">
           <div class="event-header">
-            <span class="event-category">${event.category}</span>
-            <span class="event-price">${event.price}</span>
+            <span class="event-category">${esc(event.category)}</span>
+            <span class="event-price">${esc(event.price)}</span>
           </div>
-          <h3 class="event-title">${event.title}</h3>
-          <p class="event-desc">${event.desc}</p>
+          <h3 class="event-title">${esc(event.title)}</h3>
+          <p class="event-desc">${esc(event.desc).replace(/\n/g, '<br>')}</p>
           <div class="event-meta">${meta}</div>
           <div class="event-footer">${button}</div>
         </div>`;

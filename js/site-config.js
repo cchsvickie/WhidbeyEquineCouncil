@@ -14,5 +14,10 @@ window.SITE_CONFIG = {
 
   // Link to the "Whidbey Island Equine Network" Facebook group.
   // TODO: paste the group's Facebook URL here. While empty, the name is shown without a link.
-  equineNetworkFacebookUrl: ""
+  equineNetworkFacebookUrl: "",
+
+  // The Airtable form behind the "Add an event" button on the Community Activities page.
+  // Submissions land in the "Events" table in Airtable. They show on the site only after
+  // someone checks "Approved" on that event in Airtable (the site updates about once an hour).
+  addEventFormUrl: "https://airtable.com/appQJMuaUdqUcuPiJ/pagaoYmt6Qll1h5JM/form"
 };
