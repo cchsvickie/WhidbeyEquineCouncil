@@ -3,56 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trail Safety | Whidbey Equine Council</title>
+    <title>Trail Safety | Whidbey Island Horse Council</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo-header.png">
+    <link rel="stylesheet" href="css/styles.css?v=20261117">
 </head>
 <body>
 
     <!-- FULL HEADER -->
     <header class="header-bg">
         <div class="nav-container">
-             <div class="logo-container">
-               <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                  <img src="images/logo.png" alt="Whidbey Equine Council Logo">
-                  <div class="logo-text">Whidbey<small>Equine Council</small></div>
-               </a>
-            </div>                             
-            <nav class="desktop-nav">
+            <div class="logo-container">
+                <a href="index.html">
+                    <!-- LOGO: to use the Facebook-page logo, replace images/logo-header.png with that file (same name). -->
+                    <img src="images/logo-header.png" alt="Whidbey Island Horse Council logo" class="site-logo">
+                    <div class="logo-text">Whidbey Island<small>Horse Council</small></div>
+                </a>
+            </div>
+            <nav class="desktop-nav" aria-label="Main">
                 <a href="index.html">Home</a>
                 <a href="about.html">About Us / Mission</a>
-                <a href="events.html">Calendar</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+                <a href="events.html">Community Activities</a>
+                <a href="monthly-meetings.html">Meetings</a>
+                <a href="whidbey-equine-directory.html">Whidbey Equine Directory</a>
+                <a href="horse-friendly-trails.html">Horse Friendly Trails</a>
+                <a href="resources.html" class="active">Trail Safety</a>
+                <a href="emergency-preparedness.html">Emergency Preparedness</a>
+                <a href="contact.html">Contact Us</a>
             </nav>
-            <div class="hamburger" onclick="toggleMobileMenu()">
+            <button type="button" class="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu" aria-controls="mobile-menu">
                 <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-            </div>
+            </button>
         </div>
 
+        <!-- RIGHT-SIDE MOBILE DRAWER (no sub-menus: every page is its own item) -->
         <div id="mobile-menu" class="mobile-menu">
-            <button class="close-btn" onclick="toggleMobileMenu()">×</button>
-            <nav>
+            <button type="button" class="close-btn" onclick="toggleMobileMenu()" aria-label="Close menu">×</button>
+            <nav aria-label="Main menu">
                 <a href="index.html" onclick="toggleMobileMenu()">Home</a>
                 <a href="about.html" onclick="toggleMobileMenu()">About Us / Mission</a>
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Calendar <span class="chevron">›</span></button>
-                    <div class="accordion-content">
-                        <a href="events.html" onclick="toggleMobileMenu()">Upcoming Events</a>
-                        <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Monthly Meetings</a>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Resources <span class="chevron">›</span></button>
-                    <div class="accordion-content">
-                        <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
-                        <a href="disaster-preparedness.html" onclick="toggleMobileMenu()">Disaster Preparedness</a>
-                        <a href="whidbey-equine-directory.html" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
-                    </div>
-                </div>
-                <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+                <a href="events.html" onclick="toggleMobileMenu()">Community Activities</a>
+                <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Meetings</a>
+                <a href="whidbey-equine-directory.html" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
+                <a href="horse-friendly-trails.html" onclick="toggleMobileMenu()">Horse Friendly Trails</a>
+                <a href="resources.html" class="active" aria-current="page" onclick="toggleMobileMenu()">Trail Safety</a>
+                <a href="emergency-preparedness.html" onclick="toggleMobileMenu()">Emergency Preparedness</a>
+                <a href="contact.html" onclick="toggleMobileMenu()">Contact Us</a>
             </nav>
         </div>
     </header>
@@ -66,17 +64,8 @@
                 Trail safety for horseback riding on Whidbey Island focuses on agency-specific rules, multi-use trail etiquette, personal/horse preparation, and Leave No Trace principles. Always verify current conditions, closures, and designated equestrian trails directly with the managing agency before your ride, as rules can change due to weather, resource protection, or safety issues. 
             </p>
 
-            <!-- Key Resources -->
-            <div class="key-resources">
-                <h3>Horse Friendly Trails on Whidbey Island</h3>
-                <ul>
-                <ul>
-                    <li><strong>Trillium Community Forest Trails:</strong> <a href="https://www.wclt.org/wp-content/uploads/2013/09/Trillium-Community-Forest-Trail-Map-2024-FINAL.pdf" target="_blank" rel="noopener" style="color: #0066cc; text-decoration: underline; font-weight: normal;">(Trillium overview, uses, parking, map)</a></li>
-                    <li><strong>The Kettles Trails:</strong> <a href="https://www.islandcountywa.gov/DocumentCenter/View/3172/Kettles-Trails-Pocket-Map-pdf" target="_blank" rel="noopener" style="color: #0066cc; text-decoration: underline; font-weight: normal;">(Kettles Ebey State Park Map)</a></li>
-                    <li><strong>Putney Woods Trails:</strong> <a href="https://visitlangley.com/wp-content/uploads/2024/05/Putney-Woods-Trails-Map.pdf" target="_blank" rel="noopener" style="color: #0066cc; text-decoration: underline; font-weight: normal;">(Putney Woods Map)</a></li>
-                    <li><strong>Rhododendron Park Trails:</strong> <a href="https://www.islandcountywa.gov/DocumentCenter/View/3536/Rhododendron-Park-Map-pdf" target="_blank" rel="noopener" style="color: #0066cc; text-decoration: underline; font-weight: normal;">(Rhododendron parking, restrooms, trails)</a></li>
-                    <li><strong>Hoypus Trails - Ducken Rd:</strong> <a href="https://www.wclt.org/wp-content/uploads/2013/01/Hoypus-trails.pdf" target="_blank" rel="noopener" style="color: #0066cc; text-decoration: underline; font-weight: normal;">(Hoypus trails, parking, trailhead)</a></li></ul> 
-            </div>
+            <p class="page-crosslink">Looking for places to ride? See <a href="horse-friendly-trails.html">Horse Friendly Trails</a> for trail maps and parking information.</p>
+
 
             <!-- 4 Clickable Buttons -->
             <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px;">
@@ -141,8 +130,8 @@
         <div class="footer-content">
             <div>
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Whidbey Equine Council">
-                    <div class="logo-text" style="color:white; font-size:1.4rem;">Whidbey<small style="color:#f8d48c;">Equine Council</small></div>
+                    <img src="images/logo-header.png" alt="Whidbey Island Horse Council logo">
+                    <div class="logo-text" style="color:white; font-size:1.4rem;">Whidbey Island<small style="color:#f8d48c;">Horse Council</small></div>
                 </div>
                 <p>Dedicated to supporting the equestrian community and making horse ownership and enjoyment accessible on Whidbey Island.</p>
             </div>
@@ -150,19 +139,22 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="events.html">Calendar</a></li>
-                    <li><a href="resources.html">Trail Safety</a></li>
+                    <li><a href="events.html">Community Activities</a></li>
+                    <li><a href="monthly-meetings.html">Meetings</a></li>
+                    <li><a href="whidbey-equine-directory.html">Whidbey Equine Directory</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Connect With Us</h4>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/groups/1446844290421112" target="_blank">📘 Facebook</a>
+                    <a href="https://www.facebook.com/groups/1446844290421112" target="_blank" rel="noopener">📘 Facebook</a>
+                    <a href="contact.html">✉️ Contact Us</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Whidbey Equine Council • All rights reserved
+            &copy; 2026 Whidbey Island Horse Council • All rights reserved
         </div>
     </footer>
 
