@@ -56,7 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function matchesSearch(record, query) {
     if (!query) return true;
-    const hay = [record.name, record.contactName].concat(servicesOf(record))
+    const hay = [
+      record.name,
+      record.contactName,
+      record.islandLocation,
+      record.otherServiceDescription,
+      record.notes
+    ].concat(servicesOf(record))
       .map(clean)
       .filter(Boolean)
       .join('\n')
@@ -90,6 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCards();
       });
     });
+  }
+
+  function labeled(label, value, href) {
+    const text = clean(value);
+    if (!text) return '';
+    const body = href
+      ? `<a href="${esc(href)}">${esc(text)}</a>`
+      : esc(text);
+    return `<div class="directory-field"><div class="directory-label">${esc(label)}</div><div class="directory-value">${body}</div></div>`;
   }
 
   function renderCards() {
@@ -136,12 +151,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const meta = (phoneHtml || emailHtml)
         ? `<div class="meta">${phoneHtml}${emailHtml}</div>`
         : '';
+      const alt = clean(record.alternatePhone);
+      const altHref = telHref(alt);
+      const extras = [
+        labeled('Location', clean(record.islandLocation)),
+        labeled('Alt. phone', alt, altHref),
+        labeled('Other services', clean(record.otherServiceDescription)),
+        labeled('Notes', clean(record.notes))
+      ].filter(Boolean).join('');
+      const extraHtml = extras ? `<div class="directory-extra">${extras}</div>` : '';
       return `
         <article class="directory-card">
           <h3>${esc(name)}</h3>
           ${contactHtml}
           ${pills}
           ${meta}
+          ${extraHtml}
         </article>`;
     }).join('');
   }

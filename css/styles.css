@@ -1808,6 +1808,43 @@ table { max-width: 100%; display: block; overflow-x: auto; }
 .directory-card .contact-name {
     overflow-wrap: anywhere;
 }
+.directory-extra {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 14px;
+}
+.directory-card .meta + .directory-extra {
+    padding-top: 14px;
+    border-top: 1px solid #e5e7eb;
+}
+.directory-field {
+    min-width: 0;
+}
+.directory-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 2px;
+}
+.directory-value {
+    color: #222;
+    font-size: 1.02rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+.directory-value a {
+    color: #0a2540;
+    font-weight: 600;
+    text-decoration: none;
+}
+.directory-value a:hover {
+    color: #854d0e;
+}
 
 /* ---- Community photos on About Us / Mission ---- */
 .community-photos {

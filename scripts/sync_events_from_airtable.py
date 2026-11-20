@@ -56,18 +56,30 @@ F = {
 CATEGORIES = {"Community Activities", "Meetings", "Shows/Clinics"}
 
 # Directory columns. Approved and the consent answer are read so we can
-# filter, and are never written to data/directory.json. Alternate phone,
-# notes, island location, and other service description are not requested.
+# filter, and are never written to data/directory.json.
 DF = {
-    "name": "fldYz39LpInmBMgbI",       # Business/Individual Name
-    "contact": "fld8vYKWy274KNgCm",    # Contact Name
-    "services": "fld4OG6lZGUZMxo2Q",   # Services Offered
-    "phone": "fldOjTdfUgPKPHNmG",      # Phone #
-    "email": "fld8JFtp16T2NpMaW",      # Email
-    "approved": "fldeTXzQOtswurTP8",   # Approved (checkbox) — not exported
-    "consent": "fldGB7Jwu4oCllQSM",    # Public-sharing consent — not exported
+    "name": "fldYz39LpInmBMgbI",          # Business/Individual Name
+    "contact": "fld8vYKWy274KNgCm",       # Contact Name
+    "services": "fld4OG6lZGUZMxo2Q",      # Services Offered
+    "phone": "fldOjTdfUgPKPHNmG",         # Phone #
+    "email": "fld8JFtp16T2NpMaW",         # Email
+    "alternate": "fldHHb2XBx1jPRP1B",     # Alternate Phone Number
+    "location": "fldZFhtrKCmya5rZS",      # Island Location
+    "other": "fldAITFRh7DVOn0zH",         # Other Service Description (rich text)
+    "notes": "fldONWqvcF8jVyY4E",         # Notes
+    "approved": "fldeTXzQOtswurTP8",      # Approved (checkbox) — not exported
+    "consent": "fldGB7Jwu4oCllQSM",       # Public-sharing consent — not exported
 }
-DIRECTORY_PUBLIC_KEYS = ("id", "name", "contactName", "services", "phone", "email")
+DIRECTORY_PUBLIC_KEYS = (
+    "id", "name", "contactName", "services", "phone", "email",
+    "alternatePhone", "islandLocation", "otherServiceDescription", "notes",
+)
+# Select options that were left over from the form, not real places.
+_LOCATION_JUNK = {
+    "are these services offered on whidbey island?",
+    "yes",
+    "island location",
+}
 
 # Photo columns by name (field ids were not published). Contact Email is
 # intentionally absent: it must never be requested, stored, or printed.
@@ -214,6 +226,64 @@ def _or_none(value):
     return text or None
 
 
+def _notes(value):
+    """Plain notes. Non-breaking spaces become normal spaces; line breaks stay."""
+    if value is None:
+        return None
+    text = str(value).replace("\u00a0", " ").replace("\u202f", " ").replace("&nbsp;", " ")
+    text = text.replace("\r\n", "\n").replace("\r", "\n").strip()
+    return text or None
+
+
+def _plain_rich_text(value):
+    """Airtable rich text (markdown or simple HTML) as plain text, keeping line breaks."""
+    if value is None:
+        return None
+    if isinstance(value, dict):
+        value = value.get("value") or value.get("text") or ""
+    if isinstance(value, list):
+        value = "\n".join(str(part) for part in value if part is not None)
+    text = str(value).replace("\r\n", "\n").replace("\r", "\n")
+    text = text.replace("\u00a0", " ").replace("&nbsp;", " ")
+    text = re.sub(r"(?i)<br\s*/?>", "\n", text)
+    text = re.sub(r"(?i)</(p|div|li|h[1-6]|tr)\s*>", "\n", text)
+    text = re.sub(r"(?i)<li[^>]*>", "- ", text)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = text.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", '"')
+    text = re.sub(r"!\[([^\]]*)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"\*\*(.+?)\*\*", r"\1", text, flags=re.S)
+    text = re.sub(r"__(.+?)__", r"\1", text, flags=re.S)
+    text = re.sub(r"(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"\1", text, flags=re.S)
+    text = re.sub(r"(?m)^#{1,6}\s*", "", text)
+    lines = [line.rstrip() for line in text.split("\n")]
+    while lines and lines[0] == "":
+        lines.pop(0)
+    while lines and lines[-1] == "":
+        lines.pop()
+    cleaned = "\n".join(lines).strip()
+    return cleaned or None
+
+
+def _island_location(value):
+    """One place name. The known typo is corrected; leftover form options are dropped."""
+    if isinstance(value, list):
+        names = []
+        for item in value:
+            name = _island_location(item)
+            if name and name not in names:
+                names.append(name)
+        return ", ".join(names) or None
+    if isinstance(value, dict):
+        value = value.get("name") or value.get("value") or ""
+    text = _text(value)
+    if not text or text.casefold() in _LOCATION_JUNK:
+        return None
+    if text.casefold() == "south whibey":
+        return "South Whidbey"
+    return text
+
+
 def build_directory(records):
     """Approved listings whose public-sharing answer is exactly Yes.
 
@@ -240,6 +310,10 @@ def build_directory(records):
             "services": _services(fields.get(DF["services"])),
             "phone": _or_none(fields.get(DF["phone"])),
             "email": _or_none(fields.get(DF["email"])),
+            "alternatePhone": _or_none(fields.get(DF["alternate"])),
+            "islandLocation": _island_location(fields.get(DF["location"])),
+            "otherServiceDescription": _plain_rich_text(fields.get(DF["other"])),
+            "notes": _notes(fields.get(DF["notes"])),
         }
         listings.append({key: listing[key] for key in DIRECTORY_PUBLIC_KEYS})
     listings.sort(key=lambda row: (row["name"].casefold(), row["id"]))

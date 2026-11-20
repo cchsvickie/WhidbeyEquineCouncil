@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T15:52:12Z",
+  "generated": "2026-11-20T16:13:47Z",
   "records": [
     {
       "id": "reccaFihOf2AXE1dQ",
@@ -9,7 +9,11 @@
         "Hauling"
       ],
       "phone": "(425) 923-5734",
-      "email": "mtrider9@gmail.com"
+      "email": "mtrider9@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recP3SxRswyNZmhC4",
@@ -19,7 +23,11 @@
         "Non-Profit"
       ],
       "phone": "360-320\u20131777",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recCVJiuqXOw2WxFd",
@@ -29,7 +37,11 @@
         "Emergency Transport"
       ],
       "phone": "425-750-6326",
-      "email": "travelwithhorses@gmail.com"
+      "email": "travelwithhorses@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": "Central Whidbey",
+      "otherServiceDescription": null,
+      "notes": "3H BP, slant, WB size"
     },
     {
       "id": "recQrLPmGZunVITeH",
@@ -39,7 +51,11 @@
         "Emergency Transport"
       ],
       "phone": "360-320-7411",
-      "email": "b.ryder89@outlook.com"
+      "email": "b.ryder89@outlook.com",
+      "alternatePhone": "360-929-9630",
+      "islandLocation": "Central Whidbey",
+      "otherServiceDescription": null,
+      "notes": "3H Gooseneck, slant, WB size"
     },
     {
       "id": "reciLEgKTg9tXF3WI",
@@ -49,7 +65,11 @@
         "Boarding Facility"
       ],
       "phone": "661-755-7930",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recKCb20UcxkYoQmR",
@@ -59,7 +79,11 @@
         "Hay & Feed Supplier"
       ],
       "phone": "360-914-7698",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recQVi6SeYB0We5YL",
@@ -69,7 +93,11 @@
         "Tack Supplier"
       ],
       "phone": "260-424-3500",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recJOWwU9ZnQwB359",
@@ -79,7 +107,11 @@
         "Farrier"
       ],
       "phone": "360-320-8826",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recyPELBUl6gw08Je",
@@ -89,7 +121,11 @@
         "Trainer - Clinician"
       ],
       "phone": "425-417-9270",
-      "email": "clmferghus@gmail.com"
+      "email": "clmferghus@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recg6sxwM3OGdT7mg",
@@ -99,7 +135,11 @@
         "Bodywork - Massage"
       ],
       "phone": "360-303-5647",
-      "email": "cascadesherpas@gmail.com"
+      "email": "cascadesherpas@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recBySEQS9Cwm7zII",
@@ -109,7 +149,11 @@
         "Boarding Facility"
       ],
       "phone": "360-899-2810",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recy6bCtBIo1r8hAC",
@@ -119,7 +163,11 @@
         "Emergency Transport"
       ],
       "phone": "206-7618047",
-      "email": "ge.mccann@yahoo.com"
+      "email": "ge.mccann@yahoo.com",
+      "alternatePhone": "206-910-5483",
+      "islandLocation": "South Whidbey",
+      "otherServiceDescription": null,
+      "notes": "2H or 1 stall extra tall, extra wide trailer we can haul if schedule/ needs align."
     },
     {
       "id": "recda08XwtGougHB7",
@@ -130,7 +178,11 @@
         "Tack Supplier"
       ],
       "phone": "360-331-1970",
-      "email": "BelindaP@countrystore.net"
+      "email": "BelindaP@countrystore.net",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "rec0i3vJOFkwnHunu",
@@ -140,7 +192,11 @@
         "Veterinarian"
       ],
       "phone": "360-969-9700",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recghlxTTxOlbmJ5x",
@@ -150,7 +206,11 @@
         "Veterinarian"
       ],
       "phone": "360-678-1881",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recdgJx0XfSfgADAL",
@@ -160,7 +220,11 @@
         "Boarding Facility"
       ],
       "phone": "714-488-8550",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "rec2BUzGoyDGVfFyd",
@@ -170,7 +234,11 @@
         "Equestrian Club/Group"
       ],
       "phone": "360-639-6064",
-      "email": "island4H@wsu.edu"
+      "email": "island4H@wsu.edu",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "rec4giuGLOKI2gm3x",
@@ -180,7 +248,11 @@
         "Emergency Transport"
       ],
       "phone": "215-858-5153",
-      "email": "jaclyn.yeiser@gmail.com"
+      "email": "jaclyn.yeiser@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": "North Whidbey",
+      "otherServiceDescription": null,
+      "notes": "4H Gooseneck, regular size, tight squeeze, 1 partition out"
     },
     {
       "id": "rec8w3uULefxrnUyC",
@@ -190,7 +262,11 @@
         "Trainer - Will travel to your location"
       ],
       "phone": "(707) 599-4543",
-      "email": "jessi@jbrhorsemanship.com"
+      "email": "jessi@jbrhorsemanship.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recPZTYzSD8gZZ2O0",
@@ -200,7 +276,11 @@
         "Emergency Transport"
       ],
       "phone": "360-672-1810",
-      "email": "jroberts@whidbey.net"
+      "email": "jroberts@whidbey.net",
+      "alternatePhone": null,
+      "islandLocation": "North Whidbey",
+      "otherServiceDescription": null,
+      "notes": "2H, with ramp, WB size"
     },
     {
       "id": "rec0DGlBhCmiYO4J9",
@@ -213,7 +293,11 @@
         "Adult Lessons - Dressage"
       ],
       "phone": "206-549-1632",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "rec25h5eJIJZj85iX",
@@ -223,7 +307,11 @@
         "Emergency Transport"
       ],
       "phone": "925-787-2431",
-      "email": "karena.m.smith@gmail.com"
+      "email": "karena.m.smith@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": "Central Whidbey",
+      "otherServiceDescription": null,
+      "notes": "2H BP WB sized straight load, ramp"
     },
     {
       "id": "recpyhpydxdqV8KRB",
@@ -233,7 +321,11 @@
         "Tack Supplier"
       ],
       "phone": "360-540-4156",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recA2tXwDhQN7hvff",
@@ -243,7 +335,11 @@
         "Veterinarian"
       ],
       "phone": "360-424-4054",
-      "email": "mvvheq@gmail.com"
+      "email": "mvvheq@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "reciG61LwOZQv71Jg",
@@ -254,7 +350,11 @@
         "Tack Supplier"
       ],
       "phone": "360-675-2277",
-      "email": "KristinaM@country store.net"
+      "email": "KristinaM@country store.net",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "rec17NP0AKGIqAKyA",
@@ -264,7 +364,11 @@
         "Emergency Transport"
       ],
       "phone": "360-969-6663",
-      "email": "kiohte@whidbey.com"
+      "email": "kiohte@whidbey.com",
+      "alternatePhone": null,
+      "islandLocation": "South Whidbey",
+      "otherServiceDescription": null,
+      "notes": "3H Gooseneck, slant, regular size"
     },
     {
       "id": "rechT6kwasPNyyQNz",
@@ -274,7 +378,11 @@
         "Emergency Transport"
       ],
       "phone": "360-969-2578",
-      "email": "cohocoal@frontier.com"
+      "email": "cohocoal@frontier.com",
+      "alternatePhone": null,
+      "islandLocation": "Central Whidbey",
+      "otherServiceDescription": null,
+      "notes": "2H slant, LQ, 5th wheel"
     },
     {
       "id": "recfPar8LJv4KWJ2d",
@@ -284,7 +392,11 @@
         "Other"
       ],
       "phone": "360-708-6172",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "rec6YVOpiI9F4bjnk",
@@ -294,7 +406,11 @@
         "Boarding Facility"
       ],
       "phone": "360-969-2753",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "rec8BU4XyF5PotABs",
@@ -304,7 +420,11 @@
         "Emergency Transport"
       ],
       "phone": "661-755-7930",
-      "email": "bigrhedbarn@gmail.com"
+      "email": "bigrhedbarn@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": "Central Whidbey",
+      "otherServiceDescription": null,
+      "notes": "2H BP, regular size"
     },
     {
       "id": "recIqecLEQL7YwWhw",
@@ -314,7 +434,11 @@
         "Emergency Transport"
       ],
       "phone": "206-914-1482",
-      "email": "sallygarrett@gmail.com"
+      "email": "sallygarrett@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": "Central Whidbey",
+      "otherServiceDescription": null,
+      "notes": "2H BP, slant, regular size"
     },
     {
       "id": "recwCf1JBzpZ9Ib4a",
@@ -324,7 +448,11 @@
         "Equestrian Club/Group"
       ],
       "phone": "360-631-4774",
-      "email": "horsesaredonna@gmail.com"
+      "email": "horsesaredonna@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recJ59Fg96akRS8yW",
@@ -334,7 +462,11 @@
         "Trainer - Clinician"
       ],
       "phone": "206-530-8754",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recoYATPYJYVbG6Lx",
@@ -344,7 +476,11 @@
         "Veterinarian"
       ],
       "phone": "360-720-6725",
-      "email": "jodeeasnyder@gmail.com"
+      "email": "jodeeasnyder@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recVAXBV13a3KssRu",
@@ -354,7 +490,11 @@
         "Emergency Transport"
       ],
       "phone": "916-207-7095",
-      "email": "debbiebrickel@gmail.com"
+      "email": "debbiebrickel@gmail.com",
+      "alternatePhone": "530-863-3139",
+      "islandLocation": "Central Whidbey",
+      "otherServiceDescription": null,
+      "notes": "2H BP, slant, regular size"
     },
     {
       "id": "rec4tZlUOUGs7SAov",
@@ -364,7 +504,11 @@
         "Boarding Facility"
       ],
       "phone": "360-678-8860",
-      "email": "info@ridewec.com"
+      "email": "info@ridewec.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recDOBnULbdep7XVg",
@@ -374,7 +518,11 @@
         "Equestrian Club/Group"
       ],
       "phone": "206-499-8753",
-      "email": "ringsrudps@gmail.com"
+      "email": "ringsrudps@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recXW1TtRhygmSvMT",
@@ -384,7 +532,11 @@
         "Equestrian Club/Group"
       ],
       "phone": null,
-      "email": "whidbeyislandtrailridersofBCHW@gmail.com"
+      "email": "whidbeyislandtrailridersofBCHW@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recrsPpAqNvkNARRD",
@@ -394,7 +546,11 @@
         "Bodywork - Massage"
       ],
       "phone": "707-761-0655",
-      "email": "wildfiretherapy@yahoo.com"
+      "email": "wildfiretherapy@yahoo.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "recLd7SGDgOptSoad",
@@ -404,7 +560,11 @@
         "Boarding Facility"
       ],
       "phone": "360-929-6589",
-      "email": null
+      "email": null,
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     },
     {
       "id": "rec876xZXsxq0p9Rt",
@@ -414,7 +574,11 @@
         "Boarding Facility"
       ],
       "phone": "360-720-9468",
-      "email": "misshorsepwr@gmail.com"
+      "email": "misshorsepwr@gmail.com",
+      "alternatePhone": null,
+      "islandLocation": null,
+      "otherServiceDescription": null,
+      "notes": null
     }
   ]
 }
