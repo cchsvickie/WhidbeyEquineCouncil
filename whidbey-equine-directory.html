@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/logo-header.png?v=20261117c" type="image/png">
     <link rel="apple-touch-icon" href="images/logo-header.png?v=20261117c">
-    <link rel="stylesheet" href="css/styles.css?v=20261117c">
+    <link rel="stylesheet" href="css/styles.css?v=20261120d">
 </head>
 <body>
 
@@ -61,9 +61,6 @@
         <div class="content-wrapper">
             <p>Local veterinarians, farriers, boarding facilities, feed stores, trainers, and other equine services on Whidbey Island.</p>
 
-            <!-- ========== LIVE DIRECTORY (Embedded Airtable View) ========== -->
-            <!-- NOTE: the listing cards, their fields, sort options, categories and the Views menu
-                 are set up inside Airtable (base "Whidbey Island Equine Directory"), not in this file. -->
             <h2 class="directory-heading">Current Listings</h2>
 
             <div class="listing-cta">
@@ -77,25 +74,18 @@
                 </div>
             </div>
 
-            <div class="directory-help">
-                <p><strong>How to use the directory</strong></p>
-                <ul>
-                    <li>Tap or click <strong>Views</strong> at the top of the directory and pick a service category, or the view that shows every listing.</li>
-                    <li>The directory shows only listings the Council has reviewed and approved &ndash; that is what the green <em>&ldquo;Filtered by Approved&rdquo;</em> note means. You don&rsquo;t need to change it.</li>
-                    <li>Tap or click any card to see the full listing.</li>
-                </ul>
-            </div>
+            <p class="directory-note">These listings have been reviewed by the Council, and each person agreed to share this contact information. Choose a category or search by name, contact, or service. Tap a phone number to call, or an email address to write.</p>
 
-            <div class="embed-wrapper">
-                            <iframe class="airtable-embed" 
-                        src="https://airtable.com/embed/appQJMuaUdqUcuPiJ/shrk56whOYXT0GBap?layout=card" 
-                        frameborder="0" 
-                        width="100%" 
-                        height="1100" 
-                        style="background: transparent; border: 1px solid #ccc; border-radius: 8px;">
-                </iframe>
+            <div class="directory-controls">
+                <div class="directory-search">
+                    <label for="directory-search">Search listings</label>
+                    <input id="directory-search" type="search" placeholder="Name, contact, or service" autocomplete="off" enterkeyhint="search">
+                </div>
             </div>
-            <p class="embed-newtab">On a phone? <a href="https://airtable.com/appQJMuaUdqUcuPiJ/shrk56whOYXT0GBap" target="_blank" rel="noopener">Open the full directory in a new tab</a> for easier scrolling.</p>
+            <div id="directory-filters" class="directory-filters" role="group" aria-label="Filter by category"></div>
+            <p id="directory-status" class="directory-status" aria-live="polite">Loading listings…</p>
+            <div id="directory-grid" class="directory-grid"></div>
+            <noscript><p>Turn on JavaScript to view the directory listings.</p></noscript>
 
             <!-- ========== ADD YOUR SERVICE FORM (Embedded Airtable Form) ========== -->
             <div class="add-section" id="add-listing">
@@ -167,6 +157,7 @@
     </footer>
 
     <script src="js/site-config.js"></script>
+    <script src="js/directory.js?v=20261120d"></script>
     <script>
         (function () {
             const url = (window.SITE_CONFIG && window.SITE_CONFIG.equineNetworkFacebookUrl) || '';

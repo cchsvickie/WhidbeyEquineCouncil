@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/logo-header.png?v=20261117c" type="image/png">
     <link rel="apple-touch-icon" href="images/logo-header.png?v=20261117c">
-    <link rel="stylesheet" href="css/styles.css?v=20261117c">
+    <link rel="stylesheet" href="css/styles.css?v=20261120d">
 </head>
 <body>
 
@@ -91,6 +91,14 @@
                 
                 <div class="carousel-dots" id="carousel-dots"></div>
             </div>
+
+            <div class="community-photos">
+                <span class="community-photos-kicker">FROM THE ISLAND</span>
+                <h2 class="community-photos-title">Community Photos</h2>
+                <p>Pictures of horse life on Whidbey Island, shared by people in the community. Photos appear here after the Council reviews them.</p>
+                <a class="cta-pill" href="https://airtable.com/appQJMuaUdqUcuPiJ/pagS0AFWzb2B0iEV7/form" target="_blank" rel="noopener noreferrer">Share a photo</a>
+                <div id="community-photo-gallery" class="photo-grid" hidden></div>
+            </div>
         </div>
     </section>
 
@@ -129,6 +137,7 @@
         </div>
     </footer>
 
+    <script src="js/photos.js?v=20261120d"></script>
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');

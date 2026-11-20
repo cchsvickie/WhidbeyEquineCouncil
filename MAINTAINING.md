@@ -16,7 +16,11 @@ Tips for the Events table:
 - **Link** must be a full web address (`https://...`) or a file in this repository's `events/` folder (for example `events/Halloween Ride Flyer.pdf`).
 - **Submitted By** and **Contact Email** are never shown on the website.
 
-How it works: a GitHub Action (`.github/workflows/sync-events.yml`) runs every hour, reads the approved rows from Airtable, and rewrites `data/events.json`, committing only when something changed. It uses the repository secret `AIRTABLE_TOKEN` (an Airtable personal access token with `data.records:read` on this base); the token is never put in the website itself. Without the secret the Action does nothing. To run it right away: GitHub > **Actions** > **Sync events from Airtable** > **Run workflow** (on `main`). If Airtable has zero approved events, the Action leaves the page as it is rather than emptying it.
+How it works: a GitHub Action (`.github/workflows/sync-events.yml`, named **Sync events from Airtable**) runs every hour. It reads the approved rows from Airtable and rewrites `data/events.json`, committing only when something changed. The same Action also updates community photos and the equine directory; those are described below. It commits **only when the workflow is running on the `main` branch**. The live site is published from `main`, so a run on any other branch does not change the live site.
+
+It uses the repository secret `AIRTABLE_TOKEN` (an Airtable personal access token with `data.records:read` on this base); the token is never put in the website itself. Without the secret the Action does nothing. To run it right away: GitHub > **Actions** > **Sync events from Airtable** > **Run workflow**, and choose the branch `main`. That button is the workflow's **workflow_dispatch** trigger.
+
+If Airtable cannot be reached or returns an error, the Action stops before it rewrites anything and leaves `data/events.json`, `data/photos.json`, `data/directory.json`, and the files in `images/community/` as they were. If Airtable has zero approved events, the Action leaves `data/events.json` as it is rather than emptying it.
 
 Because the Action rewrites `data/events.json`, **don't edit that file by hand** once the Action is running; make changes in Airtable instead. The "Add an event" link lives in `js/site-config.js` (`addEventFormUrl`).
 
@@ -33,5 +37,28 @@ Write `nextMeeting.date` as `2026-12-02` or `Wednesday, December 2, 2026` (examp
 ## Logo
 The header, footer, favicon, and apple-touch icon use `images/logo-header.png` (the official mark: horses, eagle, sun, water, and the “Whidbey Island Horse Council” wordmark). The name is not repeated as text beside the image. The image alt text is “Whidbey Island Horse Council”. To replace the logo, upload a new file with that same name.
 
+## Community photos (About Us / Mission)
+People send photos with the **Share a photo** button on the About Us / Mission page. The button opens an Airtable form (`about.html`). Submissions land in the **Photos** table.
+
+**How a photo gets on the site**
+1. The photo arrives with **Approved** unchecked. It does not show on the site yet.
+2. Open the Photos table, check the picture and the caption, and tick **Approved**.
+3. Within about an hour it appears under **Community Photos** on the About Us / Mission page. To hide it, untick **Approved** (or delete the row).
+
+The Action downloads each approved image into `images/community/` (Airtable's own picture links expire after a few hours) and lists it in `data/photos.json`. The page shows the caption and a credit, "Photo: " plus **Submitted By**. **Contact Email** is never put on the website or in this repository. **Sort Order**, when filled in, controls the order (lower numbers first).
+
+If there are no approved photos, the gallery is hidden. The Share a photo button stays, with a note that photos appear after review.
+
+Because the Action rewrites `data/photos.json` and `images/community/`, don't edit those by hand once the Action is running; approve or remove photos in Airtable instead.
+
 ## Whidbey Equine Directory
-Listings, card fields, categories, sorting and the Views menu are managed in Airtable (base "Whidbey Island Equine Directory"), not in this repository. New submissions come in through the Airtable form on the Directory page and appear after they are marked Approved in Airtable.
+New submissions still come in through the Airtable form on the Directory page (the form link `pag9AvZMHVdrE0GYk` is unchanged). A listing is published only when **both** of these are true in the Directory table:
+
+- **Approved** is checked
+- **Do you consent to sharing your data publicly?** is **Yes**
+
+The same hourly Action (the one above, **only when it runs on `main`**) rewrites `data/directory.json` with just these fields: business or individual name, contact name, services offered, phone, and email. It does not publish alternate phone, notes, island location, other service description, the consent answer, or the Approved checkbox. The Directory page builds its own cards from that file. It does not embed an Airtable shared view.
+
+On the page, **All** plus the category buttons come from `data/categories.json`. A listing shows under a category when any of its services is in that category's list. Categories with no listings are greyed out. The search box matches name, contact name, and service. Cards are sorted by name. Empty phone, email, contact, or service fields are left off the card. Phone numbers are tap-to-call links and emails are mailto links.
+
+To run the update right away, use **Run workflow** on **Sync events from Airtable** and choose `main`, as described above. If Airtable cannot be reached or returns an error, `data/directory.json` is left as it was. If a successful read finds nobody who is both approved and consented, the page shows no listings. Don't edit `data/directory.json` by hand once the Action is running; change the Directory table in Airtable instead.
