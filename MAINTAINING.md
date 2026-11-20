@@ -31,7 +31,7 @@ Write `nextMeeting.date` as `2026-12-02` or `Wednesday, December 2, 2026` (examp
 
 ## Site settings (`js/site-config.js`)
 - `keepInformedFormEndpoint`: the Formspree form that receives Home page "Keep Me Informed" sign-ups.
-- `equineNetworkFacebookUrl`: the link to the Whidbey Island Equine Network Facebook group (shown on the Directory page).
+- `equineNetworkFacebookUrl`: the Whidbey Island Equine Network Facebook group, shown on the Directory page. It is set to `https://www.facebook.com/groups/1446844290421112`, and the group name is a link that opens in a new tab.
 - `addEventFormUrl`: the Airtable form behind the **Add an event** button on the Community Activities page.
 
 ## Logo
@@ -57,13 +57,14 @@ New submissions still come in through the Airtable form on the Directory page (t
 - **Approved** is checked
 - **Do you consent to sharing your data publicly?** is **Yes**
 
-The same hourly Action (the one above, **only when it runs on `main`**) rewrites `data/directory.json` with the business or individual name, contact name, services offered, phone, email, alternate phone, island location, other service description, and notes. It does not publish the consent answer or the Approved checkbox. The Directory page builds its own cards from that file. It does not embed an Airtable shared view.
+The same hourly Action (the one above, **only when it runs on `main`**) rewrites `data/directory.json` with the business or individual name, contact name, services offered, phone, email, alternate phone, island location, other service description, notes, and whether **Volunteer** is checked. It does not publish the consent answer or the Approved checkbox. The Directory page builds its own cards from that file. It does not embed an Airtable shared view.
 
 A few columns are cleaned up on the way out:
 - **Island Location:** "South Whibey" is saved as "South Whidbey". The leftover choices "Are these services offered on Whidbey Island?", "Yes", and "Island Location" are left off the card.
-- **Other Service Description** is rich text in Airtable. The site keeps the words and the line breaks, not the bold or italic formatting.
+- **Other Service Description** is rich text in Airtable. The site keeps the words and the line breaks, not the bold or italic formatting. On the card the label is **Service Description**.
 - **Notes:** non-breaking spaces are turned into ordinary spaces. Line breaks stay.
+- **Volunteer** is a checkbox. Checked listings get a Volunteer badge by the name. If the column is missing, or the box is unchecked, the listing is not a volunteer.
 
-On the page, **All** plus the category buttons come from `data/categories.json`. A listing shows under a category when any of its services is in that category's list. Categories with no listings are greyed out. The search box matches name, contact name, service, location, other services, and notes. Cards are sorted by name. Empty fields are left off the card. Services are shown as wrapping tags. Phone and alternate phone are tap-to-call links, and emails are mailto links. Location, alternate phone, other services, and notes each have a small label when that field has something in it.
+On the page, **All** plus the category buttons come from `data/categories.json`. A listing shows under a category when any of its services is in that category's list. Categories with no listings are greyed out. When at least one published listing is a volunteer, a **Volunteers** button appears beside the categories and limits the cards to those listings. If nobody is marked Volunteer, that button is hidden. The search box matches name, contact name, service, location, service description, and notes. Cards are sorted by name. Empty fields are left off the card. Services are shown as wrapping tags. Phone and alternate phone are tap-to-call links, and emails are mailto links. Location, alternate phone, service description, and notes each have a small label when that field has something in it.
 
 To run the update right away, use **Run workflow** on **Sync events from Airtable** and choose `main`, as described above. If Airtable cannot be reached or returns an error, `data/directory.json` is left as it was. If a successful read finds nobody who is both approved and consented, the page shows no listings. Don't edit `data/directory.json` by hand once the Action is running; change the Directory table in Airtable instead.

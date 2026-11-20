@@ -13,7 +13,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recP3SxRswyNZmhC4",
@@ -27,7 +28,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recCVJiuqXOw2WxFd",
@@ -41,7 +43,8 @@
       "alternatePhone": null,
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
-      "notes": "3H BP, slant, WB size"
+      "notes": "3H BP, slant, WB size",
+      "volunteer": false
     },
     {
       "id": "recQrLPmGZunVITeH",
@@ -55,7 +58,8 @@
       "alternatePhone": "360-929-9630",
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
-      "notes": "3H Gooseneck, slant, WB size"
+      "notes": "3H Gooseneck, slant, WB size",
+      "volunteer": false
     },
     {
       "id": "reciLEgKTg9tXF3WI",
@@ -69,7 +73,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recKCb20UcxkYoQmR",
@@ -83,7 +88,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recQVi6SeYB0We5YL",
@@ -97,7 +103,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recJOWwU9ZnQwB359",
@@ -111,7 +118,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recyPELBUl6gw08Je",
@@ -125,7 +133,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recg6sxwM3OGdT7mg",
@@ -139,7 +148,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recBySEQS9Cwm7zII",
@@ -153,7 +163,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recy6bCtBIo1r8hAC",
@@ -167,7 +178,8 @@
       "alternatePhone": "206-910-5483",
       "islandLocation": "South Whidbey",
       "otherServiceDescription": null,
-      "notes": "2H or 1 stall extra tall, extra wide trailer we can haul if schedule/ needs align."
+      "notes": "2H or 1 stall extra tall, extra wide trailer we can haul if schedule/ needs align.",
+      "volunteer": false
     },
     {
       "id": "recda08XwtGougHB7",
@@ -182,7 +194,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "rec0i3vJOFkwnHunu",
@@ -196,7 +209,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recghlxTTxOlbmJ5x",
@@ -210,7 +224,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recdgJx0XfSfgADAL",
@@ -224,7 +239,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "rec2BUzGoyDGVfFyd",
@@ -238,7 +254,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "rec4giuGLOKI2gm3x",
@@ -252,7 +269,8 @@
       "alternatePhone": null,
       "islandLocation": "North Whidbey",
       "otherServiceDescription": null,
-      "notes": "4H Gooseneck, regular size, tight squeeze, 1 partition out"
+      "notes": "4H Gooseneck, regular size, tight squeeze, 1 partition out",
+      "volunteer": false
     },
     {
       "id": "rec8w3uULefxrnUyC",
@@ -266,7 +284,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recPZTYzSD8gZZ2O0",
@@ -280,7 +299,8 @@
       "alternatePhone": null,
       "islandLocation": "North Whidbey",
       "otherServiceDescription": null,
-      "notes": "2H, with ramp, WB size"
+      "notes": "2H, with ramp, WB size",
+      "volunteer": false
     },
     {
       "id": "rec0DGlBhCmiYO4J9",
@@ -297,7 +317,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "rec25h5eJIJZj85iX",
@@ -311,7 +332,8 @@
       "alternatePhone": null,
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
-      "notes": "2H BP WB sized straight load, ramp"
+      "notes": "2H BP WB sized straight load, ramp",
+      "volunteer": false
     },
     {
       "id": "recpyhpydxdqV8KRB",
@@ -325,7 +347,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recA2tXwDhQN7hvff",
@@ -339,7 +362,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "reciG61LwOZQv71Jg",
@@ -354,7 +378,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "rec17NP0AKGIqAKyA",
@@ -368,7 +393,8 @@
       "alternatePhone": null,
       "islandLocation": "South Whidbey",
       "otherServiceDescription": null,
-      "notes": "3H Gooseneck, slant, regular size"
+      "notes": "3H Gooseneck, slant, regular size",
+      "volunteer": false
     },
     {
       "id": "rechT6kwasPNyyQNz",
@@ -382,7 +408,8 @@
       "alternatePhone": null,
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
-      "notes": "2H slant, LQ, 5th wheel"
+      "notes": "2H slant, LQ, 5th wheel",
+      "volunteer": false
     },
     {
       "id": "recfPar8LJv4KWJ2d",
@@ -396,7 +423,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "rec6YVOpiI9F4bjnk",
@@ -410,7 +438,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "rec8BU4XyF5PotABs",
@@ -424,7 +453,8 @@
       "alternatePhone": null,
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
-      "notes": "2H BP, regular size"
+      "notes": "2H BP, regular size",
+      "volunteer": false
     },
     {
       "id": "recIqecLEQL7YwWhw",
@@ -438,7 +468,8 @@
       "alternatePhone": null,
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
-      "notes": "2H BP, slant, regular size"
+      "notes": "2H BP, slant, regular size",
+      "volunteer": false
     },
     {
       "id": "recwCf1JBzpZ9Ib4a",
@@ -452,7 +483,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recJ59Fg96akRS8yW",
@@ -466,7 +498,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recoYATPYJYVbG6Lx",
@@ -480,7 +513,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recVAXBV13a3KssRu",
@@ -494,7 +528,8 @@
       "alternatePhone": "530-863-3139",
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
-      "notes": "2H BP, slant, regular size"
+      "notes": "2H BP, slant, regular size",
+      "volunteer": false
     },
     {
       "id": "rec4tZlUOUGs7SAov",
@@ -508,7 +543,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recDOBnULbdep7XVg",
@@ -522,7 +558,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recXW1TtRhygmSvMT",
@@ -536,7 +573,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recrsPpAqNvkNARRD",
@@ -550,7 +588,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "recLd7SGDgOptSoad",
@@ -564,7 +603,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     },
     {
       "id": "rec876xZXsxq0p9Rt",
@@ -578,7 +618,8 @@
       "alternatePhone": null,
       "islandLocation": null,
       "otherServiceDescription": null,
-      "notes": null
+      "notes": null,
+      "volunteer": false
     }
   ]
 }

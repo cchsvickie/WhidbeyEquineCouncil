@@ -1272,12 +1272,33 @@ body {
     margin-bottom: 12px;
 }
 
+.directory-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 10px;
+    margin-bottom: 8px;
+    min-width: 0;
+}
 .directory-card h3 {
     font-size: 1.5rem;
     font-weight: 700;
     color: #0a2540;
-    margin-bottom: 8px;
+    margin-bottom: 0;
     overflow-wrap: anywhere;
+}
+.volunteer-badge {
+    display: inline-block;
+    background: #0a2540;
+    color: #f8d48c;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    white-space: nowrap;
 }
 
 .directory-card .contact-name {

@@ -13,8 +13,8 @@ window.SITE_CONFIG = {
   keepInformedFormEndpoint: "https://formspree.io/f/xnpnbwar",
 
   // Link to the "Whidbey Island Equine Network" Facebook group.
-  // TODO: paste the group's Facebook URL here. While empty, the name is shown without a link.
-  equineNetworkFacebookUrl: "",
+  // Shown on the Directory page; the group name becomes a link that opens in a new tab.
+  equineNetworkFacebookUrl: "https://www.facebook.com/groups/1446844290421112",
 
   // The Airtable form behind the "Add an event" button on the Community Activities page.
   // Submissions land in the "Events" table in Airtable. They show on the site only after

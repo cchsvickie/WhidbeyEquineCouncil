@@ -24,6 +24,7 @@ import re
 import sys
 import tempfile
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -73,7 +74,11 @@ DF = {
 DIRECTORY_PUBLIC_KEYS = (
     "id", "name", "contactName", "services", "phone", "email",
     "alternatePhone", "islandLocation", "otherServiceDescription", "notes",
+    "volunteer",
 )
+# Checkbox looked up by name. The field id is not published; a missing
+# column or an unchecked box both mean the listing is not a volunteer.
+VOLUNTEER_FIELD = "Volunteer"
 # Select options that were left over from the form, not real places.
 _LOCATION_JUNK = {
     "are these services offered on whidbey island?",
@@ -314,6 +319,7 @@ def build_directory(records):
             "islandLocation": _island_location(fields.get(DF["location"])),
             "otherServiceDescription": _plain_rich_text(fields.get(DF["other"])),
             "notes": _notes(fields.get(DF["notes"])),
+            "volunteer": fields.get(VOLUNTEER_FIELD) is True,
         }
         listings.append({key: listing[key] for key in DIRECTORY_PUBLIC_KEYS})
     listings.sort(key=lambda row: (row["name"].casefold(), row["id"]))
@@ -633,11 +639,42 @@ def _remove_stale_photos(keep_names):
             print("Removed images/community/%s (no longer approved)." % name)
 
 
+def _attach_volunteer(token, records):
+    """Copy the Volunteer checkbox onto directory rows, looked up by name.
+
+    An unchecked box is omitted by Airtable, and a table that does not have
+    the column yet returns an error for that field name. Both mean false.
+    Any other Airtable error still stops the sync.
+    """
+    try:
+        rows = fetch_records(token, DIRECTORY_TABLE, field_names=[VOLUNTEER_FIELD])
+    except urllib.error.HTTPError as exc:
+        detail = ""
+        try:
+            detail = exc.read().decode("utf-8", "replace")
+        except Exception:  # noqa: BLE001
+            detail = ""
+        missing = exc.code == 422 and VOLUNTEER_FIELD in detail
+        if missing:
+            print("Airtable has no Volunteer column yet; every listing is saved as not a volunteer.")
+            for rec in records:
+                rec.setdefault("fields", {})[VOLUNTEER_FIELD] = False
+            return records
+        raise
+    flagged = {}
+    for row in rows:
+        flagged[row.get("id")] = (row.get("fields") or {}).get(VOLUNTEER_FIELD) is True
+    for rec in records:
+        rec.setdefault("fields", {})[VOLUNTEER_FIELD] = flagged.get(rec.get("id"), False)
+    return records
+
+
 def _read_all(token):
     """Fetch events, directory, and photos. Any failure leaves every file alone."""
     try:
         events = fetch_approved(token)
         directory = fetch_records(token, DIRECTORY_TABLE, field_ids=list(DF.values()))
+        directory = _attach_volunteer(token, directory)
         photos = fetch_records(token, PHOTOS_TABLE, field_names=PHOTO_FIELDS)
     except Exception as exc:  # noqa: BLE001
         print("Could not read Airtable (%s). data/events.json was not changed." % exc, file=sys.stderr)

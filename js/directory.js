@@ -15,7 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let records = [];
   let categories = [];
   let activeCategory = 'All';
+  let volunteersOnly = false;
   let ready = false;
+
+  function isVolunteer(record) {
+    return record.volunteer === true;
+  }
 
   function esc(value) {
     return String(value == null ? '' : value)
@@ -76,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderFilters() {
     const buttons = [{ name: 'All', services: [] }].concat(categories);
-    filters.innerHTML = buttons.map((category) => {
+    const categoryHtml = buttons.map((category) => {
       const count = category.name === 'All' ? records.length : categoryCount(category);
       const empty = category.name !== 'All' && count === 0;
       const pressed = category.name === activeCategory;
@@ -88,10 +93,23 @@ document.addEventListener('DOMContentLoaded', () => {
           ${esc(category.name)}
         </button>`;
     }).join('');
+    const showVolunteers = records.some(isVolunteer);
+    const volunteerHtml = showVolunteers ? `
+        <button type="button" class="category-btn volunteer-filter${volunteersOnly ? ' active' : ''}"
+                data-volunteer="true"
+                aria-pressed="${volunteersOnly ? 'true' : 'false'}">
+          Volunteers
+        </button>` : '';
+    if (!showVolunteers) volunteersOnly = false;
+    filters.innerHTML = categoryHtml + volunteerHtml;
     filters.querySelectorAll('button').forEach((button) => {
       button.addEventListener('click', () => {
         if (button.disabled) return;
-        activeCategory = button.getAttribute('data-category') || 'All';
+        if (button.dataset.volunteer) {
+          volunteersOnly = button.getAttribute('aria-pressed') !== 'true';
+        } else {
+          activeCategory = button.getAttribute('data-category') || 'All';
+        }
         renderFilters();
         renderCards();
       });
@@ -112,9 +130,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const category = activeCategory === 'All'
       ? { name: 'All', services: [] }
       : (categories.find((item) => item.name === activeCategory) || { name: activeCategory, services: [] });
-    const shown = records.filter((record) => inCategory(record, category) && matchesSearch(record, query));
+    const shown = records.filter((record) =>
+      inCategory(record, category) &&
+      matchesSearch(record, query) &&
+      (!volunteersOnly || isVolunteer(record)));
 
-    let message = shown.length === 1 ? 'Showing 1 listing' : `Showing ${shown.length} listings`;
+    const noun = volunteersOnly
+      ? (shown.length === 1 ? 'volunteer listing' : 'volunteer listings')
+      : (shown.length === 1 ? 'listing' : 'listings');
+    let message = `Showing ${shown.length} ${noun}`;
     if (activeCategory !== 'All') message += ` in ${activeCategory}`;
     if (query) message += ` matching “${clean(search.value)}”`;
     status.textContent = shown.length
@@ -128,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     grid.innerHTML = shown.map((record) => {
       const name = clean(record.name);
+      const badge = isVolunteer(record) ? '<span class="volunteer-badge">Volunteer</span>' : '';
       const contact = clean(record.contactName);
       const services = servicesOf(record);
       const phone = clean(record.phone);
@@ -156,13 +181,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const extras = [
         labeled('Location', clean(record.islandLocation)),
         labeled('Alt. phone', alt, altHref),
-        labeled('Other services', clean(record.otherServiceDescription)),
+        labeled('Service Description', clean(record.otherServiceDescription)),
         labeled('Notes', clean(record.notes))
       ].filter(Boolean).join('');
       const extraHtml = extras ? `<div class="directory-extra">${extras}</div>` : '';
       return `
         <article class="directory-card">
-          <h3>${esc(name)}</h3>
+          <div class="directory-title">
+            <h3>${esc(name)}</h3>
+            ${badge}
+          </div>
           ${contactHtml}
           ${pills}
           ${meta}
