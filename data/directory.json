@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T16:13:47Z",
+  "generated": "2026-11-20T16:49:12Z",
   "records": [
     {
       "id": "reccaFihOf2AXE1dQ",
@@ -44,7 +44,7 @@
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
       "notes": "3H BP, slant, WB size",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "recQrLPmGZunVITeH",
@@ -59,7 +59,7 @@
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
       "notes": "3H Gooseneck, slant, WB size",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "reciLEgKTg9tXF3WI",
@@ -179,7 +179,7 @@
       "islandLocation": "South Whidbey",
       "otherServiceDescription": null,
       "notes": "2H or 1 stall extra tall, extra wide trailer we can haul if schedule/ needs align.",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "recda08XwtGougHB7",
@@ -270,7 +270,7 @@
       "islandLocation": "North Whidbey",
       "otherServiceDescription": null,
       "notes": "4H Gooseneck, regular size, tight squeeze, 1 partition out",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "rec8w3uULefxrnUyC",
@@ -300,7 +300,7 @@
       "islandLocation": "North Whidbey",
       "otherServiceDescription": null,
       "notes": "2H, with ramp, WB size",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "rec0DGlBhCmiYO4J9",
@@ -333,7 +333,7 @@
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
       "notes": "2H BP WB sized straight load, ramp",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "recpyhpydxdqV8KRB",
@@ -394,7 +394,7 @@
       "islandLocation": "South Whidbey",
       "otherServiceDescription": null,
       "notes": "3H Gooseneck, slant, regular size",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "rechT6kwasPNyyQNz",
@@ -409,7 +409,7 @@
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
       "notes": "2H slant, LQ, 5th wheel",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "recfPar8LJv4KWJ2d",
@@ -454,7 +454,7 @@
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
       "notes": "2H BP, regular size",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "recIqecLEQL7YwWhw",
@@ -469,7 +469,7 @@
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
       "notes": "2H BP, slant, regular size",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "recwCf1JBzpZ9Ib4a",
@@ -529,7 +529,7 @@
       "islandLocation": "Central Whidbey",
       "otherServiceDescription": null,
       "notes": "2H BP, slant, regular size",
-      "volunteer": false
+      "volunteer": true
     },
     {
       "id": "rec4tZlUOUGs7SAov",
