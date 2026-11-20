@@ -4,7 +4,7 @@
     "category": "Community Activities",
     "title": "Trail Work Parties",
     "date": "2100-01-01",
-    "time": " ",
+    "time": "",
     "desc": "Volunteer work parties to help maintain horse friendly trails on Whidbey Island. Dates and locations will be posted here when scheduled.",
     "location": "To be announced",
     "price": "Free",
@@ -20,16 +20,5 @@
     "location": "On-line",
     "price": "Free",
     "registerUrl": "https://www.whidbeycd.org"
-  },
-  {
-    "id": 3,
-    "category": "Shows/Clinics",
-    "title": "Halloween Ride",
-    "date": "2026-10-31",
-    "time": "10:00 AM",
-    "desc": "All ages are welcome! Wear a costume and bring some snacks to share. There will be costume judging and prizes.",
-    "location": "Putney Woods County Park, 4850 Lone Lake Rd, Langley WA",
-    "price": "Free",
-    "registerUrl": "events/Halloween Ride Flyer.pdf"
   }
 ]
