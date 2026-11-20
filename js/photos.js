@@ -1,18 +1,74 @@
 // =============================================
-// ABOUT PAGE – community photos
-// Photos come from data/photos.json, which a GitHub Action fills from the
-// APPROVED rows of the Airtable "Photos" table (see MAINTAINING.md).
+// ABOUT PAGE – "See Us in Action" carousel
+// The four hard-coded slides stay. Approved community photos from
+// data/photos.json are added after them (see MAINTAINING.md).
 // Contact emails are not in that file and are never shown.
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  const gallery = document.getElementById('community-photo-gallery');
-  if (!gallery) return;
+  const track = document.getElementById('carousel-track');
+  const container = document.querySelector('.carousel-container');
+  const dotsContainer = document.getElementById('carousel-dots');
+  if (!track || !container || !dotsContainer) return;
 
-  function esc(value) {
-    return String(value == null ? '' : value)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  let currentSlide = 0;
+
+  function slides() {
+    return [...track.querySelectorAll('.carousel-slide')];
+  }
+
+  function goToSlide(n) {
+    const list = slides();
+    if (!list.length) return;
+    currentSlide = (n + list.length) % list.length;
+    track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+      const on = i === currentSlide;
+      dot.classList.toggle('active', on);
+      dot.setAttribute('aria-current', on ? 'true' : 'false');
+    });
+  }
+
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    slides().forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel-dot' + (i === currentSlide ? ' active' : '');
+      dot.setAttribute('aria-label', 'Show photo ' + (i + 1));
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function initCarousel() {
+    if (currentSlide >= slides().length) currentSlide = 0;
+    createDots();
+    goToSlide(currentSlide);
+  }
+
+  window.nextSlide = () => goToSlide(currentSlide + 1);
+  window.prevSlide = () => goToSlide(currentSlide - 1);
+
+  if (!container.dataset.swipe) {
+    container.dataset.swipe = '1';
+    let startX = 0;
+    let startY = 0;
+    container.addEventListener('touchstart', (event) => {
+      const touch = event.changedTouches && event.changedTouches[0];
+      if (!touch) return;
+      startX = touch.clientX;
+      startY = touch.clientY;
+    }, { passive: true });
+    container.addEventListener('touchend', (event) => {
+      const touch = event.changedTouches && event.changedTouches[0];
+      if (!touch) return;
+      const dx = touch.clientX - startX;
+      const dy = touch.clientY - startY;
+      if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
+      if (dx < 0) window.nextSlide();
+      else window.prevSlide();
+    }, { passive: true });
   }
 
   // Only files this repository downloaded. Never an Airtable link (those expire).
@@ -40,43 +96,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function addCommunitySlides(photos) {
+    track.querySelectorAll('.carousel-slide[data-community]').forEach((slide) => slide.remove());
+    photos.forEach((photo) => {
+      const src = safeImage(photo.image);
+      if (!src) return;
+      const caption = String(photo.caption || '').trim();
+      const by = String(photo.submittedBy || '').trim();
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      slide.dataset.community = '1';
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = caption || (by ? 'Photo by ' + by : 'Community photo');
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      slide.appendChild(img);
+      if (caption || by) {
+        const block = document.createElement('p');
+        block.className = 'carousel-caption';
+        if (caption) {
+          const text = document.createElement('span');
+          text.className = 'carousel-caption-text';
+          text.textContent = caption;
+          block.appendChild(text);
+        }
+        if (by) {
+          const credit = document.createElement('span');
+          credit.className = 'carousel-credit';
+          credit.textContent = 'Photo: ' + by;
+          block.appendChild(credit);
+        }
+        slide.appendChild(block);
+      }
+      track.appendChild(slide);
+    });
+  }
+
+  initCarousel();
+
   fetch('data/photos.json?v=' + Date.now())
     .then((res) => {
       if (!res.ok) throw new Error('Failed to fetch photos');
       return res.json();
     })
     .then((data) => {
-      const photos = sortPhotos(photoList(data)).filter((photo) => safeImage(photo.image));
-      if (!photos.length) {
-        gallery.hidden = true;
-        gallery.innerHTML = '';
-        gallery.dataset.state = 'empty';
-        return;
-      }
-      gallery.hidden = false;
-      gallery.dataset.state = 'ready';
-      gallery.innerHTML = photos.map((photo) => {
-        const caption = String(photo.caption || '').trim();
-        const by = String(photo.submittedBy || '').trim();
-        const alt = caption || (by ? 'Photo by ' + by : 'Community photo');
-        const captionHtml = caption ? `<p class="photo-caption">${esc(caption)}</p>` : '';
-        const creditHtml = by ? `<p class="photo-credit">Photo: ${esc(by)}</p>` : '';
-        const figcaption = (captionHtml || creditHtml)
-          ? `<figcaption>${captionHtml}${creditHtml}</figcaption>`
-          : '';
-        return `
-          <figure class="photo-card">
-            <div class="photo-frame">
-              <img src="${esc(safeImage(photo.image))}" alt="${esc(alt)}" loading="lazy" decoding="async">
-            </div>
-            ${figcaption}
-          </figure>`;
-      }).join('');
+      addCommunitySlides(sortPhotos(photoList(data)));
+      initCarousel();
+      track.dataset.photos = 'ready';
     })
     .catch((error) => {
       console.error('Could not load photos.json', error);
-      gallery.hidden = true;
-      gallery.innerHTML = '';
-      gallery.dataset.state = 'empty';
+      track.dataset.photos = 'ready';
     });
 });

@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/logo-header.png?v=20261117c" type="image/png">
     <link rel="apple-touch-icon" href="images/logo-header.png?v=20261117c">
-    <link rel="stylesheet" href="css/styles.css?v=20261120d">
+    <link rel="stylesheet" href="css/styles.css?v=20261120f">
 </head>
 <body>
 
@@ -66,38 +66,39 @@
                 <div class="carousel-header">
                     <span>OUR COMMUNITY</span>
                     <h2 class="carousel-title">See Us in Action</h2>
+                    <div class="carousel-share">
+                        <p>Share a picture of horse life on Whidbey Island. Photos appear here after the Council reviews them.</p>
+                        <a class="cta-pill" href="https://airtable.com/appQJMuaUdqUcuPiJ/pagS0AFWzb2B0iEV7/form" target="_blank" rel="noopener noreferrer">Share a photo</a>
+                    </div>
                 </div>
                 
                 <div class="carousel-container">
-                    <button class="carousel-arrow prev" onclick="prevSlide()">←</button>
-                    
+                    <button type="button" class="carousel-arrow prev" onclick="prevSlide()" aria-label="Previous photo">←</button>
+                    <div class="carousel-viewport">
                     <div class="carousel-track" id="carousel-track">
                         <div class="carousel-slide">
                             <img src="images/council-horse-beach.jpeg" alt="Beach ride">
+                            <p class="carousel-caption">Beach ride</p>
                         </div>
                         <div class="carousel-slide">
                             <img src="images/council-horse-head.jpeg" alt="Horse head">
+                            <p class="carousel-caption">Horse head</p>
                         </div>
                         <div class="carousel-slide">
                             <img src="images/council-horse-diane.jpeg" alt="Diane with horse">
+                            <p class="carousel-caption">Diane with horse</p>
                         </div>
                         <div class="carousel-slide">
                             <img src="images/council-horse-drive.jpeg" alt="Horse drive">
+                            <p class="carousel-caption">Horse drive</p>
                         </div>
                     </div>
+                    </div>
                     
-                    <button class="carousel-arrow next" onclick="nextSlide()">→</button>
+                    <button type="button" class="carousel-arrow next" onclick="nextSlide()" aria-label="Next photo">→</button>
                 </div>
                 
-                <div class="carousel-dots" id="carousel-dots"></div>
-            </div>
-
-            <div class="community-photos">
-                <span class="community-photos-kicker">FROM THE ISLAND</span>
-                <h2 class="community-photos-title">Community Photos</h2>
-                <p>Pictures of horse life on Whidbey Island, shared by people in the community. Photos appear here after the Council reviews them.</p>
-                <a class="cta-pill" href="https://airtable.com/appQJMuaUdqUcuPiJ/pagS0AFWzb2B0iEV7/form" target="_blank" rel="noopener noreferrer">Share a photo</a>
-                <div id="community-photo-gallery" class="photo-grid" hidden></div>
+                <div class="carousel-dots" id="carousel-dots" role="group" aria-label="Choose a photo"></div>
             </div>
         </div>
     </section>
@@ -137,7 +138,7 @@
         </div>
     </footer>
 
-    <script src="js/photos.js?v=20261120d"></script>
+    <script src="js/photos.js?v=20261120f"></script>
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -157,38 +158,6 @@
             const content = button.nextElementSibling;
             content.classList.toggle('open');
         }
-
-        // FIXED CAROUSEL
-        function initCarousel() {
-            const track = document.getElementById('carousel-track');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dotsContainer = document.getElementById('carousel-dots');
-            let currentSlide = 0;
-
-            function createDots() {
-                dotsContainer.innerHTML = '';
-                slides.forEach((_, i) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('carousel-dot');
-                    if (i === 0) dot.classList.add('active');
-                    dot.onclick = () => goToSlide(i);
-                    dotsContainer.appendChild(dot);
-                });
-            }
-
-            function goToSlide(n) {
-                currentSlide = n;
-                track.style.transform = `translateX(-${currentSlide * 100}%)`;
-                document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-            }
-
-            window.nextSlide = () => { currentSlide = (currentSlide + 1) % slides.length; goToSlide(currentSlide); };
-            window.prevSlide = () => { currentSlide = (currentSlide - 1 + slides.length) % slides.length; goToSlide(currentSlide); };
-
-            createDots();
-        }
-
-        window.addEventListener('load', initCarousel);
     </script>
 </body>
 </html>

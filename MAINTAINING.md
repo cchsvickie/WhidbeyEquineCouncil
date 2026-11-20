@@ -43,11 +43,11 @@ People send photos with the **Share a photo** button on the About Us / Mission p
 **How a photo gets on the site**
 1. The photo arrives with **Approved** unchecked. It does not show on the site yet.
 2. Open the Photos table, check the picture and the caption, and tick **Approved**.
-3. Within about an hour it appears under **Community Photos** on the About Us / Mission page. To hide it, untick **Approved** (or delete the row).
+3. Within about an hour it is added to the **See Us in Action** slideshow on the About Us / Mission page, after the photos that are already built into the page. To hide it, untick **Approved** (or delete the row).
 
-The Action downloads each approved image into `images/community/` (Airtable's own picture links expire after a few hours) and lists it in `data/photos.json`. The page shows the caption and a credit, "Photo: " plus **Submitted By**. **Contact Email** is never put on the website or in this repository. **Sort Order**, when filled in, controls the order (lower numbers first).
+The Action downloads each approved image into `images/community/` (Airtable's own picture links expire after a few hours) and lists it in `data/photos.json`. On a community photo, the slideshow shows the caption and a credit, "Photo: " plus **Submitted By**. **Contact Email** is never put on the website or in this repository. **Sort Order**, when filled in, controls the order (lower numbers first). Photos with the same sort order follow **Submitted At**.
 
-If there are no approved photos, the gallery is hidden. The Share a photo button stays, with a note that photos appear after review.
+If there are no approved photos, the slideshow still shows the original pictures. The **Share a photo** button stays beside the slideshow, with a note that photos appear after review.
 
 Because the Action rewrites `data/photos.json` and `images/community/`, don't edit those by hand once the Action is running; approve or remove photos in Airtable instead.
 
