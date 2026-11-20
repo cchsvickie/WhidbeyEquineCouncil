@@ -1,0 +1,70 @@
+# Copies approved Airtable rows into the site, about once an hour.
+# Events -> data/events.json (same rules as before).
+# Photos -> images/community/ and data/photos.json (Approved only; images are
+# downloaded because Airtable attachment links expire).
+# Directory -> data/directory.json (Approved and public consent = Yes).
+# Commits only when something changed, and only on the main branch.
+# Needs a repository secret named AIRTABLE_TOKEN (Settings > Secrets and variables > Actions).
+# Without the secret it does nothing. If Airtable cannot be reached or returns
+# an error, the script exits before it rewrites any data file.
+name: Sync events from Airtable
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # every hour (GitHub may run it a few minutes late)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: sync-events
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow for photo resizing
+        run: python3 -m pip install --disable-pip-version-check pillow
+
+      - name: Read approved events, photos, and directory listings from Airtable
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: python3 scripts/sync_events_from_airtable.py
+
+      - name: Commit synced files if they changed (main branch only)
+        id: commit
+        run: |
+          mkdir -p images/community
+          find images/community -name '.photo-*' -delete
+          git add -- data/events.json data/photos.json data/directory.json
+          git add -A -- images/community
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git diff --cached --stat
+          git diff --cached -- data/events.json data/photos.json data/directory.json
+          if [ "${GITHUB_REF}" != "refs/heads/main" ]; then
+            echo "Not on main (${GITHUB_REF}); showing the change above but not committing."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update events, photos, and directory from Airtable"
+          git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Ask GitHub Pages to rebuild the site
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "Pages rebuild request failed; the next push will rebuild."

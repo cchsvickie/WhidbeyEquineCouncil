@@ -1,0 +1,113 @@
+{
+  "categories": [
+    {
+      "name": "Boarding",
+      "viewId": "viwMrrpFEaRub7jwv",
+      "services": [
+        "Horse Sitting",
+        "Boarding Facility"
+      ]
+    },
+    {
+      "name": "Bodywork",
+      "viewId": "viwClxjqeirj8AfR4",
+      "services": [
+        "Bodywork - Massage",
+        "Bodywork - Chiropractor"
+      ]
+    },
+    {
+      "name": "Clubs",
+      "viewId": "viw98Zx1p2y5KiTPM",
+      "services": [
+        "Equestrian Club/Group"
+      ]
+    },
+    {
+      "name": "Equine Assisted Learning",
+      "viewId": "viwswzRtn0eMVQAq8",
+      "services": [
+        "Equine Assisted Learning"
+      ]
+    },
+    {
+      "name": "Farriers and Trimmers",
+      "viewId": "viwwk6s0GsaLEQUW0",
+      "services": [
+        "Barefoot trimmer",
+        "Farrier"
+      ]
+    },
+    {
+      "name": "Feed and Tack",
+      "viewId": "viwjum3IbYWQ1VrAB",
+      "services": [
+        "Hay & Feed Supplier",
+        "Tack Supplier"
+      ]
+    },
+    {
+      "name": "Instructors and Trainers",
+      "viewId": "viwfLEztr8e83KDeP",
+      "services": [
+        "Adult Lessons - Beginner or Advanced",
+        "Adult Lessons - Western",
+        "Adult Lessons - Dressage",
+        "Adult Lessons - Jumping",
+        "Adult Lessons - Working Equitation",
+        "Adult Lessons - Other",
+        "Children Lessons - Beginner or Advanced",
+        "Children Lessons - Western",
+        "Children Lessons - Dressage",
+        "Children Lessons - Jumping",
+        "Children Lessons - Working Equitation",
+        "Children Lessons - Other",
+        "Therapeutic Riding",
+        "Trainer - Clinician",
+        "Trainer - Haul Ins accepted",
+        "Trainer - Will travel to your location"
+      ]
+    },
+    {
+      "name": "Schools and Certification Programs",
+      "viewId": "",
+      "services": [
+        "Schools and Certification Programs"
+      ]
+    },
+    {
+      "name": "Therapy Programs",
+      "viewId": "viwIKjBhMzJKJh0cI",
+      "services": [
+        "Therapeutic Riding"
+      ]
+    },
+    {
+      "name": "Transport",
+      "viewId": "viwT26Qkcf92g2Kv1",
+      "services": [
+        "Emergency Transport",
+        "Hauling"
+      ]
+    },
+    {
+      "name": "Veterinarians",
+      "viewId": "viweJjOqcXz0dA5AM",
+      "services": [
+        "Veterinarian"
+      ]
+    },
+    {
+      "name": "Other",
+      "viewId": "viwf3vL231Ki0BnRx",
+      "services": [
+        "Non-Profit",
+        "Photographer",
+        "Insurance",
+        "Other",
+        "Horse Sitting",
+        "Saddle Fitter"
+      ]
+    }
+  ]
+}

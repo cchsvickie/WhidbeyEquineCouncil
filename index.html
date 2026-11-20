@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Whidbey Equine Council - Promoting responsible horse ownership, trail access, and equestrian community on Whidbey Island, Washington.">
-    <title> Home | Whidbey Equine Council</title>
+    <meta name="description" content="Whidbey Island Horse Council - Promoting responsible horse ownership, trail access, and equestrian community on Whidbey Island, Washington.">
+    <title>Home | Whidbey Island Horse Council</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo-header.png?v=20261117c" type="image/png">
+    <link rel="apple-touch-icon" href="images/logo-header.png?v=20261117c">
+    <link rel="stylesheet" href="css/styles.css?v=20261117c">
 </head>
 <body>
 
@@ -14,81 +16,57 @@
     <header class="header-bg">
         <div class="nav-container">
             <div class="logo-container">
-               <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                  <img src="images/logo.png" alt="Whidbey Eequine Council Logo">
-                  <div class="logo-text">Whidbey<small>Equine Council</small></div>
-               </a>
-            </div>                      
-           <nav class="desktop-nav">
+                <a href="index.html">
+                    <img src="images/logo-header.png?v=20261117c" alt="Whidbey Island Horse Council" class="site-logo">
+                </a>
+            </div>
+            <nav class="desktop-nav" aria-label="Main">
                 <a href="index.html" class="active">Home</a>
                 <a href="about.html">About Us / Mission</a>
-                <a href="events.html">Calendar</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+                <a href="events.html">Community Activities</a>
+                <a href="monthly-meetings.html">Meetings</a>
+                <a href="whidbey-equine-directory.html">Whidbey Equine Directory</a>
+                <a href="horse-friendly-trails.html">Horse Friendly Trails</a>
+                <a href="resources.html">Trail Safety</a>
+                <a href="emergency-preparedness.html">Emergency Preparedness</a>
+                <a href="contact.html">Contact Us</a>
             </nav>
-            <div class="hamburger" onclick="toggleMobileMenu()">
+            <button type="button" class="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu" aria-controls="mobile-menu">
                 <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-            </div>
+            </button>
         </div>
 
-        <!-- RIGHT-SIDE MOBILE DRAWER WITH ACCORDION -->
+        <!-- RIGHT-SIDE MOBILE DRAWER (no sub-menus: every page is its own item) -->
         <div id="mobile-menu" class="mobile-menu">
-            <button class="close-btn" onclick="toggleMobileMenu()">×</button>
-            <nav>
-                <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+            <button type="button" class="close-btn" onclick="toggleMobileMenu()" aria-label="Close menu">×</button>
+            <nav aria-label="Main menu">
+                <a href="index.html" class="active" aria-current="page" onclick="toggleMobileMenu()">Home</a>
                 <a href="about.html" onclick="toggleMobileMenu()">About Us / Mission</a>
-                <!-- Events accordion -->
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
-                        Calendar
-                        <span class="chevron">›</span>
-                    </button>
-                    <div class="accordion-content">
-                        <a href="events.html" onclick="toggleMobileMenu()">Upcoming Events</a>
-                        <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Monthly Meetings</a>
-                    </div>
-                </div>
-                
-                <!-- Resources accordion -->
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
-                        Resources
-                        <span class="chevron">›</span>
-                    </button>
-                    <div class="accordion-content">
-                        <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
-                        <a href="disaster-preparedness.html" onclick="toggleMobileMenu()">Disaster Preparedness</a>
-                        <a href="whidbey-equine-directory.html" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
-                    </div>
-                </div>
-                <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+                <a href="events.html" onclick="toggleMobileMenu()">Community Activities</a>
+                <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Meetings</a>
+                <a href="whidbey-equine-directory.html" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
+                <a href="horse-friendly-trails.html" onclick="toggleMobileMenu()">Horse Friendly Trails</a>
+                <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
+                <a href="emergency-preparedness.html" onclick="toggleMobileMenu()">Emergency Preparedness</a>
+                <a href="contact.html" onclick="toggleMobileMenu()">Contact Us</a>
             </nav>
         </div>
     </header>
     <!-- HERO SECTION – Text left, photo right -->
-    <section style="background-color: #0a2540; padding: 60px 24px 100px; color: white;">
-        <div class="hero-grid" style="max-width: 1280px; margin: 0 auto; display: grid; gap: 60px; align-items: center;">
-            
-            <!-- LEFT: Text - now vertically centered -->
-            <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
-                <h1 style="font-size: 3.6rem; line-height: 1.05; font-weight: 700; letter-spacing: -2px; margin-bottom: 24px;">
+    <section class="home-hero">
+        <div class="hero-grid">
+            <div class="home-hero-text">
+                <h1 class="home-hero-title">
                     Advocating for the equestrian community<br>across Whidbey Island
                 </h1>
                 <div style="display: flex; gap: 28px; flex-wrap: wrap; align-items: center;">
-                    <a href="about.html" 
-                       style="color: white; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; text-decoration: none;">
-                        Who We Are →
-                    </a>
+                    <a href="about.html" class="home-hero-link">Who We Are →</a>
                 </div>
             </div>
-            
-            <!-- RIGHT: Rider photo - slightly smaller -->
             <div>
-                <img src="images/hero-rider.jpg" 
-                     alt="Horse rider on trail at sunset" 
-                     style="width: 100%; max-height: 460px; object-fit: cover; border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);">
+                <img src="images/hero-rider.jpg" alt="Horse rider on trail at sunset" class="home-hero-img">
             </div>
         </div>
     </section>
@@ -101,7 +79,7 @@
                 <div class="card-icon" style="background:#fef3c7; color:#b45309;">📅</div>
                 <div class="card-content">
                     <h3>Monthly Meetings</h3>
-                    <p>Next meeting information and agenda plus previos meeting minutes.</p>
+                    <p>Next meeting information and agenda plus previous meeting minutes.</p>
                 </div>
                 <span class="card-arrow">›</span>
             </a>
@@ -117,13 +95,42 @@
         </div>
     </section>
 
+    <!-- CONTACT THE COUNCIL -->
+    <section class="home-contact">
+        <h2>Contact the Council</h2>
+        <p>Have a question, idea, or want to get involved? Here is how to reach the Whidbey Island Horse Council:</p>
+        <ul class="home-contact-list">
+            <li><strong>Send us a message</strong> on our <a href="contact.html">Contact Us</a> page.</li>
+            <li><strong>Come to a meeting</strong> – everyone is welcome. See <a href="monthly-meetings.html">Meetings</a> for the next date, location and Zoom link.</li>
+            <li><strong>Find us on Facebook</strong> – <a href="https://www.facebook.com/groups/1446844290421112" target="_blank" rel="noopener">join our Facebook group</a>.</li>
+        </ul>
+    </section>
+
+    <!-- KEEP ME INFORMED (email sign-up). Where it goes is set in js/site-config.js -->
+    <section class="keep-informed" id="keep-informed">
+        <div class="keep-informed-inner">
+            <h2>Keep Me Informed</h2>
+            <p>Add your email to hear about meetings, community activities, trail news and other updates from the Whidbey Island Horse Council.</p>
+            <form id="keep-informed-form" class="keep-informed-form" method="POST">
+                <label class="visually-hidden" for="ki-name">Your name (optional)</label>
+                <input id="ki-name" type="text" name="name" placeholder="Your name (optional)" autocomplete="name">
+                <label class="visually-hidden" for="ki-email">Your email</label>
+                <input id="ki-email" type="email" name="email" placeholder="Your email address" required autocomplete="email">
+                <input type="hidden" name="_subject" value="Keep Me Informed sign-up (Whidbey Island Horse Council website)">
+                <input type="hidden" name="form" value="Keep Me Informed">
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                <button type="submit" class="keep-informed-btn">Keep Me Informed</button>
+            </form>
+            <p id="keep-informed-status" class="keep-informed-status" role="status" aria-live="polite"></p>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
             <div>
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Whidbey Equine Council">
-                    <div class="logo-text" style="color:white; font-size:1.4rem;">Whidbey<small style="color:#f8d48c;">Equinie Council</small></div>
+                    <img src="images/logo-header.png?v=20261117c" alt="Whidbey Island Horse Council">
                 </div>
                 <p>Dedicated to supporting the equestrian community and making horse ownership and enjoyment accessible on Whidbey Island.</p>
             </div>
@@ -131,23 +138,62 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="events.html">Calendar</a></li>
+                    <li><a href="events.html">Community Activities</a></li>
+                    <li><a href="monthly-meetings.html">Meetings</a></li>
+                    <li><a href="whidbey-equine-directory.html">Whidbey Equine Directory</a></li>
+                    <li><a href="horse-friendly-trails.html">Horse Friendly Trails</a></li>
                     <li><a href="resources.html">Trail Safety</a></li>
+                    <li><a href="emergency-preparedness.html">Emergency Preparedness</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Connect With Us</h4>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/groups/1446844290421112" target="_blank">📘 Facebook</a>
+                    <a href="https://www.facebook.com/groups/1446844290421112" target="_blank" rel="noopener">📘 Facebook</a>
+                    <a href="contact.html">✉️ Contact Us</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Whidbey Equine Council • All rights reserved
+            &copy; 2026 Whidbey Island Horse Council • All rights reserved
         </div>
     </footer>
 
+    <script src="js/site-config.js"></script>
     <script>
+        // Keep Me Informed sign-up (same Formspree mechanism as the Contact Us page)
+        (function () {
+            const form = document.getElementById('keep-informed-form');
+            const status = document.getElementById('keep-informed-status');
+            if (!form) return;
+            const endpoint = (window.SITE_CONFIG && window.SITE_CONFIG.keepInformedFormEndpoint) || '';
+            form.action = endpoint;
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const button = form.querySelector('button');
+                button.disabled = true;
+                button.textContent = 'Sending...';
+                try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (!response.ok) throw new Error('Status ' + response.status);
+                    form.reset();
+                    status.textContent = 'Thank you! You are on the list.';
+                    status.className = 'keep-informed-status ok';
+                } catch (err) {
+                    status.textContent = 'Sorry, something went wrong. Please try again, or use our Contact Us page.';
+                    status.className = 'keep-informed-status error';
+                } finally {
+                    button.disabled = false;
+                    button.textContent = 'Keep Me Informed';
+                }
+            });
+        })();
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('hamburger-icon');
@@ -156,7 +202,7 @@
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
             } else {
                 menu.classList.add('active');
-                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`;
             }
         }
         function toggleAccordion(button) {

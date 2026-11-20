@@ -1,29 +1,29 @@
 [
   {
     "id": 1,
-    "category": "Community Involvement",
-    "title": "Equine Economic Survey",
+    "category": "Community Activities",
+    "title": "Trail Work Parties",
     "date": "2100-01-01",
     "time": " ",
-    "desc": "Survey to assess land management/conservation needs of the WI horse community.  See More Details for the 2015 survey summary.",
-    "location": "On-line",
+    "desc": "Volunteer work parties to help maintain horse friendly trails on Whidbey Island. Dates and locations will be posted here when scheduled.",
+    "location": "To be announced",
     "price": "Free",
-    "registerUrl": "http://www.whidbeycd.org/uploads/1/1/6/8/11683986/final_equestrian_summary.pdf"
+    "registerUrl": ""
   },
   {
     "id": 2,
-    "category": "Meetings",
-    "title": "Whidbey Island Horse Council",
-    "date": "2026-06-03",
-    "time": "6:30 PM",
-    "desc": "Monthly meeting first Wednesday of every month.",
-    "location": "Central Whidbey Fire and Rescue Station located at 1164 E Race Road, Coupeville, WA 98239",
+    "category": "Community Activities",
+    "title": "Whidbey Island Conservation District",
+    "date": "ongoing",
+    "time": "",
+    "desc": "Visit the Whidbey Island Conservation District website for local conservation programs and resources.",
+    "location": "On-line",
     "price": "Free",
-    "registerUrl": "https://cchsvickie.github.io/WhidbeyEquineCouncil/monthly-meetings.html"
+    "registerUrl": "https://www.whidbeycd.org"
   },
   {
     "id": 3,
-    "category": "Rides, Shows and Clinics",
+    "category": "Shows/Clinics",
     "title": "Halloween Ride",
     "date": "2026-10-31",
     "time": "10:00 AM",

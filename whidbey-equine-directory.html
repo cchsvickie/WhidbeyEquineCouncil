@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whidbey Equine Directory | Whidbey Equine Council</title>
+    <title>Whidbey Equine Directory | Whidbey Island Horse Council</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo-header.png?v=20261117c" type="image/png">
+    <link rel="apple-touch-icon" href="images/logo-header.png?v=20261117c">
+    <link rel="stylesheet" href="css/styles.css?v=20261120g">
 </head>
 <body>
 
@@ -13,49 +15,41 @@
     <header class="header-bg">
         <div class="nav-container">
             <div class="logo-container">
-                <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                    <img src="images/logo.png" alt="Whidbey Equine Council Logo">
-                    <div class="logo-text">Whidbey<small>Equine Council</small></div>
+                <a href="index.html">
+                    <img src="images/logo-header.png?v=20261117c" alt="Whidbey Island Horse Council" class="site-logo">
                 </a>
             </div>
-            <nav class="desktop-nav">
+            <nav class="desktop-nav" aria-label="Main">
                 <a href="index.html">Home</a>
                 <a href="about.html">About Us / Mission</a>
-                <a href="news.html">News &amp; Updates</a>
-                <a href="events.html">Calendar</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
-                <a href="laws.html">Island County / WA Laws</a>
+                <a href="events.html">Community Activities</a>
+                <a href="monthly-meetings.html">Meetings</a>
+                <a href="whidbey-equine-directory.html" class="active">Whidbey Equine Directory</a>
+                <a href="horse-friendly-trails.html">Horse Friendly Trails</a>
+                <a href="resources.html">Trail Safety</a>
+                <a href="emergency-preparedness.html">Emergency Preparedness</a>
+                <a href="contact.html">Contact Us</a>
             </nav>
-            <div class="hamburger" onclick="toggleMobileMenu()">
+            <button type="button" class="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu" aria-controls="mobile-menu">
                 <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-            </div>
+            </button>
         </div>
 
+        <!-- RIGHT-SIDE MOBILE DRAWER (no sub-menus: every page is its own item) -->
         <div id="mobile-menu" class="mobile-menu">
-            <button class="close-btn" onclick="toggleMobileMenu()">×</button>
-            <nav>
+            <button type="button" class="close-btn" onclick="toggleMobileMenu()" aria-label="Close menu">×</button>
+            <nav aria-label="Main menu">
                 <a href="index.html" onclick="toggleMobileMenu()">Home</a>
                 <a href="about.html" onclick="toggleMobileMenu()">About Us / Mission</a>
-                <a href="news.html" onclick="toggleMobileMenu()">News &amp; Updates</a>
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Calendar <span class="chevron">›</span></button>
-                    <div class="accordion-content">
-                        <a href="events.html" onclick="toggleMobileMenu()">Upcoming Events</a>
-                        <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Monthly Meetings</a>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">Resources <span class="chevron">›</span></button>
-                    <div class="accordion-content">
-                        <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
-                        <a href="disaster-preparedness.html" onclick="toggleMobileMenu()">Disaster Preparedness</a>
-                        <a href="whidbey-equine-directory.html" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
-                    </div>
-                </div>
-                <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+                <a href="events.html" onclick="toggleMobileMenu()">Community Activities</a>
+                <a href="monthly-meetings.html" onclick="toggleMobileMenu()">Meetings</a>
+                <a href="whidbey-equine-directory.html" class="active" aria-current="page" onclick="toggleMobileMenu()">Whidbey Equine Directory</a>
+                <a href="horse-friendly-trails.html" onclick="toggleMobileMenu()">Horse Friendly Trails</a>
+                <a href="resources.html" onclick="toggleMobileMenu()">Trail Safety</a>
+                <a href="emergency-preparedness.html" onclick="toggleMobileMenu()">Emergency Preparedness</a>
+                <a href="contact.html" onclick="toggleMobileMenu()">Contact Us</a>
             </nav>
         </div>
     </header>
@@ -67,29 +61,40 @@
         <div class="content-wrapper">
             <p>Local veterinarians, farriers, boarding facilities, feed stores, trainers, and other equine services on Whidbey Island.</p>
 
-            <!-- ========== LIVE DIRECTORY (Embedded Airtable View) ========== -->
-            <h2 style="margin-top: 60px; margin-bottom: 12px;">Current Listings</h2>
-            <p style="margin-bottom: 24px; color: #555;">
-                This directory shows only approved submissions and updates automatically. You can select an alternate view by <strong>hovering</strong> over the Views menu below then selecting a specific service provider. Click on any card to see the complete service information.
-            </p>
+            <h2 class="directory-heading">Current Listings</h2>
 
-            <div class="embed-wrapper">
-                            <iframe class="airtable-embed" 
-                        src="https://airtable.com/embed/appQJMuaUdqUcuPiJ/shrk56whOYXT0GBap?layout=card" 
-                        frameborder="0" 
-                        width="100%" 
-                        height="1100" 
-                        style="background: transparent; border: 1px solid #ccc; border-radius: 8px;">
-                </iframe>
-            </div>            
+            <div class="listing-cta">
+                <div>
+                    <strong>Add or correct your listing</strong>
+                    <p>Is your business or service missing, or does your listing need a correction? Let us know.</p>
+                </div>
+                <div class="listing-cta-buttons">
+                    <a class="cta-pill" href="#add-listing">Add a listing</a>
+                    <a class="cta-pill cta-pill-outline" href="contact.html?subject=Directory%20listing%20correction">Correct a listing</a>
+                </div>
+            </div>
+
+            <p class="directory-note">These listings have been reviewed by the Council, and each person agreed to share this contact information. Choose a category or search by name, contact, service, location, or notes. Tap a phone number to call, or an email address to write.</p>
+
+            <div class="directory-controls">
+                <div class="directory-search">
+                    <label for="directory-search">Search listings</label>
+                    <input id="directory-search" type="search" placeholder="Name, service, location, or notes" autocomplete="off" enterkeyhint="search">
+                </div>
+            </div>
+            <div id="directory-filters" class="directory-filters" role="group" aria-label="Filter by category"></div>
+            <p id="directory-status" class="directory-status" aria-live="polite">Loading listings…</p>
+            <div id="directory-grid" class="directory-grid"></div>
+            <noscript><p>Turn on JavaScript to view the directory listings.</p></noscript>
+
             <!-- ========== ADD YOUR SERVICE FORM (Embedded Airtable Form) ========== -->
-            <div class="add-section">
+            <div class="add-section" id="add-listing">
                 <h2>Add Your Service to the Directory</h2>
                 <p>
                     Welcome to Whidbey Island! This directory is for the benefit of equestrians on Whidbey Island. 
                     Businesses who service Whidbey Island may list their service(s) for free by providing their information below. 
                     Please note we will verify the business and reserve the right to remove any fraudulent information. 
-                    If you need to update a previous submission, please email xxxxx@yourdomain.com.
+                    If you need to update a previous submission, please <a href="contact.html?subject=Directory%20listing%20correction">send us a correction</a>.
                 </p>
 
                 <div class="embed-wrapper">
@@ -104,8 +109,14 @@
 
                 <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.95rem;">
                     Having trouble with the form? 
-                    <a href="https://airtable.com/appQJMuaUdqUcuPiJ/pag9AvZMHVdrE0GYk/form" target="_blank">Open it in a new tab</a>
+                    <a href="https://airtable.com/appQJMuaUdqUcuPiJ/pag9AvZMHVdrE0GYk/form" target="_blank" rel="noopener">Open it in a new tab</a>
                 </p>
+            </div>
+
+            <div class="network-note">
+                <h3>More Whidbey Island horse community</h3>
+                <!-- The group name becomes a link only when equineNetworkFacebookUrl is set in js/site-config.js. -->
+                <p>This directory is a community reference, not a marketing site. Day-to-day conversation, questions and local recommendations are in the <span id="equine-network-link" class="equine-network-name">Whidbey Island Equine Network</span> group on Facebook.</p>
             </div>
         </div>
     </section>
@@ -115,8 +126,7 @@
         <div class="footer-content">
             <div>
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Whidbey Equine Council">
-                    <div class="logo-text" style="color:white; font-size:1.4rem;">Whidbey<small style="color:#f8d48c;">Equine Council</small></div>
+                    <img src="images/logo-header.png?v=20261117c" alt="Whidbey Island Horse Council">
                 </div>
                 <p>Dedicated to supporting the equestrian community and making horse ownership and enjoyment accessible on Whidbey Island.</p>
             </div>
@@ -124,23 +134,46 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="events.html">Calendar</a></li>
+                    <li><a href="events.html">Community Activities</a></li>
+                    <li><a href="monthly-meetings.html">Meetings</a></li>
+                    <li><a href="whidbey-equine-directory.html">Whidbey Equine Directory</a></li>
+                    <li><a href="horse-friendly-trails.html">Horse Friendly Trails</a></li>
                     <li><a href="resources.html">Trail Safety</a></li>
+                    <li><a href="emergency-preparedness.html">Emergency Preparedness</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Connect With Us</h4>
                 <div class="footer-social">
-                    <a href="https://facebook.com/YOURPAGE" target="_blank">📘 Facebook</a>
+                    <a href="https://www.facebook.com/groups/1446844290421112" target="_blank" rel="noopener">📘 Facebook</a>
+                    <a href="contact.html">✉️ Contact Us</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Whidbey Equine Council • All rights reserved
+            &copy; 2026 Whidbey Island Horse Council • All rights reserved
         </div>
     </footer>
 
+    <script src="js/site-config.js"></script>
+    <script src="js/directory.js?v=20261120g"></script>
     <script>
+        (function () {
+            const url = (window.SITE_CONFIG && window.SITE_CONFIG.equineNetworkFacebookUrl) || '';
+            const link = document.getElementById('equine-network-link');
+            if (link && url) {
+                const a = document.createElement('a');
+                a.id = 'equine-network-link';
+                a.className = 'equine-network-name';
+                a.href = url;
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.textContent = link.textContent;
+                link.replaceWith(a);
+            }
+        })();
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('hamburger-icon');
@@ -149,7 +182,7 @@
                 icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
             } else {
                 menu.classList.add('active');
-                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12"/>`;
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`;
             }
         }
 
