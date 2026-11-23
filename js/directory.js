@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let records = [];
   let categories = [];
   let activeCategory = 'All';
-  let volunteersOnly = false;
   let ready = false;
 
   function isVolunteer(record) {
@@ -93,23 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
           ${esc(category.name)}
         </button>`;
     }).join('');
-    const showVolunteers = records.some(isVolunteer);
-    const volunteerHtml = showVolunteers ? `
-        <button type="button" class="category-btn volunteer-filter${volunteersOnly ? ' active' : ''}"
-                data-volunteer="true"
-                aria-pressed="${volunteersOnly ? 'true' : 'false'}">
-          Volunteers
-        </button>` : '';
-    if (!showVolunteers) volunteersOnly = false;
-    filters.innerHTML = categoryHtml + volunteerHtml;
+    filters.innerHTML = categoryHtml;
     filters.querySelectorAll('button').forEach((button) => {
       button.addEventListener('click', () => {
         if (button.disabled) return;
-        if (button.dataset.volunteer) {
-          volunteersOnly = button.getAttribute('aria-pressed') !== 'true';
-        } else {
-          activeCategory = button.getAttribute('data-category') || 'All';
-        }
+        activeCategory = button.getAttribute('data-category') || 'All';
         renderFilters();
         renderCards();
       });
@@ -132,12 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
       : (categories.find((item) => item.name === activeCategory) || { name: activeCategory, services: [] });
     const shown = records.filter((record) =>
       inCategory(record, category) &&
-      matchesSearch(record, query) &&
-      (!volunteersOnly || isVolunteer(record)));
+      matchesSearch(record, query));
 
-    const noun = volunteersOnly
-      ? (shown.length === 1 ? 'volunteer listing' : 'volunteer listings')
-      : (shown.length === 1 ? 'listing' : 'listings');
+    const noun = shown.length === 1 ? 'listing' : 'listings';
     let message = `Showing ${shown.length} ${noun}`;
     if (activeCategory !== 'All') message += ` in ${activeCategory}`;
     if (query) message += ` matching “${clean(search.value)}”`;
